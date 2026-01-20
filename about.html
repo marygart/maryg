@@ -14,15 +14,18 @@
         .nav-links a { color: #aaa; text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; }
         .nav-links a:hover { color: #fff; }
         .about-container { max-width: 1200px; margin: 80px auto; display: flex; gap: 60px; align-items: center; padding: 0 40px; }
-        .about-image img { width: 100%; max-width: 450px; border-radius: 2px; }
+        .about-image { flex: 1; }
+        .about-image img { width: 100%; max-width: 450px; border-radius: 4px; display: block; }
         .about-content { flex: 1.2; }
         h2 { font-weight: 200; letter-spacing: 8px; text-transform: uppercase; font-size: 2.5em; margin-bottom: 30px; }
         .line { width: 60px; height: 1px; background: #fff; margin-bottom: 40px; }
         .about-text { color: #bbb; line-height: 2.2; font-size: 18px; text-align: justify; }
         footer { text-align: center; padding: 60px 20px; color: #444; font-size: 11px; letter-spacing: 3px; }
+        @media (max-width: 900px) { .about-container { flex-direction: column; text-align: center; } .about-image { order: 2; } .about-content { order: 1; } }
     </style>
 </head>
 <body>
+
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo-box">
@@ -37,6 +40,7 @@
             </div>
         </div>
     </nav>
+
     <div class="about-container">
         <div class="about-image">
             <img src="marygportrait.jpg" alt="Mary G.">
@@ -45,10 +49,14 @@
             <h2>About Mary G.</h2>
             <div class="line"></div>
             <p class="about-text">
-                With over 15 years of professional experience, <strong>Mary G.</strong> is a versatile traditional artist based in the United Arab Emirates...
+                With over 15 years of professional experience, <strong>Mary G.</strong> is a versatile traditional artist based in the United Arab Emirates, specializing in the demanding realm of Hyperrealism. 
+                <br><br>
+                Her mastery spans across various traditional media including Charcoal, Color Pencil, Acrylic, Oil Painting, and Mix Media. Every piece is a journey through detail, light, and soul.
             </p>
         </div>
     </div>
+
     <footer><p>© 2026 MARY G. FINE ART | DUBAI, UAE</p></footer>
+
 </body>
 </html>
