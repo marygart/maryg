@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commissions | MARY G.</title>
+    <style>
+        body { background-color: #050505; color: #fff; font-family: 'Inter', sans-serif; margin: 0; line-height: 1.8; }
+        
+        /* ناوبری ثابت */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(5, 5, 5, 0.9); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; }
+        .logo { text-decoration: none; color: #fff; letter-spacing: 4px; font-weight: 200; font-size: 1.2em; }
+        .nav-links a { color: #888; text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; transition: 0.3s; }
+        .nav-links a:hover { color: #fff; }
+
+        .container { max-width: 1000px; margin: 150px auto 100px; padding: 0 25px; }
+        
+        /* بخش سرتیتر */
+        .header-section { text-align: center; margin-bottom: 80px; }
+        h1 { font-weight: 200; letter-spacing: 12px; text-transform: uppercase; font-size: 2.5em; margin-bottom: 20px; }
+        .subtitle { color: #888; font-style: italic; letter-spacing: 2px; }
+
+        /* بخش تخصص‌ها */
+        .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 100px; }
+        .spec-card { border: 1px solid #1a1a1a; padding: 30px; text-align: center; transition: 0.3s; }
+        .spec-card:hover { border-color: #444; background: #0a0a0a; }
+        .spec-card h3 { font-weight: 300; letter-spacing: 3px; text-transform: uppercase; font-size: 14px; color: #fff; }
+        .spec-card p { color: #666; font-size: 13px; margin-top: 15px; }
+
+        /* بخش ابعاد و مراحل */
+        .info-section { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 100px; border-top: 1px solid #1a1a1a; padding-top: 60px; }
+        h2 { font-weight: 200; letter-spacing: 5px; text-transform: uppercase; font-size: 18px; margin-bottom: 30px; border-bottom: 1px solid #333; display: inline-block; padding-bottom: 5px; }
+        
+        .size-list, .process-list { list-style: none; padding: 0; }
+        .size-list li, .process-list li { margin-bottom: 20px; font-size: 14px; color: #aaa; }
+        .size-list li strong, .process-list li strong { color: #fff; display: block; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; }
+
+        /* دکمه فراخوان */
+        .cta-box { text-align: center; background: #0a0a0a; padding: 60px; border: 1px solid #1a1a1a; }
+        .cta-button { display: inline-block; padding: 18px 50px; border: 1px solid #fff; color: #fff; text-decoration: none; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; transition: 0.3s; }
+        .cta-button:hover { background: #fff; color: #000; }
+
+        footer { text-align: center; padding: 50px; color: #222; font-size: 10px; letter-spacing: 2px; }
+
+        @media (max-width: 768px) {
+            .info-section { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8em; letter-spacing: 6px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">MARY G.</a>
+            <div class="nav-links">
+                <a href="portfolio.html">Portfolio</a>
+                <a href="about-mary.html">About</a>
+                <a href="commissions.html" style="color: #fff;">Commissions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="header-section">
+            <h1>Commissions</h1>
+            <p class="subtitle">15+ Years of Excellence in Hyperrealistic Art</p>
+        </header>
+
+        <div class="spec-grid">
+            <div class="spec-card">
+                <h3>Fine Art Portraits</h3>
+                <p>Capturing the soul through hyperrealism in Charcoal or Colored Pencils.</p>
+            </div>
+            <div class="spec-card">
+                <h3>Surreal Concepts</h3>
+                <p>Unique, imaginative artworks tailored to your personal story and vision.</p>
+            </div>
+            <div class="spec-card">
+                <h3>Wildlife & Still Life</h3>
+                <p>Extremely detailed traditional drawings that bring nature to your walls.</p>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="sizes">
+                <h2>Available Sizes</h2>
+                <ul class="size-list">
+                    <li><strong>Standard (A3 / 30x40 cm)</strong> Perfect for gifts and detailed portraits.</li>
+                    <li><strong>Medium (50x70 cm)</strong> A statement piece for home or office decor.</li>
+                    <li><strong>Collector (Custom Large)</strong> Bespoke sizes for large-scale impact.</li>
+                </ul>
+            </div>
+            <div class="process">
+                <h2>The Process</h2>
+                <ul class="process-list">
+                    <li><strong>1. Consultation</strong> Discussing reference photos and artistic direction.</li>
+                    <li><strong>2. Reservation</strong> Securing your slot with a formal deposit.</li>
+                    <li><strong>3. Execution</strong> Handcrafting your piece with premium archival materials.</li>
+                    <li><strong>4. Delivery</strong> Worldwide shipping with professional art packaging.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <p style="color: #888; margin-bottom: 30px;">Every project is unique. Let's discuss your custom artwork.</p>
+            <a href="contact.html" class="cta-button">Inquire for Pricing</a>
+        </div>
+    </div>
+
+    <footer>© 2026 MARY G. FINE ART | DUBAI, UAE</footer>
+
+</body>
+</html>
