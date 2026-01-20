@@ -5,88 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maryam Art Portfolio</title>
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; margin: 0; text-align: center; }
-        nav { padding: 20px; border-bottom: 1px solid #333; }
+        body { background: #0b0b0b; color: #eee; font-family: 'Segoe UI', sans-serif; margin: 0; }
+        nav { padding: 20px; text-align: center; background: #000; border-bottom: 1px solid #222; }
         nav a { color: #888; text-decoration: none; margin: 0 15px; font-size: 14px; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; padding: 20px; max-width: 1300px; margin: 0 auto; }
-        .card { background: #111; border-radius: 8px; overflow: hidden; aspect-ratio: 1/1; position: relative; border: 1px solid #222; }
-        .card img { width: 100%; height: 100%; object-fit: cover; }
-        .tag { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.8); padding: 5px 10px; font-size: 10px; border-radius: 5px; color: #fff; }
-        .filter-nav { margin: 30px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-        .btn { background: none; border: 1px solid #444; color: #aaa; padding: 10px 20px; cursor: pointer; border-radius: 25px; transition: 0.3s; }
-        .btn:hover, .btn.active { border-color: #fff; color: #fff; background: #222; }
+        
+        .container { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
+        h1 { text-align: center; font-weight: 200; letter-spacing: 4px; margin-bottom: 40px; text-transform: uppercase; }
+
+        /* اصلاح دکمه‌ها برای نمایش هر 7 مورد در موبایل و دسکتاپ */
+        .filter-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+        .filter-btn { background: none; border: 1px solid #333; color: #888; padding: 10px 18px; border-radius: 25px; cursor: pointer; transition: 0.3s; font-size: 12px; text-transform: uppercase; }
+        .filter-btn:hover, .filter-btn.active { background: #fff; color: #000; border-color: #fff; }
+
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: #161616; border-radius: 12px; overflow: hidden; position: relative; aspect-ratio: 1/1; border: 1px solid #222; }
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .card:hover img { transform: scale(1.08); }
+        .tag { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); padding: 5px 12px; font-size: 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
-<nav><a href="index.html">HOME</a> <a href="portfolio.html" style="color:#fff; font-weight:bold;">PORTFOLIO</a></nav>
+<nav>
+    <a href="index.html">HOME</a>
+    <a href="portfolio.html" style="color:#fff; font-weight:bold;">PORTFOLIO</a>
+</nav>
 
-<div class="filter-nav">
-    <button class="btn active" onclick="filterArt('all')">ALL</button>
-    <button class="btn" onclick="filterArt('acrylic')">ACRYLIC</button>
-    <button class="btn" onclick="filterArt('oil')">OIL</button>
-    <button class="btn" onclick="filterArt('charcoal')">CHARCOAL</button>
-    <button class="btn" onclick="filterArt('graphite')">GRAPHITE</button>
-    <button class="btn" onclick="filterArt('pencil')">PENCILS</button>
-    <button class="btn" onclick="filterArt('leather')">LEATHER</button>
-</div>
+<div class="container">
+    <h1>Artworks</h1>
 
-<div class="gallery" id="gallery">
-    <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic1.JPG"><div class="tag">Acrylic</div></div>
-    <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic2.JPG"><div class="tag">Acrylic</div></div>
-    <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic3.JPG"><div class="tag">Acrylic</div></div>
-    <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic4.JPG"><div class="tag">Acrylic</div></div>
-    <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic5.JPG"><div class="tag">Acrylic</div></div>
-    <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic6.JPG"><div class="tag">Acrylic</div></div>
-    <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic7.JPG"><div class="tag">Acrylic</div></div>
+    <div class="filter-nav">
+        <button class="filter-btn active" onclick="filterArt('all')">All</button>
+        <button class="filter-btn" onclick="filterArt('acrylic')">Acrylic</button>
+        <button class="filter-btn" onclick="filterArt('oil')">Oil</button>
+        <button class="filter-btn" onclick="filterArt('charcoal')">Charcoal</button>
+        <button class="filter-btn" onclick="filterArt('graphite')">Graphite</button>
+        <button class="filter-btn" onclick="filterArt('pencil')">Pencils</button>
+        <button class="filter-btn" onclick="filterArt('leather')">Leather</button>
+        <button class="filter-btn" onclick="filterArt('mix')">Mix Media</button>
+    </div>
 
-    <div class="card oil"><img src="Oil%20Paintings/marygoilpainting1.JPG"><div class="tag">Oil</div></div>
-    <div class="card oil"><img src="Oil%20Paintings/marygoilpainting2.JPG"><div class="tag">Oil</div></div>
-    <div class="card oil"><img src="Oil%20Paintings/marygoilpainting3.JPG"><div class="tag">Oil</div></div>
-    <div class="card oil"><img src="Oil%20Paintings/marygoilpainting4.JPG"><div class="tag">Oil</div></div>
+    <div class="gallery" id="gallery">
+        <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic1.JPG"><div class="tag">Acrylic</div></div>
+        <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic2.JPG"><div class="tag">Acrylic</div></div>
+        <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic3.JPG"><div class="tag">Acrylic</div></div>
+        <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic4.JPG"><div class="tag">Acrylic</div></div>
+        <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic5.JPG"><div class="tag">Acrylic</div></div>
+        <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic6.JPG"><div class="tag">Acrylic</div></div>
+        <div class="card acrylic"><img src="Acrylic%20Paintings/marygacrylic7.JPG"><div class="tag">Acrylic</div></div>
 
-    <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper1.JPG"><div class="tag">Charcoal</div></div>
-    <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper2.JPG"><div class="tag">Charcoal</div></div>
-    <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper3.JPG"><div class="tag">Charcoal</div></div>
-    <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper4.JPG"><div class="tag">Charcoal</div></div>
-    <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper5.JPG"><div class="tag">Charcoal</div></div>
-    <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper6.JPG"><div class="tag">Charcoal</div></div>
-    <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper7.JPG"><div class="tag">Charcoal</div></div>
-    <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper8.JPG"><div class="tag">Charcoal</div></div>
-    <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper9.JPG"><div class="tag">Charcoal</div></div>
-    <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper10.JPG"><div class="tag">Charcoal</div></div>
-    <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper11.JPG"><div class="tag">Charcoal</div></div>
+        <div class="card oil"><img src="Oil%20Paintings/marygoilpainting1.JPG"><div class="tag">Oil</div></div>
+        <div class="card oil"><img src="Oil%20Paintings/marygoilpainting2.JPG"><div class="tag">Oil</div></div>
+        <div class="card oil"><img src="Oil%20Paintings/marygoilpainting3.JPG"><div class="tag">Oil</div></div>
+        <div class="card oil"><img src="Oil%20Paintings/marygoilpainting4.JPG"><div class="tag">Oil</div></div>
 
-    <div class="card graphite"><img src="Graphite%20Realism/marygdrawing1.JPG"><div class="tag">Graphite</div></div>
-    <div class="card graphite"><img src="Graphite%20Realism/marygdrawing2.JPG"><div class="tag">Graphite</div></div>
-    <div class="card graphite"><img src="Graphite%20Realism/marygdrawing3.JPG"><div class="tag">Graphite</div></div>
-    <div class="card graphite"><img src="Graphite%20Realism/marygdrawing4.JPG"><div class="tag">Graphite</div></div>
-    <div class="card graphite"><img src="Graphite%20Realism/marygdrawing5.JPG"><div class="tag">Graphite</div></div>
-    <div class="card graphite"><img src="Graphite%20Realism/marygdrawing6.JPG"><div class="tag">Graphite</div></div>
-    <div class="card graphite"><img src="Graphite%20Realism/marygdrawing7.JPG"><div class="tag">Graphite</div></div>
-    <div class="card graphite"><img src="Graphite%20Realism/marygdrawing8.JPG"><div class="tag">Graphite</div></div>
-    <div class="card graphite"><img src="Graphite%20Realism/marygdrawing9.JPG"><div class="tag">Graphite</div></div>
-    <div class="card graphite"><img src="Graphite%20Realism/marygdrawing10.JPG"><div class="tag">Graphite</div></div>
-    <div class="card graphite"><img src="Graphite%20Realism/marygdrawing11.JPG"><div class="tag">Graphite</div></div>
+        <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper1.JPG"><div class="tag">Charcoal</div></div>
+        <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper2.JPG"><div class="tag">Charcoal</div></div>
+        <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper3.JPG"><div class="tag">Charcoal</div></div>
+        <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper4.JPG"><div class="tag">Charcoal</div></div>
+        <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper5.JPG"><div class="tag">Charcoal</div></div>
+        <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper6.JPG"><div class="tag">Charcoal</div></div>
+        <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper7.JPG"><div class="tag">Charcoal</div></div>
+        <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper8.JPG"><div class="tag">Charcoal</div></div>
+        <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper9.JPG"><div class="tag">Charcoal</div></div>
+        <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper10.JPG"><div class="tag">Charcoal</div></div>
+        <div class="card charcoal"><img src="Charcoal%20Realism/maryghyper11.JPG"><div class="tag">Charcoal</div></div>
 
-    <div class="card pencil"><img src="Colored%20Pencils/marygpainting.JPG"><div class="tag">Pencil</div></div>
-    <div class="card pencil"><img src="Colored%20Pencils/marygpainting1.JPG"><div class="tag">Pencil</div></div>
-    <div class="card pencil"><img src="Colored%20Pencils/marygpainting2.JPG"><div class="tag">Pencil</div></div>
+        <div class="card graphite"><img src="Graphite%20Realism/marygdrawing1.JPG"><div class="tag">Graphite</div></div>
+        <div class="card graphite"><img src="Graphite%20Realism/marygdrawing2.JPG"><div class="tag">Graphite</div></div>
+        <div class="card graphite"><img src="Graphite%20Realism/marygdrawing3.JPG"><div class="tag">Graphite</div></div>
+        <div class="card graphite"><img src="Graphite%20Realism/marygdrawing4.JPG"><div class="tag">Graphite</div></div>
+        <div class="card graphite"><img src="Graphite%20Realism/marygdrawing5.JPG"><div class="tag">Graphite</div></div>
+        <div class="card graphite"><img src="Graphite%20Realism/marygdrawing6.JPG"><div class="tag">Graphite</div></div>
+        <div class="card graphite"><img src="Graphite%20Realism/marygdrawing7.JPG"><div class="tag">Graphite</div></div>
+        <div class="card graphite"><img src="Graphite%20Realism/marygdrawing8.JPG"><div class="tag">Graphite</div></div>
+        <div class="card graphite"><img src="Graphite%20Realism/marygdrawing9.JPG"><div class="tag">Graphite</div></div>
+        <div class="card graphite"><img src="Graphite%20Realism/marygdrawing10.JPG"><div class="tag">Graphite</div></div>
+        <div class="card graphite"><img src="Graphite%20Realism/marygdrawing11.JPG"><div class="tag">Graphite</div></div>
 
-    <div class="card leather"><img src="Leather%20&%20Textile%20Painting/marygleathertextilepainting1.JPG"><div class="tag">Leather</div></div>
-    <div class="card leather"><img src="Leather%20&%20Textile%20Painting/marygleathertextilepainting2.JPG"><div class="tag">Leather</div></div>
-    <div class="card leather"><img src="Leather%20&%20Textile%20Painting/marygleathertextilepainting3.JPG"><div class="tag">Leather</div></div>
-    <div class="card leather"><img src="Leather%20&%20Textile%20Painting/marygleathertextilepainting4.JPG"><div class="tag">Leather</div></div>
+        <div class="card pencil"><img src="Colored%20Pencils/marygpainting.JPG"><div class="tag">Pencil</div></div>
+        <div class="card pencil"><img src="Colored%20Pencils/marygpainting1.JPG"><div class="tag">Pencil</div></div>
+        <div class="card pencil"><img src="Colored%20Pencils/marygpainting2.JPG"><div class="tag">Pencil</div></div>
 
-    <div class="card mix"><img src="Mix%20Media/marygmixmedia.JPG"><div class="tag">Mix Media</div></div>
+        <div class="card leather"><img src="Leather%20&%20Textile%20Painting/marygleathertextilepainting1.JPG"><div class="tag">Leather</div></div>
+        <div class="card leather"><img src="Leather%20&%20Textile%20Painting/marygleathertextilepainting2.JPG"><div class="tag">Leather</div></div>
+        <div class="card leather"><img src="Leather%20&%20Textile%20Painting/marygleathertextilepainting3.JPG"><div class="tag">Leather</div></div>
+        <div class="card leather"><img src="Leather%20&%20Textile%20Painting/marygleathertextilepainting4.JPG"><div class="tag">Leather</div></div>
+
+        <div class="card mix"><img src="Mix%20Media/marygmixmedia.JPG"><div class="tag">Mix Media</div></div>
+    </div>
 </div>
 
 <script>
     function filterArt(category) {
         const cards = document.querySelectorAll('.card');
-        const btns = document.querySelectorAll('.btn');
+        const btns = document.querySelectorAll('.filter-btn');
         btns.forEach(btn => btn.classList.remove('active'));
-        if(event) event.currentTarget.classList.add('active');
+        event.currentTarget.classList.add('active');
         cards.forEach(card => {
             if (category === 'all' || card.classList.contains(category)) {
                 card.style.display = 'block';
@@ -96,5 +111,6 @@
         });
     }
 </script>
+
 </body>
 </html>
