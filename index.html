@@ -1,68 +1,147 @@
-<div class="hero-section">
-    <div class="banner-container">
-        <img src="main-banner.jpg" alt="Mary G. Surreal Art Collection" class="main-banner">
-        
-        <div class="banner-overlay">
-            <h1>Surreal Art Collection</h1>
-            <p>Traditional Fine Art & Hyperrealism</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARY G. | Traditional Fine Art</title>
+    <style>
+        /* استایل‌های پایه */
+        body { 
+            background-color: #050505; 
+            color: #fff; 
+            font-family: 'Inter', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* ناوبری */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(5, 5, 5, 0.9); 
+            backdrop-filter: blur(15px); 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            z-index: 1000; 
+        }
+        .nav-container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 25px; 
+        }
+        .logo-box { display: flex; align-items: center; gap: 15px; text-decoration: none; color: #fff; }
+        .logo-img { height: 50px; width: 50px; border-radius: 4px; object-fit: cover; }
+        .nav-links a { color: #aaa; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; transition: 0.3s; }
+        .nav-links a:hover { color: #fff; }
+
+        /* بخش Hero برای نمایش بنر ترکیبی */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 60px; /* برای ایجاد فاصله از منو */
+        }
+
+        .banner-container {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .main-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: 1.5s ease;
+        }
+
+        .banner-container:hover .main-banner {
+            transform: scale(1.05);
+        }
+
+        /* لایه متن روی تصویر */
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 60px 40px 40px 40px;
+            text-align: left;
+        }
+
+        .banner-overlay h1 {
+            font-weight: 200;
+            letter-spacing: 12px;
+            font-size: clamp(1.5em, 5vw, 3em); /* فونت واکنش‌گرا */
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .banner-overlay p {
+            color: #888;
+            letter-spacing: 5px;
+            font-size: 11px;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+
+        footer { 
+            position: fixed; 
+            bottom: 20px; 
+            width: 100%; 
+            text-align: center; 
+            color: #333; 
+            font-size: 9px; 
+            letter-spacing: 3px; 
+            pointer-events: none;
+        }
+
+        /* استایل موبایل */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .banner-container { width: 95%; }
+            .banner-overlay { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo-box">
+                <img src="maryglogo.jpg" alt="Logo" class="logo-img">
+                <span style="letter-spacing: 4px; font-size: 16px; font-weight: 200;">MARY G.</span>
+            </a>
+            <div class="nav-links">
+                <a href="portfolio.html">Portfolio</a>
+                <a href="about-mary.html">About</a>
+                <a href="commissions.html">Commissions</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
-    </div>
-</div>
+    </nav>
 
-<style>
-    /* استایل اختصاصی برای بنر ترکیبی */
-    .hero-section {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #050505;
-    }
+    <main class="hero-section">
+        <div class="banner-container">
+            <img src="home.jpg" alt="Mary G. Fine Art Banner" class="main-banner">
+            
+            <div class="banner-overlay">
+                <h1>Surreal Fine Art</h1>
+                <p>Traditional Hyperrealism | Dubai, UAE</p>
+            </div>
+        </div>
+    </main>
 
-    .banner-container {
-        position: relative;
-        width: 100%;
-        max-width: 1400px; /* حداکثر عرض بنر */
-        overflow: hidden;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    }
+    <footer>© 2026 MARY G. FINE ART</footer>
 
-    .main-banner {
-        width: 100%;
-        height: auto;
-        display: block;
-        filter: grayscale(30%); /* کمی تم سیاه و سفید برای شیک‌تر شدن */
-        transition: 1s ease;
-    }
-
-    .banner-container:hover .main-banner {
-        filter: grayscale(0%);
-        transform: scale(1.02);
-    }
-
-    .banner-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(transparent, rgba(0,0,0,0.8));
-        padding: 40px;
-        text-align: left;
-    }
-
-    .banner-overlay h1 {
-        font-weight: 200;
-        letter-spacing: 8px;
-        font-size: 2.5em;
-        margin: 0;
-        text-transform: uppercase;
-    }
-
-    .banner-overlay p {
-        color: #aaa;
-        letter-spacing: 4px;
-        font-size: 12px;
-        margin-top: 10px;
-        text-transform: uppercase;
-    }
-</style>
+</body>
+</html>
