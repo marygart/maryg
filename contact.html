@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Mary G. Fine Art</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #050505; color: #fff; font-family: 'Inter', Arial, sans-serif; margin: 0; padding-top: 100px; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(15px); border-bottom: 1px solid #1a1a1a; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; }
+        .logo-box { display: flex; align-items: center; gap: 15px; text-decoration: none; color: #fff; }
+        .logo-img { height: 50px; width: 50px; border-radius: 4px; object-fit: cover; }
+        .nav-links a { color: #aaa; text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; }
+        
+        .contact-section { max-width: 900px; margin: 100px auto; text-align: center; padding: 0 20px; }
+        h2 { font-weight: 200; letter-spacing: 10px; text-transform: uppercase; font-size: 2.2em; margin-bottom: 20px; }
+        .line { width: 60px; height: 1px; background: #fff; margin: 0 auto 50px auto; }
+        
+        .contact-info { margin-bottom: 50px; font-size: 18px; color: #ccc; letter-spacing: 1px; line-height: 1.8; }
+        
+        /* استایل آیکون‌های شبکه اجتماعی */
+        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 500px; margin: 0 auto; }
+        .social-item { color: #fff; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 15px; opacity: 0.6; transition: 0.4s; }
+        .social-item:hover { opacity: 1; transform: translateY(-5px); }
+        .social-item i { font-size: 32px; }
+        .social-item span { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; }
+
+        footer { position: fixed; bottom: 0; width: 100%; text-align: center; padding: 40px 0; color: #444; font-size: 10px; letter-spacing: 3px; }
+
+        @media (max-width: 600px) {
+            .social-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo-box">
+                <img src="maryglogo.jpg" alt="Logo" class="logo-img">
+                <span style="letter-spacing: 4px; font-size: 16px; font-weight: 200;">MARY G.</span>
+            </a>
+            <div class="nav-links">
+                <a href="portfolio.html">Portfolio</a>
+                <a href="about-mary.html">About Mary G.</a>
+                <a href="commissions.html">Commissions</a>
+                <a href="contact.html" style="color: #fff;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contact-section">
+        <h2>Get In Touch</h2>
+        <div class="line"></div>
+        <p class="contact-info">Based in Dubai, UAE<br>Available for International Commissions & Fine Art Projects</p>
+        
+        <div class="social-grid">
+            <a href="https://www.instagram.com/maryg.paints" target="_blank" class="social-item">
+                <i class="fab fa-instagram"></i><span>Instagram</span>
+            </a>
+            <a href="https://x.com/Maryggallery" target="_blank" class="social-item">
+                <i class="fab fa-x-twitter"></i><span>Twitter</span>
+            </a>
+            <a href="https://wa.me/971509551870?text=Hello,%20I%20would%20like%20to%20discuss%20a%20custom%20painting%20project%20with%20you.%20I%20found%20your%20contact%20on%20your%20website." target="_blank" class="social-item">
+                <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+            </a>
+            <a href="https://pin.it/1d76J0Bn9" target="_blank" class="social-item">
+                <i class="fab fa-pinterest"></i><span>Pinterest</span>
+            </a>
+            <a href="https://og.rarible.com/user/0x78c58c0ce1a7d77abab3ff02ebb74311a42146e8" target="_blank" class="social-item">
+                <i class="fas fa-gem"></i><span>NFT Shop</span>
+            </a>
+            <a href="mailto:maryg.art2022@gmail.com" class="social-item">
+                <i class="far fa-envelope"></i><span>Email</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>© 2026 MARY G. FINE ART | DUBAI, UAE</footer>
+
+</body>
+</html>
