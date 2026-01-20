@@ -3,70 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maryam Art Portfolio</title>
+    <title>Portfolio | Maryam Art</title>
     <style>
         body { background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; }
-        nav { padding: 20px; text-align: center; border-bottom: 1px solid #1a1a1a; }
-        nav a { color: #666; text-decoration: none; margin: 0 15px; font-size: 13px; letter-spacing: 1px; }
+        nav { padding: 25px; text-align: center; border-bottom: 1px solid #1a1a1a; }
+        nav a { color: #555; text-decoration: none; margin: 0 15px; font-size: 13px; letter-spacing: 2px; }
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
         
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        
-        /* گرید پوشه‌ها */
-        .folder-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 25px; 
-        }
-        
+        /* استایل پوشه‌های شیک شما */
+        #folder-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .folder-card { 
-            cursor: pointer; 
-            position: relative;
-            transition: 0.4s;
-            aspect-ratio: 1.4 / 1;
-            /* رنگ کاور: دودی تیره */
-            background: #2a2a2a; 
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #333;
-            overflow: hidden;
+            cursor: pointer; position: relative; aspect-ratio: 1.5 / 1; 
+            background: #1a1a1a; border-radius: 8px; display: flex; 
+            align-items: center; justify-content: center; border: 1px solid #222; 
+            transition: 0.4s; 
         }
-        
-        .folder-card:hover { 
-            transform: scale(1.03); 
-            background: #333; /* کمی روشن‌تر در حالت هاور */
-            border-color: #555;
-        }
+        .folder-card:hover { background: #252525; transform: translateY(-5px); border-color: #444; }
+        .folder-card h3 { font-weight: 300; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #ddd; }
 
-        /* اسم روی کاور */
-        .folder-card h3 { 
-            position: absolute;
-            width: 80%;
-            text-align: center;
-            font-weight: 300; 
-            font-size: 14px; 
-            letter-spacing: 2px; 
-            color: #fff;
-            text-transform: uppercase;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        /* بخش گالری عکس‌ها */
-        #gallery-section { display: none; padding-top: 20px; }
-        .back-btn { 
-            cursor: pointer; color: #aaa; padding: 10px 0; 
-            display: inline-block; margin-bottom: 20px; font-size: 12px;
-        }
+        /* گالری تصاویر */
+        #gallery-section { display: none; }
+        .back-btn { cursor: pointer; color: #666; display: inline-block; margin-bottom: 40px; font-size: 11px; letter-spacing: 2px; }
         .back-btn:hover { color: #fff; }
-        
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-            gap: 15px; 
-        }
-        .gallery-grid img { width: 100%; display: block; border-radius: 4px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .gallery-grid img { width: 100%; border-radius: 4px; border: 1px solid #1a1a1a; }
+        h2#title { font-weight: 200; margin-bottom: 40px; letter-spacing: 5px; text-align: center; }
     </style>
 </head>
 <body>
@@ -74,53 +35,58 @@
 <nav><a href="index.html">HOME</a> <a href="portfolio.html" style="color:#fff">PORTFOLIO</a></nav>
 
 <div class="container">
-    
-    <div id="folder-section" class="folder-grid">
-        <div class="folder-card" onclick="openArt('Acrylic Paintings', 'marygacrylic', 7)"><h3>Acrylic Paintings</h3></div>
-        <div class="folder-card" onclick="openArt('Oil Paintings', 'marygoilpainting', 4)"><h3>Oil Paintings</h3></div>
-        <div class="folder-card" onclick="openArt('Colored Pencils', 'marygpainting', 3)"><h3>Colored Pencils</h3></div>
-        <div class="folder-card" onclick="openArt('Charcoal Realism', 'maryghyper', 11)"><h3>Charcoal Realism</h3></div>
-        <div class="folder-card" onclick="openArt('Graphite Realism', 'marygdrawing', 11)"><h3>Graphite Realism</h3></div>
-        <div class="folder-card" onclick="openArt('Mix Media', 'marygmixmedia', 1)"><h3>Mix Media</h3></div>
-        <div class="folder-card" onclick="openArt('Leather & Textile Painting', 'marygleathertextilepainting', 4)"><h3>Leather & Textile</h3></div>
+    <div id="folder-section">
+        <div class="folder-card" onclick="openGallery('Acrylic Paintings', 'marygacrylic', 7)"><h3>Acrylic Paintings</h3></div>
+        <div class="folder-card" onclick="openGallery('Oil Paintings', 'marygoilpainting', 4)"><h3>Oil Paintings</h3></div>
+        <div class="folder-card" onclick="openGallery('Colored Pencils', 'marygpainting', 3)"><h3>Colored Pencils</h3></div>
+        <div class="folder-card" onclick="openGallery('Charcoal Realism', 'maryghyper', 11)"><h3>Charcoal Realism</h3></div>
+        <div class="folder-card" onclick="openGallery('Graphite Realism', 'marygdrawing', 11)"><h3>Graphite Realism</h3></div>
+        <div class="folder-card" onclick="openGallery('Mix Media', 'marygmixmedia', 1)"><h3>Mix Media</h3></div>
+        <div class="folder-card" onclick="openGallery('Leather & Textile Painting', 'marygleathertextilepainting', 4)"><h3>Leather & Textile Painting</h3></div>
     </div>
 
     <div id="gallery-section">
-        <div class="back-btn" onclick="closeArt()">← BACK TO CATEGORIES</div>
-        <h2 id="title" style="font-weight: 200; margin-bottom: 30px; letter-spacing: 3px;"></h2>
-        <div class="gallery-grid" id="grid"></div>
+        <div class="back-btn" onclick="closeGallery()">← BACK TO CATEGORIES</div>
+        <h2 id="title"></h2>
+        <div class="gallery-grid" id="image-wrapper"></div>
     </div>
-
 </div>
 
 <script>
-    function openArt(folder, prefix, count) {
-        const grid = document.getElementById('grid');
-        grid.innerHTML = '';
-        document.getElementById('title').innerText = folder.toUpperCase();
+    function openGallery(folderName, prefix, count) {
+        const wrapper = document.getElementById('image-wrapper');
+        wrapper.innerHTML = '';
+        document.getElementById('title').innerText = folderName.toUpperCase();
         
-        // اصلاح آدرس برای فاصله‌ها و کاراکتر &
-        const encodedFolder = folder.replace(/ /g, '%20').replace(/&/g, '%26');
+        // کدگذاری نام پوشه برای هندل کردن فاصله و &
+        const folderPath = encodeURIComponent(folderName);
 
         for (let i = 1; i <= count; i++) {
-            let name = prefix + i + ".JPG";
-            // اصلاحات خاص برای فایل‌های شما
-            if (prefix === 'marygpainting' && i === 1) name = "marygpainting.JPG";
-            if (prefix === 'marygmixmedia') name = "marygmixmedia.JPG";
+            let fileName;
             
-            const src = encodedFolder + "/" + name;
-            grid.innerHTML += `<img src="${src}" onerror="this.style.display='none'">`;
+            // هماهنگی با اسم فایل‌های شما (با حروف کوچک)
+            if (prefix === 'marygpainting') {
+                fileName = (i === 1) ? "marygpainting.jpg" : "marygpainting" + (i-1) + ".jpg";
+            } else if (prefix === 'marygmixmedia') {
+                fileName = "marygmixmedia.jpg";
+            } else {
+                fileName = prefix + i + ".jpg";
+            }
+            
+            // آدرس نهایی با پسوند کوچک
+            const fullPath = folderName + "/" + fileName;
+            wrapper.innerHTML += `<img src="${fullPath}" alt="Artwork">`;
         }
 
         document.getElementById('folder-section').style.display = 'none';
         document.getElementById('gallery-section').style.display = 'block';
+        window.scrollTo(0,0);
     }
 
-    function closeArt() {
+    function closeGallery() {
         document.getElementById('folder-section').style.display = 'grid';
         document.getElementById('gallery-section').style.display = 'none';
     }
 </script>
-
 </body>
 </html>
