@@ -5,174 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Mary G Art</title>
     <style>
-        body { background: #050505; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
-        
-        /* Navigation */
+        body { background: #050505; color: #fff; font-family: sans-serif; margin: 0; padding: 0; }
         nav { padding: 30px; text-align: center; border-bottom: 1px solid #111; }
-        nav a { color: #555; text-decoration: none; margin: 0 20px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: #fff; }
-
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 30px; }
+        nav a { color: #555; text-decoration: none; margin: 0 20px; font-size: 13px; letter-spacing: 2px; }
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 30px; }
+        h1 { text-align: center; font-weight: 100; letter-spacing: 10px; margin-bottom: 50px; }
         
-        header h1 { text-align: center; font-weight: 100; letter-spacing: 12px; margin-bottom: 60px; color: #fff; text-transform: uppercase; }
-
-        /* Folder Grid Styling */
-        #folder-section { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
-            gap: 25px; 
-        }
-
+        /* 7 Folders Grid */
+        #folder-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
         .folder-card { 
-            cursor: pointer; 
-            position: relative;
-            aspect-ratio: 1.6 / 1;
-            background: #1e1e1e; /* Dark Smoke Gray */
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #333;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer; aspect-ratio: 1.6 / 1; background: #1e1e1e; 
+            border-radius: 12px; display: flex; align-items: center; 
+            justify-content: center; border: 1px solid #333; transition: 0.3s;
         }
+        .folder-card:hover { background: #2a2a2a; border-color: #666; }
+        .folder-card h3 { font-weight: 300; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #fff; pointer-events: none; }
 
-        .folder-card:hover { 
-            background: #2a2a2a; 
-            transform: translateY(-8px);
-            border-color: #666;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        /* Text ON the folder cover */
-        .folder-card h3 { 
-            font-weight: 300; 
-            font-size: 14px; 
-            letter-spacing: 3px; 
-            color: #efefef;
-            text-transform: uppercase;
-            text-align: center;
-            margin: 0;
-            padding: 0 15px;
-            pointer-events: none;
-        }
-
-        /* Gallery View */
+        /* Gallery Section */
         #gallery-section { display: none; }
-        
-        .back-bar { margin-bottom: 40px; display: flex; align-items: center; }
-        .back-btn { 
-            cursor: pointer; 
-            color: #888; 
-            font-size: 12px; 
-            letter-spacing: 2px; 
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-        .back-btn:hover { color: #fff; }
-
-        h2#current-category { 
-            flex-grow: 1; 
-            text-align: center; 
-            font-weight: 200; 
-            letter-spacing: 6px; 
-            text-transform: uppercase; 
-            margin: 0;
-        }
-
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-            gap: 20px; 
-        }
-
-        .gallery-grid img { 
-            width: 100%; 
-            display: block; 
-            border-radius: 4px; 
-            border: 1px solid #1a1a1a;
-            transition: 0.3s;
-        }
-        
-        .gallery-grid img:hover { border-color: #444; }
-
+        .back-bar { margin-bottom: 40px; display: flex; align-items: center; justify-content: space-between; }
+        .back-btn { cursor: pointer; color: #888; text-transform: uppercase; font-size: 12px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .gallery-grid img { width: 100%; border-radius: 4px; border: 1px solid #222; }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="index.html">HOME</a> 
-    <a href="portfolio.html" style="color:#fff; border-bottom: 1px solid #fff; padding-bottom: 5px;">PORTFOLIO</a>
-</nav>
+<nav><a href="index.html">HOME</a> <a href="portfolio.html" style="color:#fff">PORTFOLIO</a></nav>
 
 <div class="container">
-    <header>
-        <h1>MARY G ART</h1>
-    </header>
+    <h1>MARY G ART</h1>
 
     <div id="folder-section">
-        <div class="folder-card" onclick="openFolder('Acrylic Paintings', 'marygacrylic', 7)"><h3>Acrylic Paintings</h3></div>
-        <div class="folder-card" onclick="openFolder('Oil Paintings', 'marygoilpainting', 4)"><h3>Oil Paintings</h3></div>
-        <div class="folder-card" onclick="openFolder('Colored Pencils', 'marygpainting', 3)"><h3>Colored Pencils</h3></div>
-        <div class="folder-card" onclick="openFolder('Charcoal Realism', 'maryghyper', 11)"><h3>Charcoal Realism</h3></div>
-        <div class="folder-card" onclick="openFolder('Graphite Realism', 'marygdrawing', 11)"><h3>Graphite Realism</h3></div>
-        <div class="folder-card" onclick="openFolder('Mix Media', 'marygmixmedia', 1)"><h3>Mix Media</h3></div>
-        <div class="folder-card" onclick="openFolder('Leather & Textile Painting', 'marygleathertextilepainting', 4)"><h3>Leather & Textile Painting</h3></div>
+        <div class="folder-card" onclick="show('acrylic')"><h3>Acrylic Paintings</h3></div>
+        <div class="folder-card" onclick="show('oil')"><h3>Oil Paintings</h3></div>
+        <div class="folder-card" onclick="show('pencils')"><h3>Colored Pencils</h3></div>
+        <div class="folder-card" onclick="show('charcoal')"><h3>Charcoal Realism</h3></div>
+        <div class="folder-card" onclick="show('graphite')"><h3>Graphite Realism</h3></div>
+        <div class="folder-card" onclick="show('mix')"><h3>Mix Media</h3></div>
+        <div class="folder-card" onclick="show('leather')"><h3>Leather & Textile Painting</h3></div>
     </div>
 
     <div id="gallery-section">
         <div class="back-bar">
-            <div class="back-btn" onclick="closeFolder()">← Back</div>
-            <h2 id="current-category"></h2>
+            <div class="back-btn" onclick="hide()">← Back</div>
+            <h2 id="folder-title" style="font-weight: 200; letter-spacing: 4px; margin: 0;"></h2>
+            <div style="width:50px"></div>
         </div>
-        <div class="gallery-grid" id="image-container"></div>
+        <div class="gallery-grid" id="images"></div>
     </div>
 </div>
 
 <script>
-    function openFolder(folderName, prefix, count) {
-        const container = document.getElementById('image-container');
-        const title = document.getElementById('current-category');
-        container.innerHTML = '';
-        title.innerText = folderName;
+    const db = {
+        acrylic: ['Acrylic Paintings/marygacrylic1.jpg','Acrylic Paintings/marygacrylic2.jpg','Acrylic Paintings/marygacrylic3.jpg','Acrylic Paintings/marygacrylic4.jpg','Acrylic Paintings/marygacrylic5.jpg','Acrylic Paintings/marygacrylic6.jpg','Acrylic Paintings/marygacrylic7.jpg'],
+        oil: ['Oil Paintings/marygoilpainting1.jpg','Oil Paintings/marygoilpainting2.jpg','Oil Paintings/marygoilpainting3.jpg','Oil Paintings/marygoilpainting4.jpg'],
+        pencils: ['Colored Pencils/marygpainting.jpg','Colored Pencils/marygpainting1.jpg','Colored Pencils/marygpainting2.jpg'],
+        charcoal: ['Charcoal Realism/maryghyper1.jpg','Charcoal Realism/maryghyper2.jpg','Charcoal Realism/maryghyper3.jpg','Charcoal Realism/maryghyper4.jpg','Charcoal Realism/maryghyper5.jpg','Charcoal Realism/maryghyper6.jpg','Charcoal Realism/maryghyper7.jpg','Charcoal Realism/maryghyper8.jpg','Charcoal Realism/maryghyper9.jpg','Charcoal Realism/maryghyper10.jpg','Charcoal Realism/maryghyper11.jpg'],
+        graphite: ['Graphite Realism/marygdrawing1.jpg','Graphite Realism/marygdrawing2.jpg','Graphite Realism/marygdrawing3.jpg','Graphite Realism/marygdrawing4.jpg','Graphite Realism/marygdrawing5.jpg','Graphite Realism/marygdrawing6.jpg','Graphite Realism/marygdrawing7.jpg','Graphite Realism/marygdrawing8.jpg','Graphite Realism/marygdrawing9.jpg','Graphite Realism/marygdrawing10.jpg','Graphite Realism/marygdrawing11.jpg'],
+        mix: ['Mix Media/marygmixmedia.jpg'],
+        leather: ['Leather & Textile Painting/marygleathertextilepainting1.jpg','Leather & Textile Painting/marygleathertextilepainting2.jpg','Leather & Textile Painting/marygleathertextilepainting3.jpg','Leather & Textile Painting/marygleathertextilepainting4.jpg']
+    };
 
-        for (let i = 1; i <= count; i++) {
-            let fileName;
-            
-            // Logic for Mary G's specific file naming
-            if (prefix === 'marygpainting') {
-                fileName = (i === 1) ? "marygpainting.jpg" : "marygpainting" + (i-1) + ".jpg";
-            } else if (prefix === 'marygmixmedia') {
-                fileName = "marygmixmedia.jpg";
-            } else {
-                fileName = prefix + i + ".jpg";
-            }
-            
-            // Constructing the final path
-            const imgPath = folderName + "/" + fileName;
-            
+    function show(key) {
+        const div = document.getElementById('images');
+        div.innerHTML = '';
+        db[key].forEach(path => {
             const img = document.createElement('img');
-            img.src = imgPath;
-            img.alt = "Mary G Art - " + folderName;
-            
-            // Error handling just in case
-            img.onerror = function() {
-                console.log("Could not find: " + imgPath);
-                this.style.display = 'none';
-            };
-
-            container.appendChild(img);
-        }
-
+            img.src = path;
+            div.appendChild(img);
+        });
         document.getElementById('folder-section').style.display = 'none';
         document.getElementById('gallery-section').style.display = 'block';
+        document.getElementById('folder-title').innerText = key.toUpperCase();
         window.scrollTo(0,0);
     }
 
-    function closeFolder() {
+    function hide() {
         document.getElementById('folder-section').style.display = 'grid';
         document.getElementById('gallery-section').style.display = 'none';
     }
 </script>
-
 </body>
 </html>
