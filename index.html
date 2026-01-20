@@ -18,8 +18,114 @@
 
         /* Header */
         header { text-align: center; margin: 100px 0; }
-        h1 { font-weight: 200; letter-spacing: 8px; text-transform: uppercase; font-size: 3em; }
-        .sub-title { color: #888; font-size: 15px; letter-spacing: 6px; text-transform: uppercase; }
+        h1 { font-weight: 200; letter-spacing: 8px; text-transform: uppercase; font-size: 2.8em; margin-bottom: 20px; }
+        .sub-title { color: #888; font-size: 14px; letter-spacing: 6px; text-transform: uppercase; }
+
+        /* Gallery */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+        .art-card { background: #000; border: 1px solid #111; overflow: hidden; }
+        .art-card img { width: 100%; height: auto; display: block; filter: grayscale(20%); transition: 0.7s; }
+        .art-card:hover img { filter: grayscale(0%); transform: scale(1.03); }
+        .art-info { padding: 25px; }
+        .art-info h3 { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
+        .art-info p { color: #444; font-size: 11px; margin-top: 10px; }
 
         /* About Section */
-        .about-section { max-width: 850px; margin: 150px auto; padding: 0
+        .about-section { max-width: 850px; margin: 150px auto; padding: 0 25px; text-align: center; }
+        .about-section h2 { font-weight: 200; letter-spacing: 8px; text-transform: uppercase; font-size: 2.5em; }
+        .line { width: 80px; height: 1px; background: #fff; margin: 30px auto 50px; }
+        .about-text { color: #bbb; line-height: 2.2; font-size: 18px; text-align: justify; }
+
+        /* Commissions Grid */
+        .comm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px; }
+        .comm-card { background: #0c0c0c; padding: 60px 30px; border: 1px solid #1a1a1a; text-align: center; transition: 0.4s; }
+        .comm-card:hover { border-color: #444; }
+        .step-num { font-size: 40px; color: #fff; margin-bottom: 25px; font-weight: 100; opacity: 0.4; }
+        .comm-card h3 { font-size: 18px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
+        .comm-card p { color: #888; font-size: 15px; line-height: 1.8; }
+
+        /* Buttons */
+        .contact-buttons { margin-top: 80px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .btn { display: inline-flex; align-items: center; gap: 15px; padding: 20px 50px; text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; transition: 0.3s; width: 280px; justify-content: center; }
+        .btn-wa { background: #fff; color: #000; }
+        .btn-wa:hover { background: #25D366; color: #fff; }
+        .btn-email { border: 1px solid #444; color: #fff; }
+        .btn-email:hover { border-color: #fff; }
+
+        footer { margin-top: 150px; text-align: center; padding: 100px 20px; border-top: 1px solid #111; color: #444; font-size: 12px; letter-spacing: 3px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo-box">
+                <img src="maryglogo.jpg" alt="Logo" class="logo-img">
+                <span style="letter-spacing: 4px; font-size: 16px; font-weight: 200;">MARY G.</span>
+            </div>
+            <div class="nav-links">
+                <a href="#portfolio">Portfolio</a>
+                <a href="#about">About Mary G.</a>
+                <a href="#commissions">Commissions</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Welcome to Mary G.'s Website</h1>
+        <div class="sub-title">Hyperrealism & Fine Art | UAE</div>
+    </header>
+    
+    <div class="gallery" id="portfolio">
+        <div class="art-card"><img src="maryghyper1.jpg"><div class="art-info"><h3>Hyperrealism Study I</h3><p>Traditional Media</p></div></div>
+        <div class="art-card"><img src="maryghyper2.png"><div class="art-info"><h3>Hyperrealism Study II</h3><p>Traditional Media</p></div></div>
+        <div class="art-card"><img src="maryghyper3.jpg"><div class="art-info"><h3>Hyperrealism Study III</h3><p>Traditional Media</p></div></div>
+        <div class="art-card"><img src="maryghyper4.jpg"><div class="art-info"><h3>Hyperrealism Study IV</h3><p>Traditional Media</p></div></div>
+    </div>
+
+    <section id="about" class="about-section">
+        <h2>About Mary G.</h2>
+        <div class="line"></div>
+        <p class="about-text">
+            With over 15 years of professional experience, <strong>Mary G.</strong> is a versatile traditional artist based in the United Arab Emirates, specializing in the demanding realm of Hyperrealism. While her mastery often shines through colored pencils, her expertise spans across various traditional media and artistic styles.
+        </p>
+    </section>
+
+    <section id="commissions" style="max-width: 1200px; margin: 150px auto; padding: 0 25px; text-align: center;">
+        <h2 style="font-weight: 200; letter-spacing: 8px; text-transform: uppercase; font-size: 2.5em;">Art Commissions</h2>
+        <div class="line"></div>
+        
+        <div class="comm-grid">
+            <div class="comm-card">
+                <div class="step-num">1</div>
+                <h3>Consultation</h3>
+                <p>Share your vision and reference photos. We discuss size, medium, and the level of detail.</p>
+            </div>
+            <div class="comm-card">
+                <div class="step-num">2</div>
+                <h3>Creation</h3>
+                <p>Using premium traditional materials, I meticulously bring your artwork to life with precision.</p>
+            </div>
+            <div class="comm-card">
+                <div class="step-num">3</div>
+                <h3>Delivery</h3>
+                <p>Secure packaging and shipping across the UAE and worldwide to ensure your art arrives safely.</p>
+            </div>
+        </div>
+
+        <div class="contact-buttons">
+            <a href="https://wa.me/971509551870" target="_blank" class="btn btn-wa">
+                <i class="fab fa-whatsapp" style="font-size: 20px;"></i> Message on WhatsApp
+            </a>
+            <a href="mailto:Maryg.Art2022@Gmail.com" class="btn btn-email">
+                <i class="far fa-envelope" style="font-size: 18px;"></i> Email Me Directly
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 MARY G. FINE ART | DUBAI, UAE</p>
+    </footer>
+
+</body>
+</html>
