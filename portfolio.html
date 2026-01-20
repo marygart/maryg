@@ -3,80 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Portfolio | Maryam</title>
+    <title>Maryam Art Portfolio</title>
     <style>
-        body { background: #000; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
-        nav { padding: 20px; text-align: center; border-bottom: 1px solid #222; }
-        nav a { color: #888; text-decoration: none; margin: 0 15px; font-size: 14px; }
+        body { background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; }
+        nav { padding: 20px; text-align: center; border-bottom: 1px solid #1a1a1a; }
+        nav a { color: #666; text-decoration: none; margin: 0 15px; font-size: 13px; letter-spacing: 1px; }
         
-        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
         
-        /* گرید ۷ پوشه اصلی */
+        /* گرید پوشه‌ها */
         .folder-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 30px; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 25px; 
         }
         
-        .folder-item { 
+        .folder-card { 
             cursor: pointer; 
-            text-align: center; 
-            transition: transform 0.3s;
-        }
-        
-        .folder-item:hover { transform: translateY(-10px); }
-
-        /* شکل پوشه‌ها */
-        .folder-box {
-            width: 100%;
-            aspect-ratio: 1.2 / 1;
-            background: #111;
-            border: 2px solid #333;
-            border-radius: 15px;
+            position: relative;
+            transition: 0.4s;
+            aspect-ratio: 1.4 / 1;
+            /* رنگ کاور: دودی تیره */
+            background: #2a2a2a; 
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
-            position: relative;
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+        
+        .folder-card:hover { 
+            transform: scale(1.03); 
+            background: #333; /* کمی روشن‌تر در حالت هاور */
+            border-color: #555;
         }
 
-        .folder-box::before {
-            content: "";
+        /* اسم روی کاور */
+        .folder-card h3 { 
             position: absolute;
-            top: -10px;
-            left: 20px;
-            width: 60px;
-            height: 10px;
-            background: #333;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .folder-item h3 { 
+            width: 80%;
+            text-align: center;
             font-weight: 300; 
-            font-size: 13px; 
-            letter-spacing: 1px; 
-            color: #ccc;
+            font-size: 14px; 
+            letter-spacing: 2px; 
+            color: #fff;
             text-transform: uppercase;
+            z-index: 2;
+            pointer-events: none;
         }
 
-        /* گالری عکس‌ها (در ابتدا مخفی) */
-        #gallery-section { display: none; }
+        /* بخش گالری عکس‌ها */
+        #gallery-section { display: none; padding-top: 20px; }
+        .back-btn { 
+            cursor: pointer; color: #aaa; padding: 10px 0; 
+            display: inline-block; margin-bottom: 20px; font-size: 12px;
+        }
+        .back-btn:hover { color: #fff; }
+        
         .gallery-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 20px; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 15px; 
         }
-        .gallery-grid img { width: 100%; border-radius: 8px; border: 1px solid #222; }
-        .back-btn { 
-            cursor: pointer; 
-            color: #fff; 
-            background: #222; 
-            padding: 10px 20px; 
-            display: inline-block; 
-            margin-bottom: 30px; 
-            border-radius: 5px;
-            font-size: 12px;
-        }
+        .gallery-grid img { width: 100%; display: block; border-radius: 4px; }
     </style>
 </head>
 <body>
@@ -85,62 +75,49 @@
 
 <div class="container">
     
-    <div id="folder-section">
-        <div class="folder-grid">
-            <div class="folder-item" onclick="viewFolder('Acrylic Paintings', 'marygacrylic', 7)">
-                <div class="folder-box">📂</div><h3>Acrylic Paintings</h3>
-            </div>
-            <div class="folder-item" onclick="viewFolder('Oil Paintings', 'marygoilpainting', 4)">
-                <div class="folder-box">📂</div><h3>Oil Paintings</h3>
-            </div>
-            <div class="folder-item" onclick="viewFolder('Colored Pencils', 'marygpainting', 3)">
-                <div class="folder-box">📂</div><h3>Colored Pencils</h3>
-            </div>
-            <div class="folder-item" onclick="viewFolder('Charcoal Realism', 'maryghyper', 11)">
-                <div class="folder-box">📂</div><h3>Charcoal Realism</h3>
-            </div>
-            <div class="folder-item" onclick="viewFolder('Graphite Realism', 'marygdrawing', 11)">
-                <div class="folder-box">📂</div><h3>Graphite Realism</h3>
-            </div>
-            <div class="folder-item" onclick="viewFolder('Mix Media', 'marygmixmedia', 1)">
-                <div class="folder-box">📂</div><h3>Mix Media</h3>
-            </div>
-            <div class="folder-item" onclick="viewFolder('Leather & Textile Painting', 'marygleathertextilepainting', 4)">
-                <div class="folder-box">📂</div><h3>Leather & Textile Painting</h3>
-            </div>
-        </div>
+    <div id="folder-section" class="folder-grid">
+        <div class="folder-card" onclick="openArt('Acrylic Paintings', 'marygacrylic', 7)"><h3>Acrylic Paintings</h3></div>
+        <div class="folder-card" onclick="openArt('Oil Paintings', 'marygoilpainting', 4)"><h3>Oil Paintings</h3></div>
+        <div class="folder-card" onclick="openArt('Colored Pencils', 'marygpainting', 3)"><h3>Colored Pencils</h3></div>
+        <div class="folder-card" onclick="openArt('Charcoal Realism', 'maryghyper', 11)"><h3>Charcoal Realism</h3></div>
+        <div class="folder-card" onclick="openArt('Graphite Realism', 'marygdrawing', 11)"><h3>Graphite Realism</h3></div>
+        <div class="folder-card" onclick="openArt('Mix Media', 'marygmixmedia', 1)"><h3>Mix Media</h3></div>
+        <div class="folder-card" onclick="openArt('Leather & Textile Painting', 'marygleathertextilepainting', 4)"><h3>Leather & Textile</h3></div>
     </div>
 
     <div id="gallery-section">
-        <div class="back-btn" onclick="backToFolders()">← Back to Categories</div>
-        <h2 id="gallery-title" style="font-weight: 200; letter-spacing: 2px;"></h2>
-        <div class="gallery-grid" id="images-wrapper"></div>
+        <div class="back-btn" onclick="closeArt()">← BACK TO CATEGORIES</div>
+        <h2 id="title" style="font-weight: 200; margin-bottom: 30px; letter-spacing: 3px;"></h2>
+        <div class="gallery-grid" id="grid"></div>
     </div>
 
 </div>
 
 <script>
-    function viewFolder(folderName, prefix, count) {
-        const wrapper = document.getElementById('images-wrapper');
-        const title = document.getElementById('gallery-title');
-        wrapper.innerHTML = '';
-        title.innerText = folderName;
+    function openArt(folder, prefix, count) {
+        const grid = document.getElementById('grid');
+        grid.innerHTML = '';
+        document.getElementById('title').innerText = folder.toUpperCase();
+        
+        // اصلاح آدرس برای فاصله‌ها و کاراکتر &
+        const encodedFolder = folder.replace(/ /g, '%20').replace(/&/g, '%26');
 
-        // آدرس‌دهی دقیق بر اساس پوشه و اسم فایل
         for (let i = 1; i <= count; i++) {
-            let num = (prefix === 'marygpainting' && i === 1) ? "" : i; // مدیریت اسم فایل مدادرنگی
-            if (prefix === 'marygmixmedia') num = ""; // مدیریت میکس مدیا
-
-            let imgSrc = `${folderName}/${prefix}${num}.JPG`;
-            wrapper.innerHTML += `<img src="${imgSrc}" alt="Artwork">`;
+            let name = prefix + i + ".JPG";
+            // اصلاحات خاص برای فایل‌های شما
+            if (prefix === 'marygpainting' && i === 1) name = "marygpainting.JPG";
+            if (prefix === 'marygmixmedia') name = "marygmixmedia.JPG";
+            
+            const src = encodedFolder + "/" + name;
+            grid.innerHTML += `<img src="${src}" onerror="this.style.display='none'">`;
         }
 
         document.getElementById('folder-section').style.display = 'none';
         document.getElementById('gallery-section').style.display = 'block';
     }
 
-    function backToFolders() {
-        document.getElementById('folder-section').style.display = 'block';
+    function closeArt() {
+        document.getElementById('folder-section').style.display = 'grid';
         document.getElementById('gallery-section').style.display = 'none';
     }
 </script>
