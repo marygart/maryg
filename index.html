@@ -1,39 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mary G Art</title>
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            background: #000;
+            padding: 20px;
+            border-bottom: 1px solid #222;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #111;
+            min-width: 180px;
+            top: 100%;
+            left: 0;
+            list-style: none;
+            padding: 10px;
+            z-index: 1000;
+            border: 1px solid #333;
+        }
+        .dropdown-content li {
+            padding: 8px 5px;
+            border-bottom: 1px solid #222;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content li a {
+            font-size: 14px;
+            color: #ccc;
+        }
+        .dropdown-content li a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
 <nav>
-    <ul style="list-style: none; display: flex; justify-content: center; background: #000; padding: 20px; margin: 0;">
-        <li style="margin: 0 15px;"><a href="index.html" style="color: white; text-decoration: none;">PORTFOLIO</a></li>
-        
-        <li class="dropdown" style="margin: 0 15px; position: relative;">
-            <a href="#" style="color: white; text-decoration: none;">SHOP</a>
+    <ul>
+        <li><a href="index.html">PORTFOLIO</a></li>
+        <li class="dropdown">
+            <a href="#">SHOP</a>
             <ul class="dropdown-content">
                 <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a></li>
                 <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a></li>
                 <li><a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a></li>
             </ul>
         </li>
-
-        <li style="margin: 0 15px;"><a href="about-mary.html" style="color: white; text-decoration: none;">ABOUT</a></li>
-        <li style="margin: 0 15px;"><a href="commissions.html" style="color: white; text-decoration: none;">COMMISSIONS</a></li>
-        <li style="margin: 0 15px;"><a href="contact.html" style="color: white; text-decoration: none;">CONTACT</a></li>
+        <li><a href="about-mary.html">ABOUT</a></li>
+        <li><a href="commissions.html">COMMISSIONS</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
     </ul>
 </nav>
 
-<style>
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #111;
-        min-width: 180px;
-        top: 100%;
-        left: 0;
-        list-style: none;
-        padding: 10px;
-        z-index: 1000;
-        border: 1px solid #333;
-        box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
-    }
-    .dropdown-content li { padding: 10px 5px; border-bottom: 1px solid #222; }
-    .dropdown-content li:last-child { border-bottom: none; }
-    .dropdown-content li a { color: #ccc; text-decoration: none; font-size: 14px; display: block; text-align: left; }
-    .dropdown:hover .dropdown-content { display: block; }
-    .dropdown-content li a:hover { color: white; background: #222; }
-</style>
+</body>
+</html>
