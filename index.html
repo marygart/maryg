@@ -1,8 +1,9 @@
 <nav>
-    <ul>
-        <li><a href="index.html">PORTFOLIO</a></li>
-        <li class="dropdown">
-            <a href="#">SHOP</a>
+    <ul style="list-style: none; display: flex; justify-content: center; background: #000; padding: 20px;">
+        <li style="margin: 0 15px;"><a href="index.html" style="color: white; text-decoration: none;">PORTFOLIO</a></li>
+        
+        <li class="dropdown" style="margin: 0 15px; position: relative;">
+            <a href="#" style="color: white; text-decoration: none;">SHOP</a>
             <ul class="dropdown-content">
                 <li><a href="#">Originals</a></li>
                 <li><a href="#">Fine Art Prints</a></li>
@@ -10,8 +11,27 @@
                 <li><a href="#">Digital Assets</a></li>
             </ul>
         </li>
-        <li><a href="about-mary.html">ABOUT</a></li>
-        <li><a href="commissions.html">COMMISSIONS</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
+
+        <li style="margin: 0 15px;"><a href="about-mary.html" style="color: white; text-decoration: none;">ABOUT</a></li>
+        <li style="margin: 0 15px;"><a href="commissions.html" style="color: white; text-decoration: none;">COMMISSIONS</a></li>
+        <li style="margin: 0 15px;"><a href="contact.html" style="color: white; text-decoration: none;">CONTACT</a></li>
     </ul>
 </nav>
+
+<style>
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #111;
+        min-width: 160px;
+        top: 100%;
+        left: 0;
+        list-style: none;
+        padding: 10px;
+        z-index: 100;
+    }
+    .dropdown-content li { padding: 8px 0; }
+    .dropdown-content li a { color: #ccc; text-decoration: none; font-size: 14px; }
+    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown-content li a:hover { color: white; }
+</style>
