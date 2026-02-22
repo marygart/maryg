@@ -1,14 +1,13 @@
 <nav>
-    <ul style="list-style: none; display: flex; justify-content: center; background: #000; padding: 20px;">
+    <ul style="list-style: none; display: flex; justify-content: center; background: #000; padding: 20px; margin: 0;">
         <li style="margin: 0 15px;"><a href="index.html" style="color: white; text-decoration: none;">PORTFOLIO</a></li>
         
         <li class="dropdown" style="margin: 0 15px; position: relative;">
             <a href="#" style="color: white; text-decoration: none;">SHOP</a>
             <ul class="dropdown-content">
-                <li><a href="#">Originals</a></li>
-                <li><a href="#">Fine Art Prints</a></li>
-                <li><a href="#">Lifestyle Shop</a></li>
-                <li><a href="#">Digital Assets</a></li>
+                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a></li>
+                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a></li>
+                <li><a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a></li>
             </ul>
         </li>
 
@@ -23,15 +22,18 @@
         display: none;
         position: absolute;
         background-color: #111;
-        min-width: 160px;
+        min-width: 180px;
         top: 100%;
         left: 0;
         list-style: none;
         padding: 10px;
-        z-index: 100;
+        z-index: 1000;
+        border: 1px solid #333;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
     }
-    .dropdown-content li { padding: 8px 0; }
-    .dropdown-content li a { color: #ccc; text-decoration: none; font-size: 14px; }
+    .dropdown-content li { padding: 10px 5px; border-bottom: 1px solid #222; }
+    .dropdown-content li:last-child { border-bottom: none; }
+    .dropdown-content li a { color: #ccc; text-decoration: none; font-size: 14px; display: block; text-align: left; }
     .dropdown:hover .dropdown-content { display: block; }
-    .dropdown-content li a:hover { color: white; }
+    .dropdown-content li a:hover { color: white; background: #222; }
 </style>
