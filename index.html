@@ -1,31 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<body style="background-color: black; color: white; margin: 0; font-family: sans-serif;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mary G Art</title>
+    <style>
+        body {
+            background-image: url('home.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #000;
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+        nav {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(17, 17, 17, 0.9);
+            min-width: 180px;
+            top: 100%;
+            left: 0;
+            list-style: none;
+            padding: 10px;
+            border: 1px solid #333;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content li {
+            padding: 10px 5px;
+            border-bottom: 1px solid #222;
+        }
+        .dropdown-content li a {
+            font-size: 14px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
 
-<nav style="padding: 40px; text-align: center; background: black;">
-    <div style="display: inline-block;">
-        <a href="index.html" style="color: white; margin: 0 20px; text-decoration: none;">PORTFOLIO</a>
-        
-        <div class="dropdown" style="display: inline-block; position: relative; margin: 0 20px;">
-            <span style="cursor: pointer;">SHOP</span>
-            <div class="dropdown-content" style="position: absolute; background: #111; border: 1px solid #333; min-width: 160px; text-align: left; padding: 10px;">
-                <a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank" style="display: block; color: #ccc; padding: 10px; text-decoration: none; font-size: 14px;">Original Arts</a>
-                <a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank" style="display: block; color: #ccc; padding: 10px; text-decoration: none; font-size: 14px;">Fine Art Prints</a>
-                <a href="https://marygart.gumroad.com/" target="_blank" style="display: block; color: #ccc; padding: 10px; text-decoration: none; font-size: 14px;">Digital Assets</a>
-            </div>
-        </div>
-
-        <a href="about-mary.html" style="color: white; margin: 0 20px; text-decoration: none;">ABOUT</a>
-        <a href="commissions.html" style="color: white; margin: 0 20px; text-decoration: none;">COMMISSIONS</a>
-        <a href="contact.html" style="color: white; margin: 0 20px; text-decoration: none;">CONTACT</a>
-    </div>
+<nav>
+    <ul>
+        <li><a href="index.html">PORTFOLIO</a></li>
+        <li class="dropdown">
+            <a href="#">SHOP</a>
+            <ul class="dropdown-content">
+                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a></li>
+                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a></li>
+                <li><a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a></li>
+            </ul>
+        </li>
+        <li><a href="about-mary.html">ABOUT</a></li>
+        <li><a href="commissions.html">COMMISSIONS</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+    </ul>
 </nav>
-
-<style>
-    .dropdown-content { display: none; }
-    .dropdown:hover .dropdown-content { display: block; }
-    .dropdown-content a:hover { color: white !important; background: #222; }
-</style>
 
 </body>
 </html>
