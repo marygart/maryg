@@ -14,22 +14,59 @@
         .nav-links a { color: #aaa; text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; }
         
         .contact-section { max-width: 900px; margin: 100px auto; text-align: center; padding: 0 20px; }
-        h2 { font-weight: 200; letter-spacing: 10px; text-transform: uppercase; font-size: 2.2em; margin-bottom: 20px; }
-        .line { width: 60px; height: 1px; background: #fff; margin: 0 auto 50px auto; }
+        h2 { font-weight: 200; letter-spacing: 12px; text-transform: uppercase; font-size: 2.2em; margin-bottom: 20px; color: #fff; }
+        .line { width: 50px; height: 1px; background: #c5a059; margin: 0 auto 50px auto; }
         
-        .contact-info { margin-bottom: 50px; font-size: 18px; color: #ccc; letter-spacing: 1px; line-height: 1.8; }
+        .contact-info { margin-bottom: 60px; font-size: 16px; color: #888; letter-spacing: 2px; line-height: 2; text-transform: uppercase; font-weight: 300; }
         
-        /* استایل آیکون‌های شبکه اجتماعی */
-        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 500px; margin: 0 auto; }
-        .social-item { color: #fff; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 15px; opacity: 0.6; transition: 0.4s; }
-        .social-item:hover { opacity: 1; transform: translateY(-5px); }
-        .social-item i { font-size: 32px; }
-        .social-item span { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 600px; margin: 0 auto; }
+        
+        .social-item { 
+            color: #fff; 
+            text-decoration: none; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 20px; 
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+            position: relative;
+        }
 
-        footer { position: fixed; bottom: 0; width: 100%; text-align: center; padding: 40px 0; color: #444; font-size: 10px; letter-spacing: 3px; }
+        .social-item i { 
+            font-size: 35px; 
+            transition: all 0.4s ease;
+            color: #ffffff;
+        }
+
+        .social-item span { 
+            font-size: 10px; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            color: #555;
+            transition: all 0.4s ease;
+        }
+
+        /* Gold Glow Effect on Hover */
+        .social-item:hover { 
+            transform: translateY(-12px); 
+        }
+
+        .social-item:hover i { 
+            color: #c5a059; 
+            text-shadow: 0 0 20px rgba(197, 160, 89, 0.6);
+            transform: scale(1.1);
+        }
+
+        .social-item:hover span { 
+            color: #fff; 
+            letter-spacing: 5px;
+        }
+
+        footer { position: fixed; bottom: 0; width: 100%; text-align: center; padding: 40px 0; color: #222; font-size: 10px; letter-spacing: 3px; }
 
         @media (max-width: 600px) {
-            .social-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .social-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+            h2 { font-size: 1.6em; letter-spacing: 6px; }
         }
     </style>
 </head>
@@ -62,7 +99,7 @@
             <a href="https://x.com/Maryggallery" target="_blank" class="social-item">
                 <i class="fab fa-x-twitter"></i><span>Twitter</span>
             </a>
-            <a href="https://wa.me/971509551870?text=Hello,%20I%20would%20like%20to%20discuss%20a%20custom%20painting%20project%20with%20you.%20I%20found%20your%20contact%20on%20your%20website." target="_blank" class="social-item">
+            <a href="https://wa.me/971509551870?text=Hello,%20I%20would%20like%20to%20discuss%20a%20custom%20painting%20project." target="_blank" class="social-item">
                 <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
             </a>
             <a href="https://pin.it/1d76J0Bn9" target="_blank" class="social-item">
