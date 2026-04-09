@@ -28,8 +28,18 @@
         .img-wrapper { background: #0f0f0f; padding: 12px; border: 1px solid #1a1a1a; transition: 0.4s; position: relative; }
         .artwork-item img { width: 100%; height: 450px; object-fit: contain; background: #050505; display: block; }
         .artwork-item:hover .img-wrapper { border-color: #c5a059; transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+        
+        /* اصلاح بخش فونت اسامی */
         .artwork-info { margin-top: 20px; text-align: center; min-height: 40px; }
-        .artwork-title { color: #999; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 300; line-height: 1.6; }
+        .artwork-title { 
+            color: #fff; /* تغییر رنگ به سفید خالص برای خوانایی ۱۰۰٪ */
+            font-size: 14px; /* سایز بزرگتر فونت */
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            font-weight: 300; 
+            line-height: 1.4; 
+        }
+        
         .lb-caption, .lb-number { display: none !important; }
         footer { text-align: center; padding: 80px 20px; color: #222; font-size: 9px; letter-spacing: 4px; border-top: 1px solid #111; margin-top: 50px; text-transform: uppercase; }
     </style>
@@ -89,30 +99,4 @@
             wrapper.href = imgPath;
             wrapper.className = 'img-wrapper';
             wrapper.setAttribute('data-lightbox', githubFolder);
-            wrapper.setAttribute('data-title', title);
-            
-            const img = document.createElement('img');
-            img.src = imgPath;
-            img.onerror = function() { 
-                if (!this.src.endsWith(".JPG")) { this.src = this.src.replace(".jpg", ".JPG"); } 
-                else if (!this.src.endsWith(".png")) { this.src = this.src.replace(".JPG", ".png"); }
-                else { item.style.display = 'none'; }
-            };
-
-            const info = document.createElement('div');
-            info.className = 'artwork-info';
-            info.innerHTML = `<span class="artwork-title">${title}</span>`;
-
-            wrapper.appendChild(img);
-            item.appendChild(wrapper);
-            item.appendChild(info);
-            container.appendChild(item);
-        });
-        document.getElementById('folder-section').style.display = 'none';
-        document.getElementById('gallery-section').style.display = 'block';
-        window.scrollTo(0,0);
-    }
-    function closeGallery() { document.getElementById('folder-section').style.display = 'grid'; document.getElementById('gallery-section').style.display = 'none'; }
-</script>
-</body>
-</html>
+            wrapper.setAttribute('data-
