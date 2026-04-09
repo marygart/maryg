@@ -11,7 +11,6 @@
         .container { max-width: 1300px; margin: 60px auto; padding: 0 30px; }
         header h1 { text-align: center; font-weight: 100; letter-spacing: 12px; margin-bottom: 60px; text-transform: uppercase; }
 
-        /* Folder Grid Styling */
         #folder-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
         
         .folder-card { 
@@ -48,16 +47,14 @@
 
         .folder-card:hover h3 { color: #000; font-weight: 500; }
 
-        /* --- Gallery Masonry Layout (The Fix) --- */
         #gallery-section { display: none; }
         .back-bar { margin-bottom: 40px; display: flex; align-items: center; justify-content: space-between; }
         .back-btn { cursor: pointer; color: #888; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
         .back-btn:hover { color: #c5a059; }
         h2#current-category { font-weight: 200; letter-spacing: 6px; text-transform: uppercase; margin: 0; flex-grow: 1; text-align: center; color: #c5a059; }
 
-        /* Masonry Grid Setup */
         .gallery-grid { 
-            column-count: 3; /* نمایش در ۳ ستون */
+            column-count: 3; 
             column-gap: 20px;
         }
 
@@ -66,8 +63,8 @@
 
         .artwork-item {
             position: relative;
-            margin-bottom: 20px; /* فاصله بین عکس‌های زیر هم */
-            break-inside: avoid; /* جلوگیری از نصف شدن عکس بین دو ستون */
+            margin-bottom: 20px; 
+            break-inside: avoid; 
             overflow: hidden;
             border: 1px solid #1a1a1a;
             transition: 0.5s ease;
@@ -88,7 +85,6 @@
             transform: scale(1.05);
         }
 
-        /* Overlay for Title */
         .artwork-overlay {
             position: absolute;
             bottom: 0; left: 0; width: 100%;
@@ -116,7 +112,8 @@
     <header><h1>MARY G ART</h1></header>
 
     <div id="folder-section">
-        <div class="folder-card" onclick="openGallery('Acrylic Paintings', 'acrylic', 'marygacrylic', 7)"><h3>Acrylic Paintings</h3></div>
+        <div class="folder-card" onclick="openGallery('Acrylic Paintings', 'acrylic', 'marygacrylic', 1)"><h3>Acrylic Paintings</h3></div>
+        
         <div class="folder-card" onclick="openGallery('Oil Paintings', 'oil', 'marygoilpainting', 4)"><h3>Oil Paintings</h3></div>
         <div class="folder-card" onclick="openGallery('Colored Pencils', 'pencil', 'marygpainting', 3)"><h3>Colored Pencils</h3></div>
         <div class="folder-card" onclick="openGallery('Charcoal Realism', 'charcoal', 'maryghyper', 11)"><h3>Charcoal Realism</h3></div>
@@ -154,8 +151,6 @@
             }
             
             const imgPath = githubFolder + "/" + fileName;
-            
-            // Create item wrapper
             const item = document.createElement('div');
             item.className = 'artwork-item';
             
@@ -163,7 +158,6 @@
             img.src = imgPath;
             img.alt = displayName;
             
-            // Create overlay (Ready for your titles later)
             const overlay = document.createElement('div');
             overlay.className = 'artwork-overlay';
             overlay.innerHTML = `<span>Mary G Art</span>`;
