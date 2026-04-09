@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Mary G. Fine Art</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body { background-color: #050505; color: #fff; font-family: 'Inter', Arial, sans-serif; margin: 0; padding-top: 100px; }
         nav { position: fixed; top: 0; width: 100%; background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(15px); border-bottom: 1px solid #1a1a1a; z-index: 1000; }
@@ -29,44 +29,28 @@
             align-items: center; 
             gap: 20px; 
             transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-            position: relative;
         }
 
-        .social-item i { 
-            font-size: 35px; 
-            transition: all 0.4s ease;
-            color: #ffffff;
-        }
+        .social-item i { font-size: 35px; transition: all 0.4s ease; color: #ffffff; }
+        .social-item span { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: #555; transition: all 0.4s ease; }
 
-        .social-item span { 
-            font-size: 10px; 
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-            color: #555;
-            transition: all 0.4s ease;
-        }
+        .social-item:hover { transform: translateY(-12px); }
+        .social-item:hover span { color: #fff; letter-spacing: 5px; }
 
-        /* Gold Glow Effect on Hover */
-        .social-item:hover { 
-            transform: translateY(-12px); 
-        }
-
-        .social-item:hover i { 
-            color: #c5a059; 
-            text-shadow: 0 0 20px rgba(197, 160, 89, 0.6);
-            transform: scale(1.1);
-        }
-
-        .social-item:hover span { 
-            color: #fff; 
-            letter-spacing: 5px;
-        }
+        /* Brand Colors on Hover */
+        .social-item:hover .fa-instagram { color: #E1306C; text-shadow: 0 0 20px rgba(225, 48, 108, 0.5); }
+        .social-item:hover .fa-x-twitter { color: #fff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
+        .social-item:hover .fa-whatsapp { color: #25D366; text-shadow: 0 0 20px rgba(37, 211, 102, 0.5); }
+        .social-item:hover .fa-pinterest { color: #BD081C; text-shadow: 0 0 20px rgba(189, 8, 28, 0.5); }
+        .social-item:hover .fa-gem { color: #FEDA03; text-shadow: 0 0 20px rgba(254, 218, 3, 0.5); }
+        .social-item:hover .fa-envelope { color: #EA4335; text-shadow: 0 0 20px rgba(234, 67, 53, 0.5); } /* Gmail Red Color */
 
         footer { position: fixed; bottom: 0; width: 100%; text-align: center; padding: 40px 0; color: #222; font-size: 10px; letter-spacing: 3px; }
 
         @media (max-width: 600px) {
             .social-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
             h2 { font-size: 1.6em; letter-spacing: 6px; }
+            footer { position: relative; margin-top: 50px; }
         }
     </style>
 </head>
@@ -90,7 +74,7 @@
     <div class="contact-section">
         <h2>Get In Touch</h2>
         <div class="line"></div>
-        <p class="contact-info">Based in Dubai, UAE<br>Available for International Commissions & Fine Art Projects</p>
+        <p class="contact-info">Available for International Commissions & Fine Art Projects</p>
         
         <div class="social-grid">
             <a href="https://www.instagram.com/maryg.paints" target="_blank" class="social-item">
@@ -114,7 +98,7 @@
         </div>
     </div>
 
-    <footer>© 2026 MARY G. FINE ART | DUBAI, UAE</footer>
+    <footer>© 2026 MARY G. FINE ART</footer>
 
 </body>
 </html>
