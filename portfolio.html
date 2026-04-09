@@ -8,9 +8,7 @@
     <style>
         body { background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
         nav { padding: 40px; text-align: center; border-bottom: 1px solid #111; }
-        nav a { color: #555; text-decoration: none; margin: 0 20px; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: #c5a059; }
-        
+        nav a { color: #555; text-decoration: none; margin: 0 20px; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
         .container { max-width: 1400px; margin: 60px auto; padding: 0 40px; }
         header h1 { text-align: center; font-weight: 100; letter-spacing: 12px; margin-bottom: 80px; text-transform: uppercase; font-size: 24px; }
         
@@ -18,50 +16,42 @@
         .folder-card { cursor: pointer; aspect-ratio: 1.6 / 1; background: #0a0a0a; border: 1px solid #1a1a1a; display: flex; align-items: center; justify-content: center; transition: 0.4s; }
         .folder-card:hover { border-color: #c5a059; transform: translateY(-5px); }
         .folder-card h3 { font-weight: 300; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #888; }
-        .folder-card:hover h3 { color: #fff; }
 
         #gallery-section { display: none; }
         .back-bar { margin-bottom: 50px; display: flex; align-items: center; justify-content: space-between; }
-        .back-btn { cursor: pointer; color: #666; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid #222; padding: 10px 20px; transition: 0.3s; }
-        .back-btn:hover { color: #fff; border-color: #c5a059; }
-        h2#current-category { font-weight: 200; letter-spacing: 6px; text-transform: uppercase; margin: 0; color: #c5a059; font-size: 20px; }
+        .back-btn { cursor: pointer; color: #666; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid #222; padding: 10px 20px; }
+        h2#current-category { font-weight: 200; letter-spacing: 6px; text-transform: uppercase; margin: 0; color: #c5a059; }
 
-        /* Professional Grid System */
-        .gallery-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
+        .gallery-grid { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
 
+        /* Paspartu and Frame Style */
         .artwork-item {
-            flex: 0 1 calc(33.333% - 30px);
-            margin-bottom: 20px;
-            background: #0f0f0f;
-            padding: 10px;
-            border: 1px solid #1a1a1a;
+            flex: 0 1 calc(33.333% - 40px);
+            margin-bottom: 30px;
+            background: #e5e2d9; /* Paspartu Color (Warm Bone White) */
+            padding: 25px; /* Paspartu Width */
+            border: 2px solid #c5a059; /* Outer Frame Color (Mary G Gold) */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             transition: 0.4s;
             box-sizing: border-box;
             text-decoration: none;
         }
 
-        @media (max-width: 1000px) { .artwork-item { flex: 0 1 calc(50% - 30px); } }
+        @media (max-width: 1000px) { .artwork-item { flex: 0 1 calc(50% - 40px); } }
         @media (max-width: 600px) { .artwork-item { flex: 0 1 100%; } }
 
         .artwork-item img {
             width: 100%;
-            height: 450px; /* Fixed height for symmetry (Option A) */
-            object-fit: contain; /* Shows full painting without cropping */
-            background: #050505;
+            height: 450px;
+            object-fit: contain;
+            background: #000; /* Contrast behind the painting */
             display: block;
-            transition: 0.5s;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5); /* Inner shadow for depth */
         }
 
-        .artwork-item:hover { border-color: #c5a059; transform: scale(1.02); }
+        .artwork-item:hover { transform: scale(1.03); border-color: #fff; }
         
-        /* Remove any labels from Lightbox */
-        .lb-caption { display: none !important; }
-        .lb-number { display: none !important; }
+        .lb-caption, .lb-number { display: none !important; }
 
         footer { text-align: center; padding: 80px 20px; color: #222; font-size: 10px; letter-spacing: 4px; border-top: 1px solid #111; margin-top: 50px; }
     </style>
@@ -80,11 +70,7 @@
         <div class="folder-card" onclick="openGallery('Leather & Textile Painting', 'leather', 'marygleathertextilepainting', 4)"><h3>Leather & Textile Painting</h3></div>
     </div>
     <div id="gallery-section">
-        <div class="back-bar">
-            <div class="back-btn" onclick="closeGallery()">← BACK</div>
-            <h2 id="current-category"></h2>
-            <div style="width:100px"></div>
-        </div>
+        <div class="back-bar"><div class="back-btn" onclick="closeGallery()">← BACK</div><h2 id="current-category"></h2><div style="width:100px"></div></div>
         <div class="gallery-grid" id="image-container"></div>
     </div>
 </div>
@@ -97,51 +83,32 @@
         const container = document.getElementById('image-container');
         container.innerHTML = '';
         document.getElementById('current-category').innerText = displayName;
-        
-        lightbox.option({ 'showImageNumberLabel': false, 'wrapAround': true, 'albumLabel': "" });
+        lightbox.option({ 'showImageNumberLabel': false, 'wrapAround': true });
 
-        // Logic for custom order 1-2-3-6-7-4-5
         let order = [];
-        if (githubFolder === 'acrylic') {
-            order = [1, 2, 3, 6, 7, 4, 5];
-        } else {
-            for (let i = 1; i <= count; i++) order.push(i);
-        }
+        if (githubFolder === 'acrylic') { order = [1, 2, 3, 6, 7, 4, 5]; }
+        else { for (let i = 1; i <= count; i++) order.push(i); }
 
         order.forEach(num => {
             let fileName = prefix + num + ".jpg";
-            if (prefix === 'marygpainting') {
-                fileName = (num === 1) ? "marygpainting.jpg" : "marygpainting" + (num-1) + ".jpg";
-            } else if (prefix === 'marygmixmedia') {
-                fileName = "marygmixmedia.jpg";
-            }
-            
+            if (prefix === 'marygpainting') { fileName = (num === 1) ? "marygpainting.jpg" : "marygpainting" + (num-1) + ".jpg"; }
+            else if (prefix === 'marygmixmedia') { fileName = "marygmixmedia.jpg"; }
             const imgPath = githubFolder + "/" + fileName;
             const artworkLink = document.createElement('a');
             artworkLink.href = imgPath;
             artworkLink.setAttribute('data-lightbox', githubFolder);
             artworkLink.className = 'artwork-item';
-
             const img = document.createElement('img');
             img.src = imgPath;
-            img.onerror = function() {
-                if (!this.src.endsWith(".JPG")) { this.src = this.src.replace(".jpg", ".JPG"); }
-                else { artworkLink.style.display = 'none'; }
-            };
-
+            img.onerror = function() { if (!this.src.endsWith(".JPG")) { this.src = this.src.replace(".jpg", ".JPG"); } else { artworkLink.style.display = 'none'; } };
             artworkLink.appendChild(img);
             container.appendChild(artworkLink);
         });
-        
         document.getElementById('folder-section').style.display = 'none';
         document.getElementById('gallery-section').style.display = 'block';
         window.scrollTo(0,0);
     }
-
-    function closeGallery() {
-        document.getElementById('folder-section').style.display = 'grid';
-        document.getElementById('gallery-section').style.display = 'none';
-    }
+    function closeGallery() { document.getElementById('folder-section').style.display = 'grid'; document.getElementById('gallery-section').style.display = 'none'; }
 </script>
 </body>
 </html>
