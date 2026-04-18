@@ -71,13 +71,13 @@
         'oil': { 1: "The Eternal Silence of Pasargadae", 2: "The Hearth of Heritage", 3: "The Golden Alley of Memories", 4: "The Paradox of Presence" },
         'pencil': { 1: "The Echo of 1000 Hours", 2: "Eternal Throne Achaemenid Glory", 3: "Vibrant Soul" },
         'mix': { 
-            1: "Divine Ornament", 
-            2: "Pure Allegro", 
-            3: "Eternal Allegro", 
-            4: "Vivid Allegro", 
-            5: "Floating Pirouette", 
-            6: "Infinite Pirouette", 
-            7: "Weightless Pirouette" 
+            1: "Pure Allegro", 
+            2: "Eternal Allegro", 
+            3: "Vivid Allegro", 
+            4: "Floating Pirouette", 
+            5: "Infinite Pirouette", 
+            6: "Weightless Pirouette",
+            7: "Divine Ornament" 
         }
     };
 
@@ -86,15 +86,29 @@
         container.innerHTML = '';
         document.getElementById('current-category').innerText = displayName;
         
-        let order = (githubFolder === 'acrylic') ? [1, 2, 3, 6, 4, 7, 5] : Array.from({length: count}, (_, i) => i + 1);
+        let order;
+        if (githubFolder === 'acrylic') {
+            order = [1, 2, 3, 6, 4, 7, 5];
+        } else if (githubFolder === 'mix') {
+            // ترتیب جدید: ۱ تا ۶ (بالرین‌ها) و در آخر ۷ (Divine Ornament)
+            order = [1, 2, 3, 4, 5, 6, 7];
+        } else {
+            order = Array.from({length: count}, (_, i) => i + 1);
+        }
 
         order.forEach(num => {
-            let fileName = prefix + num + ".jpg";
-            
-            if (prefix === 'marygpainting') {
+            let fileName;
+            if (githubFolder === 'mix') {
+                // اگر شماره ۷ باشد، همان فایل بدون شماره (Divine Ornament) را صدا بزن
+                if (num === 7) {
+                    fileName = "marygmixmedia.jpg";
+                } else {
+                    fileName = "marygmixmedia" + num + ".jpg";
+                }
+            } else if (prefix === 'marygpainting') {
                 fileName = (num === 1) ? "marygpainting.jpg" : "marygpainting" + (num-1) + ".jpg";
-            } else if (prefix === 'marygmixmedia') {
-                fileName = (num === 1) ? "marygmixmedia.jpg" : "marygmixmedia" + (num-1) + ".jpg";
+            } else {
+                fileName = prefix + num + ".jpg";
             }
             
             const imgPath = githubFolder + "/" + fileName;
