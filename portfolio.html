@@ -95,4 +95,65 @@
         
         let order;
         if (githubFolder === 'acrylic') {
-            order = [1, 2, 3
+            order = [1, 2, 3, 6, 4, 7, 5];
+        } else if (githubFolder === 'mix') {
+            order = [1, 2, 3, 4, 5, 6, 7];
+        } else {
+            order = Array.from({length: count}, (_, i) => i + 1);
+        }
+
+        order.forEach(num => {
+            let fileName;
+            if (githubFolder === 'mix') {
+                if (num === 7) {
+                    fileName = "marygmixmedia.jpg";
+                } else {
+                    fileName = "marygmixmedia" + num + ".jpg";
+                }
+            } else if (prefix === 'marygpainting') {
+                fileName = (num === 1) ? "marygpainting.jpg" : "marygpainting" + (num-1) + ".jpg";
+            } else {
+                fileName = prefix + num + ".jpg";
+            }
+            
+            const imgPath = githubFolder + "/" + fileName;
+            const title = (artworkDatabase[githubFolder] && artworkDatabase[githubFolder][num]) ? artworkDatabase[githubFolder][num] : "Mary G Art";
+
+            const item = document.createElement('div');
+            item.className = 'artwork-item';
+            
+            const wrapper = document.createElement('a');
+            wrapper.href = imgPath;
+            wrapper.className = 'img-wrapper';
+            wrapper.setAttribute('data-lightbox', githubFolder);
+            wrapper.setAttribute('data-title', title);
+            
+            const img = document.createElement('img');
+            img.src = imgPath;
+            img.onerror = function() { 
+                if (!this.src.endsWith(".JPG")) { this.src = this.src.replace(".jpg", ".JPG"); } 
+                else { item.style.display = 'none'; }
+            };
+
+            const info = document.createElement('div');
+            info.className = 'artwork-info';
+            info.innerHTML = `<span class="artwork-title">${title}</span>`;
+
+            wrapper.appendChild(img);
+            item.appendChild(wrapper);
+            item.appendChild(info);
+            container.appendChild(item);
+        });
+        
+        document.getElementById('folder-section').style.display = 'none';
+        document.getElementById('gallery-section').style.display = 'block';
+        window.scrollTo(0,0);
+    }
+
+    function closeGallery() {
+        document.getElementById('folder-section').style.display = 'grid';
+        document.getElementById('gallery-section').style.display = 'none';
+    }
+</script>
+</body>
+</html>
