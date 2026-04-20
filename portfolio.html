@@ -35,8 +35,6 @@
         
         .artwork-info { margin-top: 20px; text-align: center; min-height: 40px; }
         .artwork-title { color: #ffffff; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; line-height: 1.4; }
-        
-        .lb-caption, .lb-number { display: none !important; }
         footer { text-align: center; padding: 80px 20px; color: #222; font-size: 9px; letter-spacing: 4px; border-top: 1px solid #111; margin-top: 50px; text-transform: uppercase; }
     </style>
 </head>
@@ -49,7 +47,7 @@
         <div class="folder-card" onclick="openGallery('Oil Paintings', 'oil', 'marygoilpainting', 6)"><h3>Oil Paintings</h3></div>
         <div class="folder-card" onclick="openGallery('Colored Pencils', 'pencil', 'marygpainting', 3)"><h3>Colored Pencils</h3></div>
         <div class="folder-card" onclick="openGallery('Charcoal Realism', 'charcoal', 'maryghyper', 11)"><h3>Charcoal Realism</h3></div>
-        <div class="folder-card" onclick="openGallery('Graphite Realism', 'graphite', 'marygdrawing', 11)"><h3>Graphite Realism</h3></div>
+        <div class="folder-card" onclick="openGallery('Graphite Realism', 'graphite', 'marygdrawing', 11) "><h3>Graphite Realism</h3></div>
         <div class="folder-card" onclick="openGallery('Mix Media', 'mix', 'marygmixmedia', 7)"><h3>Mix Media</h3></div>
         <div class="folder-card" onclick="openGallery('Leather & Textile Painting', 'leather', 'marygleathertextilepainting', 4)"><h3>Leather & Textile Painting</h3></div>
     </div>
@@ -68,24 +66,9 @@
         'charcoal': { 1: "Hidden Soul", 2: "Metamorphosis", 3: "Dream Weavers", 4: "Urban Soul Fragments", 5: "Shadow's Touch", 6: "Whispers of Shade", 7: "Timeless Love", 8: "Shattered Focus", 9: "Mind's Shore", 10: "Penetration of Hope", 11: "Emerald Gaze" },
         'graphite': { 1: "Breathless", 2: "Desert Whisper", 3: "Dew-Kissed", 4: "Ephemeral Beauty", 5: "Eyes of Graphite", 6: "Papillon Focus", 7: "The Forbidden Fruit", 8: "Vessel of Memories", 9: "Crystal Sorrow", 10: "Deep Reflection", 11: "Catharsis" },
         'leather': { 1: "Intertwined Identities-Painting on Tote Bag", 2: "Geometric Dance-Painting on Tote Bag", 3: "Kind Teddy- Painting on T-shirt", 4: "Little Hero-Painting on T-shirt" },
-        'oil': { 
-            1: "The Eternal Silence of Pasargadae", 
-            2: "The Hearth of Heritage", 
-            3: "The Golden Alley of Memories", 
-            4: "The Paradox of Presence",
-            5: "Qabus Monolith",
-            6: "Thirty-Three Whispers" 
-        },
+        'oil': { 1: "The Eternal Silence of Pasargadae", 2: "The Hearth of Heritage", 3: "The Golden Alley of Memories", 4: "The Paradox of Presence", 5: "Qabus Monolith", 6: "Thirty-Three Whispers" },
         'pencil': { 1: "The Echo of 1000 Hours", 2: "Eternal Throne Achaemenid Glory", 3: "Vibrant Soul" },
-        'mix': { 
-            1: "Pure Allegro", 
-            2: "Eternal Allegro", 
-            3: "Vivid Allegro", 
-            4: "Floating Pirouette", 
-            5: "Infinite Pirouette", 
-            6: "Weightless Pirouette",
-            7: "Divine Ornament" 
-        }
+        'mix': { 1: "Pure Allegro", 2: "Eternal Allegro", 3: "Vivid Allegro", 4: "Floating Pirouette", 5: "Infinite Pirouette", 6: "Weightless Pirouette", 7: "Divine Ornament" }
     };
 
     function openGallery(displayName, githubFolder, prefix, count) {
@@ -93,27 +76,15 @@
         container.innerHTML = '';
         document.getElementById('current-category').innerText = displayName;
         
-        let order;
-        if (githubFolder === 'acrylic') {
-            order = [1, 2, 3, 6, 4, 7, 5];
-        } else if (githubFolder === 'mix') {
-            order = [1, 2, 3, 4, 5, 6, 7];
-        } else {
-            order = Array.from({length: count}, (_, i) => i + 1);
-        }
+        let order = Array.from({length: count}, (_, i) => i + 1);
+        if (githubFolder === 'acrylic') order = [1, 2, 3, 6, 4, 7, 5];
 
         order.forEach(num => {
-            let fileName;
+            let fileName = prefix + num + ".jpg";
             if (githubFolder === 'mix') {
-                if (num === 7) {
-                    fileName = "marygmixmedia.jpg";
-                } else {
-                    fileName = "marygmixmedia" + num + ".jpg";
-                }
+                fileName = (num === 7) ? "marygmixmedia.jpg" : "marygmixmedia" + num + ".jpg";
             } else if (prefix === 'marygpainting') {
                 fileName = (num === 1) ? "marygpainting.jpg" : "marygpainting" + (num-1) + ".jpg";
-            } else {
-                fileName = prefix + num + ".jpg";
             }
             
             const imgPath = githubFolder + "/" + fileName;
@@ -131,8 +102,11 @@
             const img = document.createElement('img');
             img.src = imgPath;
             img.onerror = function() { 
-                if (!this.src.endsWith(".JPG")) { this.src = this.src.replace(".jpg", ".JPG"); } 
-                else { item.style.display = 'none'; }
+                if (!this.src.endsWith(".JPG")) { 
+                    this.src = this.src.replace(".jpg", ".JPG"); 
+                } else { 
+                    this.closest('.artwork-item').style.display = 'none'; 
+                }
             };
 
             const info = document.createElement('div');
