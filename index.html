@@ -14,12 +14,13 @@
             background-color: #000;
             color: white;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             height: 100vh;
         }
         nav {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
+            background: rgba(5, 5, 5, 0.85);
+            padding: 25px;
+            border-bottom: 1px solid #111;
         }
         nav ul {
             list-style: none;
@@ -29,40 +30,57 @@
             padding: 0;
         }
         nav ul li {
-            margin: 0 15px;
+            margin: 0 25px;
             position: relative;
         }
         nav ul li a {
-            color: white;
+            color: #c5a059;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffffff;
         }
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: rgba(17, 17, 17, 0.9);
-            min-width: 180px;
+            background-color: rgba(10, 10, 10, 0.95);
+            min-width: 200px;
             top: 100%;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             list-style: none;
-            padding: 10px;
-            border: 1px solid #333;
+            padding: 10px 0;
+            border: 1px solid #1a1a1a;
+            margin-top: 10px;
         }
         .dropdown:hover .dropdown-content {
             display: block;
         }
         .dropdown-content li {
-            padding: 10px 5px;
-            border-bottom: 1px solid #222;
+            margin: 0;
+            padding: 0;
         }
         .dropdown-content li a {
-            font-size: 14px;
-            color: #ccc;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #aa843d;
             display: block;
+            padding: 12px 20px;
             text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            border-bottom: 1px solid #111;
+        }
+        .dropdown-content li:last-child a {
+            border-bottom: none;
         }
         .dropdown-content li a:hover {
-            color: white;
+            color: #ffffff;
+            background: #111;
         }
     </style>
 </head>
@@ -72,7 +90,7 @@
     <ul>
         <li><a href="portfolio.html">PORTFOLIO</a></li>
         <li class="dropdown">
-            <a href="#" style="color: white; text-decoration: none;">SHOP</a>
+            <a href="#">SHOP</a>
             <ul class="dropdown-content">
                 <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a></li>
                 <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a></li>
