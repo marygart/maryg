@@ -3,102 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Mary G. Fine Art</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Contact - Mary G Art</title>
     <style>
-        body { background-color: #050505; color: #fff; font-family: 'Inter', Arial, sans-serif; margin: 0; padding-top: 100px; }
-        nav { position: fixed; top: 0; width: 100%; background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(15px); border-bottom: 1px solid #1a1a1a; z-index: 1000; }
-        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; }
-        .logo-box { display: flex; align-items: center; gap: 15px; text-decoration: none; color: #fff; }
-        .logo-img { height: 50px; width: 50px; border-radius: 4px; object-fit: cover; }
-        .nav-links a { color: #aaa; text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; }
-        
-        .contact-section { max-width: 900px; margin: 100px auto; text-align: center; padding: 0 20px; }
-        h2 { font-weight: 200; letter-spacing: 12px; text-transform: uppercase; font-size: 2.2em; margin-bottom: 20px; color: #fff; }
-        .line { width: 50px; height: 1px; background: #c5a059; margin: 0 auto 50px auto; }
-        
-        .contact-info { margin-bottom: 60px; font-size: 16px; color: #888; letter-spacing: 2px; line-height: 2; text-transform: uppercase; font-weight: 300; }
-        
-        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 600px; margin: 0 auto; }
-        
-        .social-item { 
-            color: #fff; 
-            text-decoration: none; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 20px; 
-            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        body {
+            background-color: #000;
+            color: white;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-
-        .social-item i { font-size: 35px; transition: all 0.4s ease; color: #ffffff; }
-        .social-item span { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: #555; transition: all 0.4s ease; }
-
-        .social-item:hover { transform: translateY(-12px); }
-        .social-item:hover span { color: #fff; letter-spacing: 5px; }
-
-        /* Brand Colors on Hover */
-        .social-item:hover .fa-instagram { color: #E1306C; text-shadow: 0 0 20px rgba(225, 48, 108, 0.5); }
-        .social-item:hover .fa-x-twitter { color: #fff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
-        .social-item:hover .fa-whatsapp { color: #25D366; text-shadow: 0 0 20px rgba(37, 211, 102, 0.5); }
-        .social-item:hover .fa-pinterest { color: #BD081C; text-shadow: 0 0 20px rgba(189, 8, 28, 0.5); }
-        .social-item:hover .fa-gem { color: #FEDA03; text-shadow: 0 0 20px rgba(254, 218, 3, 0.5); }
-        .social-item:hover .fa-envelope { color: #EA4335; text-shadow: 0 0 20px rgba(234, 67, 53, 0.5); } /* Gmail Red Color */
-
-        footer { position: fixed; bottom: 0; width: 100%; text-align: center; padding: 40px 0; color: #222; font-size: 10px; letter-spacing: 3px; }
-
-        @media (max-width: 600px) {
-            .social-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-            h2 { font-size: 1.6em; letter-spacing: 6px; }
-            footer { position: relative; margin-top: 50px; }
+        nav {
+            background: rgba(5, 5, 5, 0.85);
+            padding: 25px;
+            border-bottom: 1px solid #111;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 25px;
+            position: relative;
+        }
+        nav ul li a {
+            color: #c5a059;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffffff;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(10, 10, 10, 0.95);
+            min-width: 200px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            list-style: none;
+            padding: 10px 0;
+            border: 1px solid #1a1a1a;
+            margin-top: 10px;
+            z-index: 10;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content li {
+            margin: 0;
+            padding: 0;
+        }
+        .dropdown-content li a {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #aa843d;
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            border-bottom: 1px solid #111;
+        }
+        .dropdown-content li:last-child a {
+            border-bottom: none;
+        }
+        .dropdown-content li a:hover {
+            color: #ffffff;
+            background: #111;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 32px;
+            letter-spacing: 7px;
+            margin-bottom: 20px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+        }
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .social-item {
+            text-decoration: none;
+            color: #fff;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .social-item:hover {
+            color: #c5a059;
+        }
+        .social-item svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+            margin-bottom: 15px;
+        }
+        .social-item span {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #444;
+            transition: 0.3s;
+        }
+        .social-item:hover span {
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo-box">
-                <img src="maryglogo.jpg" alt="Logo" class="logo-img">
-                <span style="letter-spacing: 4px; font-size: 16px; font-weight: 200;">MARY G.</span>
-            </a>
-            <div class="nav-links">
-                <a href="portfolio.html">Portfolio</a>
-                <a href="about-mary.html">About Mary G.</a>
-                <a href="commissions.html">Commissions</a>
-                <a href="contact.html" style="color: #fff;">Contact</a>
-            </div>
-        </div>
-    </nav>
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="portfolio.html">PORTFOLIO</a></li>
+        <li class="dropdown">
+            <a href="#">SHOP</a>
+            <ul class="dropdown-content">
+                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a></li>
+                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a></li>
+                <li><a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a></li>
+            </ul>
+        </li>
+        <li><a href="about-mary.html">ABOUT</a></li>
+        <li><a href="videos.html">VIDEOS</a></li>
+        <li><a href="press.html">PRESS</a></li>
+        <li><a href="commissions.html">COMMISSIONS</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+</nav>
 
-    <div class="contact-section">
-        <h2>Get In Touch</h2>
-        <div class="line"></div>
-        <p class="contact-info">Available for International Commissions & Fine Art Projects</p>
-        
-        <div class="social-grid">
-            <a href="https://www.instagram.com/maryg.paints" target="_blank" class="social-item">
-                <i class="fab fa-instagram"></i><span>Instagram</span>
-            </a>
-            <a href="https://x.com/Maryggallery" target="_blank" class="social-item">
-                <i class="fab fa-x-twitter"></i><span>Twitter</span>
-            </a>
-            <a href="https://wa.me/971509551870?text=Hello,%20I%20would%20like%20to%20discuss%20a%20custom%20painting%20project." target="_blank" class="social-item">
-                <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
-            </a>
-            <a href="https://pin.it/1d76J0Bn9" target="_blank" class="social-item">
-                <i class="fab fa-pinterest"></i><span>Pinterest</span>
-            </a>
-            <a href="https://og.rarible.com/user/0x78c58c0ce1a7d77abab3ff02ebb74311a42146e8" target="_blank" class="social-item">
-                <i class="fas fa-gem"></i><span>NFT Shop</span>
-            </a>
-            <a href="mailto:maryg.art2022@gmail.com" class="social-item">
-                <i class="far fa-envelope"></i><span>Email</span>
-            </a>
-        </div>
+<div class="container">
+    <h1>GET IN TOUCH</h1>
+    <div class="subtitle">AVAILABLE FOR INTERNATIONAL COMMISSIONS & FINE ART PROJECTS</div>
+    
+    <div class="social-grid">
+        <a href="https://www.instagram.com/maryg.art/" target="_blank" class="social-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span>Instagram</span>
+        </a>
+        <a href="https://x.com/marygart" target="_blank" class="social-item">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>Twitter</span>
+        </a>
+        <a href="https://wa.me/971569115783" target="_blank" class="social-item">
+            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.454L0 24zm6.59-3.571c1.6.95 3.197 1.451 4.819 1.452 5.518 0 10.006-4.49 10.009-10.01.002-2.674-1.03-5.188-2.907-7.067-1.879-1.879-4.394-2.91-7.067-2.911-5.52 0-10.008 4.491-10.012 10.01-.001 1.708.461 3.375 1.337 4.843l-.991 3.618 3.71-.973zm11.378-6.9c-.312-.156-1.847-.91-2.128-1.012-.282-.101-.487-.156-.692.156-.204.311-.79.997-.968 1.201-.179.204-.359.227-.671.071-.312-.156-1.316-.485-2.507-1.548-.927-.827-1.552-1.849-1.733-2.16-.18-.312-.019-.48.137-.635.141-.14.312-.364.468-.546.156-.182.208-.312.312-.52.104-.207.052-.39-.026-.546-.078-.156-.692-1.666-.949-2.285-.25-.601-.504-.52-.692-.53-.178-.008-.383-.01-.588-.01-.205 0-.538.077-.82.387-.282.311-1.076 1.051-1.076 2.561s1.1 3.064 1.254 3.272c.154.208 2.165 3.306 5.244 4.635.733.316 1.305.505 1.751.647.737.233 1.408.2 1.938.12.59-.09 1.847-.754 2.109-1.443.262-.689.262-1.278.184-1.403-.077-.125-.282-.201-.594-.358z"/></svg>
+            <span>WhatsApp</span>
+        </a>
+        <a href="https://www.pinterest.com/marygart/" target="_blank" class="social-item">
+            <svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.965 1.406-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.204 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.622 0 11.988-5.366 11.988-11.987C24.005 5.367 18.639 0 12.017 0z"/></svg>
+            <span>Pinterest</span>
+        </a>
+        <a href="https://opensea.io/MaryG_Art" target="_blank" class="social-item">
+            <svg viewBox="0 0 24 24"><path d="M2.25 1h19.5c.69 0 1.25.56 1.25 1.25v19.5c0 .69-.56 1.25-1.25 1.25H2.25A1.25 1.25 0 0 1 1 21.75V2.25C1 1.56 1.56 1 2.25 1zm10.22 3.78c-2.6 0-4.84 1.51-5.89 3.72l1.66.79c.74-1.55 2.32-2.61 4.23-2.61 2.54 0 4.6 2.06 4.6 4.6 0 1.91-1.06 3.49-2.61 4.23l.79 1.66c2.21-1.05 3.72-3.29 3.72-5.89 0-3.59-2.91-6.5-6.5-6.5zm-3.03 5.44c-.45 0-.81.36-.81.81 0 .45.36.81.81.81.45 0 .81-.36.81-.81 0-.45-.36-.81-.81-.81z"/></svg>
+            <span>NFT Shop</span>
+        </a>
+        <a href="mailto:marygamizi@gmail.com" class="social-item">
+            <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+            <span>Email</span>
+        </a>
     </div>
-
-    <footer>© 2026 MARY G. FINE ART</footer>
+</div>
 
 </body>
 </html>
