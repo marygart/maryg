@@ -7,83 +7,44 @@
     <style>
         body { background-color: #050505; color: #fff; font-family: 'Inter', Arial, sans-serif; margin: 0; line-height: 1.8; padding-top: 100px; }
         
-        nav { position: fixed; top: 0; width: 100%; background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid #1a1a1a; z-index: 1000; }
-        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; }
+        /* منوی اصلاح شده و یکدست */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(5, 5, 5, 0.98); border-bottom: 1px solid #1a1a1a; z-index: 1000; padding: 15px 0; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 25px; }
         .logo { text-decoration: none; color: #fff; letter-spacing: 4px; font-weight: 200; font-size: 1.2em; }
-        .nav-links a { color: #888; text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; transition: 0.3s; }
+        .nav-links { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; }
+        .nav-links li { margin-left: 30px; position: relative; }
+        .nav-links a { color: #888; text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
         .nav-links a:hover { color: #c5a059; }
+        
+        /* منوی کشویی SHOP */
+        .dropdown-content { display: none; position: absolute; background-color: #0a0a0a; min-width: 150px; border: 1px solid #1a1a1a; top: 100%; left: 0; padding: 10px 0; z-index: 1001; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a { display: block; padding: 8px 15px; font-size: 10px; }
 
         .container { max-width: 1100px; margin: 80px auto; padding: 0 25px; }
-        
         .header-section { text-align: center; margin-bottom: 100px; }
         h1 { font-weight: 200; letter-spacing: 15px; text-transform: uppercase; font-size: 3em; margin-bottom: 20px; }
-        .subtitle { color: #c5a059; font-style: normal; letter-spacing: 4px; text-transform: uppercase; font-size: 12px; }
+        .subtitle { color: #c5a059; letter-spacing: 4px; text-transform: uppercase; font-size: 12px; }
 
-        /* Specialty Cards */
         .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 120px; }
-        .spec-card { 
-            border: 1px solid #1a1a1a; 
-            padding: 40px; 
-            text-align: center; 
-            transition: all 0.5s ease;
-            background: #080808;
-        }
-        .spec-card:hover { 
-            border-color: #c5a059; 
-            box-shadow: 0 0 30px rgba(197, 160, 89, 0.1);
-            transform: translateY(-10px);
-        }
-        .spec-card h3 { font-weight: 300; letter-spacing: 4px; text-transform: uppercase; font-size: 16px; color: #fff; margin-bottom: 20px; }
-        .spec-card p { color: #888; font-size: 13px; font-weight: 300; }
+        .spec-card { border: 1px solid #1a1a1a; padding: 40px; text-align: center; background: #080808; transition: 0.5s; }
+        .spec-card:hover { border-color: #c5a059; transform: translateY(-10px); }
+        .spec-card h3 { font-weight: 300; letter-spacing: 4px; text-transform: uppercase; font-size: 16px; margin-bottom: 20px; }
+        .spec-card p { color: #888; font-size: 13px; }
 
-        /* Sizes & Process Section */
         .info-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 100px; border-top: 1px solid #1a1a1a; padding-top: 80px; }
-        h2 { font-weight: 200; letter-spacing: 6px; text-transform: uppercase; font-size: 20px; margin-bottom: 40px; color: #fff; }
-        
+        h2 { font-weight: 200; letter-spacing: 6px; text-transform: uppercase; font-size: 20px; margin-bottom: 40px; }
         .size-list, .process-list { list-style: none; padding: 0; }
-        .size-list li { margin-bottom: 35px; border-left: 2px solid #1a1a1a; padding-left: 20px; transition: 0.3s; }
-        .size-list li:hover { border-left-color: #c5a059; }
-        .size-list li strong { color: #c5a059; display: block; text-transform: uppercase; font-size: 13px; letter-spacing: 2px; margin-bottom: 5px; }
-        .size-list li span { color: #777; font-size: 14px; }
-
-        /* Numbered Process Style */
+        .size-list li { margin-bottom: 35px; border-left: 2px solid #1a1a1a; padding-left: 20px; }
+        .size-list li strong { color: #c5a059; display: block; text-transform: uppercase; font-size: 13px; letter-spacing: 2px; }
         .process-list li { position: relative; margin-bottom: 35px; padding-left: 50px; }
-        .process-list li::before { 
-            content: attr(data-step); 
-            position: absolute; 
-            left: 0; 
-            top: 0; 
-            color: #c5a059; 
-            font-size: 24px; 
-            font-weight: 200; 
-            line-height: 1;
-        }
-        .process-list li strong { color: #fff; display: block; text-transform: uppercase; font-size: 13px; letter-spacing: 2px; margin-bottom: 5px; }
-        .process-list li span { color: #777; font-size: 14px; }
-
-        /* CTA Section */
-        .cta-box { text-align: center; padding: 80px 40px; background: #080808; border: 1px solid #1a1a1a; border-radius: 4px; }
-        .cta-button { 
-            display: inline-block; 
-            padding: 20px 60px; 
-            border: 1px solid #c5a059; 
-            color: #c5a059; 
-            text-decoration: none; 
-            font-size: 12px; 
-            letter-spacing: 5px; 
-            text-transform: uppercase; 
-            transition: all 0.4s ease;
-            background: transparent;
-        }
-        .cta-button:hover { background: #c5a059; color: #000; box-shadow: 0 0 20px rgba(197, 160, 89, 0.4); }
-
+        .process-list li::before { content: attr(data-step); position: absolute; left: 0; color: #c5a059; font-size: 24px; font-weight: 200; }
+        
+        .cta-box { text-align: center; padding: 80px 40px; background: #080808; border: 1px solid #1a1a1a; }
+        .cta-button { display: inline-block; padding: 20px 60px; border: 1px solid #c5a059; color: #c5a059; text-decoration: none; font-size: 12px; letter-spacing: 5px; text-transform: uppercase; transition: 0.4s; }
+        .cta-button:hover { background: #c5a059; color: #000; }
+        
         footer { text-align: center; padding: 60px; color: #222; font-size: 10px; letter-spacing: 3px; }
-
-        @media (max-width: 850px) {
-            .info-section { grid-template-columns: 1fr; gap: 60px; }
-            h1 { font-size: 2em; letter-spacing: 8px; }
-            .nav-links { display: none; }
-        }
     </style>
 </head>
 <body>
@@ -91,12 +52,23 @@
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">MARY G.</a>
-            <div class="nav-links">
-                <a href="portfolio.html">Portfolio</a>
-                <a href="about-mary.html">About</a>
-                <a href="commissions.html" style="color: #c5a059;">Commissions</a>
-                <a href="contact.html">Contact</a>
-            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="portfolio.html">PORTFOLIO</a></li>
+                <li class="dropdown">
+                    <a href="#">SHOP</a>
+                    <div class="dropdown-content">
+                        <a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a>
+                        <a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a>
+                        <a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a>
+                    </div>
+                </li>
+                <li><a href="about-mary.html">ABOUT</a></li>
+                <li><a href="videos.html">VIDEOS</a></li>
+                <li><a href="press.html">PRESS</a></li>
+                <li><a href="commissions.html" style="color: #c5a059;">COMMISSIONS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -125,50 +97,28 @@
             <div class="sizes">
                 <h2>Available Sizes</h2>
                 <ul class="size-list">
-                    <li>
-                        <strong>Standard (A3 / 30x40 cm)</strong>
-                        <span>Ideal for intimate portraits and personal gifts.</span>
-                    </li>
-                    <li>
-                        <strong>Medium (50x70 cm)</strong>
-                        <span>A sophisticated statement piece for high-end interior decor.</span>
-                    </li>
-                    <li>
-                        <strong>Collector (Custom Large)</strong>
-                        <span>Bespoke dimensions for large-scale museum quality impact.</span>
-                    </li>
+                    <li><strong>Standard (A3 / 30x40 cm)</strong><span>Ideal for intimate portraits and personal gifts.</span></li>
+                    <li><strong>Medium (50x70 cm)</strong><span>A sophisticated statement piece for high-end interior decor.</span></li>
+                    <li><strong>Collector (Custom Large)</strong><span>Bespoke dimensions for large-scale museum quality impact.</span></li>
                 </ul>
             </div>
             <div class="process">
                 <h2>The Process</h2>
                 <ul class="process-list">
-                    <li data-step="1">
-                        <strong>Consultation</strong>
-                        <span>In-depth discussion of reference photos and creative direction.</span>
-                    </li>
-                    <li data-step="2">
-                        <strong>Reservation</strong>
-                        <span>Securing your position in the studio calendar with a formal deposit.</span>
-                    </li>
-                    <li data-step="3">
-                        <strong>Execution</strong>
-                        <span>Meticulous handcrafting of your piece using premium archival materials.</span>
-                    </li>
-                    <li data-step="4">
-                        <strong>Delivery</strong>
-                        <span>Insured worldwide shipping with professional museum-grade packaging.</span>
-                    </li>
+                    <li data-step="1"><strong>Consultation</strong><span>In-depth discussion of reference photos and creative direction.</span></li>
+                    <li data-step="2"><strong>Reservation</strong><span>Securing your position in the studio calendar with a formal deposit.</span></li>
+                    <li data-step="3"><strong>Execution</strong><span>Meticulous handcrafting of your piece using premium archival materials.</span></li>
+                    <li data-step="4"><strong>Delivery</strong><span>Insured worldwide shipping with professional museum-grade packaging.</span></li>
                 </ul>
             </div>
         </div>
 
         <div class="cta-box">
-            <p style="color: #666; margin-bottom: 40px; letter-spacing: 2px; text-transform: uppercase; font-size: 11px;">Every project is a unique collaboration.</p>
             <a href="contact.html" class="cta-button">Inquire for Pricing</a>
         </div>
     </div>
 
-    <footer>© 2026 MARY G. FINE ART | DUBAI, UAE</footer>
+    <footer>© 2026 MARY G. FINE ART</footer>
 
 </body>
 </html>
