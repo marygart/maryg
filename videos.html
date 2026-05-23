@@ -81,10 +81,12 @@
             background: #111;
         }
         .container {
-            max-width: 900px;
-            margin: 60px auto;
+            width: 100%;
+            max-width: 1000px;
+            margin: 40px auto;
             padding: 0 20px;
             text-align: center;
+            box-sizing: border-box;
             flex-grow: 1;
         }
         h1 {
@@ -95,9 +97,14 @@
             margin-bottom: 40px;
             font-weight: 400;
         }
+        .video-container {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+        }
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
             border: 1px solid #1a1a1a;
@@ -118,6 +125,7 @@
 
 <nav>
     <ul>
+        <li><a href="index.html">HOME</a></li>
         <li><a href="portfolio.html">PORTFOLIO</a></li>
         <li class="dropdown">
             <a href="#">SHOP</a>
@@ -137,8 +145,10 @@
 
 <div class="container">
     <h1>Art Process & Creation</h1>
-    <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/C0b-ghXVI4M" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="video-container">
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/C0b-ghXVI4M" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </div>
 </div>
 
