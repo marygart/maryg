@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press & Publications | Mary G</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .logo {
+            font-size: 24px;
+            letter-spacing: 4px;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a {
+            color: #aaaaaa;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+        nav a:hover, nav a.active {
+            color: #d4af37;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .page-title {
+            text-align: center;
+            font-size: 28px;
+            letter-spacing: 3px;
+            color: #ffffff;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+        .press-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .press-card {
+            background-color: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .press-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+        }
+        .card-img-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background-color: #111111;
+        }
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .press-card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+        .card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-source {
+            font-size: 12px;
+            color: #d4af37;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-size: 18px;
+            line-height: 1.4;
+            margin: 0 0 15px 0;
+            font-weight: 400;
+            color: #ffffff;
+        }
+        .card-text {
+            font-size: 14px;
+            color: #888888;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+            flex-grow: 1;
+        }
+        .card-link {
+            align-self: flex-start;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #d4af37;
+            padding-bottom: 2px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .card-link:hover {
+            color: #d4af37;
+            border-color: #ffffff;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #555555;
+            font-size: 12px;
+            letter-spacing: 1px;
+            border-top: 1px solid #1a1a1a;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">MARY G</a>
+        <nav>
+            <a href="index.html">PORTFOLIO</a>
+            <a href="shop.html">SHOP</a>
+            <a href="press.html" class="active">PRESS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">PRESS & PUBLICATIONS</h1>
+        
+        <div class="press-grid">
+            
+            <div class="press-card">
+                <div class="card-img-container">
+                    <img src="Contemporary Artists of Iran-Front.jpg" alt="Contemporary Artists of Iran Book Cover">
+                </div>
+                <div class="card-content">
+                    <div class="card-source">Book Publication</div>
+                    <h2 class="card-title">Contemporary Artists of Iran (2021)</h2>
+                    <p class="card-text">Featured artist in the prestigious annual encyclopedia of contemporary Iranian art, documenting selected portfolio pieces. National Bibliography of Iran: 8713142.</p>
+                    <span class="card-link" style="border: none; color: #555;">Official Fine Art Registry</span>
+                </div>
+            </div>
+
+            <div class="press-card">
+                <div class="card-img-container">
+                    <img src="Press Issuewire.jpg" alt="IssueWire Press Release">
+                </div>
+                <div class="card-content">
+                    <div class="card-source">IssueWire • April 11, 2026</div>
+                    <h2 class="card-title">Professional Artist Mary G Unveils New Collection of Hyper-Realistic Masterpieces</h2>
+                    <p class="card-text">An in-depth media coverage detailing the launch of the latest collection, showcasing a profound mastery of diverse styles across oil, charcoal, and graphite.</p>
+                    <a href="https://www.issuewire.com/professional-artist-mary-g-unveils-new-collection-of-hyper-realistic-masterpieces-1862170352636703" target="_blank" class="card-link">Read Full Article</a>
+                </div>
+            </div>
+
+            <div class="press-card">
+                <div class="card-img-container">
+                    <img src="Press Medium.jpg" alt="Medium Art Article">
+                </div>
+                <div class="card-content">
+                    <div class="card-source">Medium Editorial</div>
+                    <h2 class="card-title">She Was 30 When She Picked Up A PaintBrush — What Happened Next Will Change How You See “Too Late” Forever</h2>
+                    <p class="card-text">An evocative feature article sharing the artistic evolution, the conceptual depth behind traditional portraiture, and the dedication to cultural heritage.</p>
+                    <a href="https://medium.com/@marygart.github.io/a-rainy-evening-a-forgotten-dream-and-a-quiet-decision-that-turned-into-a-voice-for-thousands-of-be108013880c" target="_blank" class="card-link">Read Story</a>
+                </div>
+            </div>
+
+            <div class="press-card">
+                <div class="card-img-container">
+                    <img src="press PR.jpg" alt="PR.com Global Press Release">
+                </div>
+                <div class="card-content">
+                    <div class="card-source">PR.com • May 15, 2026</div>
+                    <h2 class="card-title">Professional Artist Mary G Unveils New Hyper-Realistic and Oil Painting Collection</h2>
+                    <p class="card-text">International press release announcing the digital showcase, emphasizing the intricate details bridging reality and emotional artistic expressions on major global platforms.</p>
+                    <a href="https://www.pr.com/press-release/911956" target="_blank" class="card-link">Read Announcement</a>
+                </div>
+            </div>
+
+            <div class="press-card">
+                <div class="card-img-container">
+                    <img src="Press Serbia.jpg" alt="Kreativna Srbija Interview">
+                </div>
+                <div class="card-content">
+                    <div class="card-source">Kreativna Srbija Interview</div>
+                    <h2 class="card-title">Mary G – iranska umetnica koja je svoj glas pronašla tek sa 30 godina</h2>
+                    <p class="card-text">An exclusive international feature interview highlighting the balance between technical precision, vulnerability, and the ongoing global project "Woman and Culture".</p>
+                    <a href="https://kreativnasrbija.rs/mary-g-iranska-umetnica-koja-je-svoj-glas-pronasla-tek-sa-30-godina/" target="_blank" class="card-link">View Interview</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mary G Art. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
