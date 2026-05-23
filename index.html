@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="U-lbOAonaxe1R14M7Eq2ZTzJVawyFQ7YX38xQ2228-4" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videos - Mary G Art</title>
+    <title>Mary G Art</title>
     <style>
         body {
+            background-image: url('home.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             background-color: #000;
             color: white;
             margin: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            height: 100vh;
         }
         nav {
             background: rgba(5, 5, 5, 0.85);
@@ -53,7 +56,6 @@
             padding: 10px 0;
             border: 1px solid #1a1a1a;
             margin-top: 10px;
-            z-index: 10;
         }
         .dropdown:hover .dropdown-content {
             display: block;
@@ -80,38 +82,6 @@
             color: #ffffff;
             background: #111;
         }
-        .container {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 0 20px;
-            text-align: center;
-            flex-grow: 1;
-        }
-        h1 {
-            color: #c5a059;
-            font-size: 24px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border: 1px solid #1a1a1a;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background: #050505;
-        }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
     </style>
 </head>
 <body>
@@ -135,13 +105,6 @@
         <li><a href="contact.html">CONTACT</a></li>
     </ul>
 </nav>
-
-<div class="container">
-    <h1>Art Process & Creation</h1>
-    <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/C0b-ghXVI4M" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-</div>
 
 </body>
 </html>
