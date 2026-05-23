@@ -7,9 +7,23 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
     <style>
         body { background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
-        nav { padding: 40px; text-align: center; border-bottom: 1px solid #111; }
-        nav a { color: #555; text-decoration: none; margin: 0 20px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: #c5a059; }
+        
+        /* اصلاح منوی ناوبری برای اضافه شدن تمام گزینه‌ها به صورت افقی و کشویی */
+        nav { padding: 40px; text-align: center; border-bottom: 1px solid #111; display: flex; justify-content: center; align-items: center; }
+        .nav-links { display: flex; align-items: center; justify-content: center; list-style: none; padding: 0; margin: 0; }
+        .nav-links li { margin: 0; position: relative; }
+        .nav-links a { color: #555; text-decoration: none; margin: 0 20px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #c5a059; }
+        
+        /* استایل منوی کشویی فروشگاه هماهنگ با طراحی صفحه پورتفولیو */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: rgba(10, 10, 10, 0.98); min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1001; top: 100%; left: 50%; transform: translateX(-50%); border: 1px solid #111; padding: 5px 0; margin-top: 10px; list-style: none; }
+        .dropdown-content li { width: 100%; }
+        .dropdown-content a { color: #555; padding: 10px 15px; text-decoration: none; display: block; font-size: 10px; letter-spacing: 1px; margin: 0; text-transform: uppercase; border-bottom: 1px solid #111; text-align: center; }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { color: #fff; background-color: #111; }
+        .dropdown:hover .dropdown-content { display: block; }
+
         .container { max-width: 1400px; margin: 60px auto; padding: 0 40px; }
         header h1 { text-align: center; font-weight: 100; letter-spacing: 12px; margin-bottom: 80px; text-transform: uppercase; font-size: 24px; color: #fff; }
         
@@ -34,100 +48,4 @@
         .artwork-item:hover .img-wrapper { border-color: #c5a059; transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
         
         .artwork-info { margin-top: 20px; text-align: center; min-height: 40px; }
-        .artwork-title { color: #ffffff; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; line-height: 1.4; }
-        footer { text-align: center; padding: 80px 20px; color: #222; font-size: 9px; letter-spacing: 4px; border-top: 1px solid #111; margin-top: 50px; text-transform: uppercase; }
-    </style>
-</head>
-<body>
-<nav><a href="index.html">HOME</a><a href="portfolio.html" style="color:#fff">PORTFOLIO</a></nav>
-<div class="container">
-    <header><h1>MARY G ART</h1></header>
-    <div id="folder-section">
-        <div class="folder-card" onclick="openGallery('Acrylic Paintings', 'acrylic', 'marygacrylic', 7)"><h3>Acrylic Paintings</h3></div>
-        <div class="folder-card" onclick="openGallery('Oil Paintings', 'oil', 'marygoilpainting', 6)"><h3>Oil Paintings</h3></div>
-        <div class="folder-card" onclick="openGallery('Colored Pencils', 'pencil', 'marygpainting', 3)"><h3>Colored Pencils</h3></div>
-        <div class="folder-card" onclick="openGallery('Charcoal Realism', 'charcoal', 'maryghyper', 11)"><h3>Charcoal Realism</h3></div>
-        <div class="folder-card" onclick="openGallery('Graphite Realism', 'graphite', 'marygdrawing', 11) "><h3>Graphite Realism</h3></div>
-        <div class="folder-card" onclick="openGallery('Mix Media', 'mix', 'marygmixmedia', 7)"><h3>Mix Media</h3></div>
-        <div class="folder-card" onclick="openGallery('Leather & Textile Painting', 'leather', 'marygleathertextilepainting', 4)"><h3>Leather & Textile Painting</h3></div>
-    </div>
-    <div id="gallery-section">
-        <div class="back-bar"><div class="back-btn" onclick="closeGallery()">← BACK</div><h2 id="current-category"></h2><div style="width:100px"></div></div>
-        <div class="gallery-grid" id="image-container"></div>
-    </div>
-</div>
-<footer>© 2026 MARY G. FINE ART</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-<script>
-    const artworkDatabase = {
-        'acrylic': { 1: "Celestial Grace", 2: "Rhythms of Fire", 3: "The Blue Symphony", 4: "African Heritage", 5: "The Crimson Silence", 6: "Intertwined Identities", 7: "Geometric Dance" },
-        'charcoal': { 1: "Hidden Soul", 2: "Metamorphosis", 3: "Dream Weavers", 4: "Urban Soul Fragments", 5: "Shadow's Touch", 6: "Whispers of Shade", 7: "Timeless Love", 8: "Shattered Focus", 9: "Mind's Shore", 10: "Penetration of Hope", 11: "Emerald Gaze" },
-        'graphite': { 1: "Breathless", 2: "Desert Whisper", 3: "Dew-Kissed", 4: "Ephemeral Beauty", 5: "Eyes of Graphite", 6: "Papillon Focus", 7: "The Forbidden Fruit", 8: "Vessel of Memories", 9: "Crystal Sorrow", 10: "Deep Reflection", 11: "Catharsis" },
-        'leather': { 1: "Intertwined Identities-Painting on Tote Bag", 2: "Geometric Dance-Painting on Tote Bag", 3: "Kind Teddy- Painting on T-shirt", 4: "Little Hero-Painting on T-shirt" },
-        'oil': { 1: "The Eternal Silence of Pasargadae", 2: "The Hearth of Heritage", 3: "The Golden Alley of Memories", 4: "The Paradox of Presence", 5: "Qabus Monolith", 6: "Thirty-Three Whispers" },
-        'pencil': { 1: "The Echo of 1000 Hours", 2: "Eternal Throne Achaemenid Glory", 3: "Vibrant Soul" },
-        'mix': { 1: "Pure Allegro", 2: "Eternal Allegro", 3: "Vivid Allegro", 4: "Floating Pirouette", 5: "Infinite Pirouette", 6: "Weightless Pirouette", 7: "Divine Ornament" }
-    };
-
-    function openGallery(displayName, githubFolder, prefix, count) {
-        const container = document.getElementById('image-container');
-        container.innerHTML = '';
-        document.getElementById('current-category').innerText = displayName;
-        
-        let order = Array.from({length: count}, (_, i) => i + 1);
-        if (githubFolder === 'acrylic') order = [1, 2, 3, 6, 4, 7, 5];
-
-        order.forEach(num => {
-            let fileName = prefix + num + ".jpg";
-            if (githubFolder === 'mix') {
-                fileName = (num === 7) ? "marygmixmedia.jpg" : "marygmixmedia" + num + ".jpg";
-            } else if (prefix === 'marygpainting') {
-                fileName = (num === 1) ? "marygpainting.jpg" : "marygpainting" + (num-1) + ".jpg";
-            }
-            
-            const imgPath = githubFolder + "/" + fileName;
-            const title = (artworkDatabase[githubFolder] && artworkDatabase[githubFolder][num]) ? artworkDatabase[githubFolder][num] : "Mary G Art";
-
-            const item = document.createElement('div');
-            item.className = 'artwork-item';
-            
-            const wrapper = document.createElement('a');
-            wrapper.href = imgPath;
-            wrapper.className = 'img-wrapper';
-            wrapper.setAttribute('data-lightbox', githubFolder);
-            wrapper.setAttribute('data-title', title);
-            
-            const img = document.createElement('img');
-            img.src = imgPath;
-            img.onerror = function() { 
-                if (!this.src.endsWith(".JPG")) { 
-                    this.src = this.src.replace(".jpg", ".JPG"); 
-                } else { 
-                    this.closest('.artwork-item').style.display = 'none'; 
-                }
-            };
-
-            const info = document.createElement('div');
-            info.className = 'artwork-info';
-            info.innerHTML = `<span class="artwork-title">${title}</span>`;
-
-            wrapper.appendChild(img);
-            item.appendChild(wrapper);
-            item.appendChild(info);
-            container.appendChild(item);
-        });
-        
-        document.getElementById('folder-section').style.display = 'none';
-        document.getElementById('gallery-section').style.display = 'block';
-        window.scrollTo(0,0);
-    }
-
-    function closeGallery() {
-        document.getElementById('folder-section').style.display = 'grid';
-        document.getElementById('gallery-section').style.display = 'none';
-    }
-</script>
-</body>
-</html>
+        .artwork-title
