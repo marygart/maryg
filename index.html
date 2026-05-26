@@ -7,20 +7,19 @@
     <title>Mary G Art</title>
     <style>
         body {
-            background-image: url('home.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             background-color: #000;
             color: white;
             margin: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
             height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         nav {
             background: rgba(5, 5, 5, 0.85);
             padding: 25px;
             border-bottom: 1px solid #111;
+            z-index: 10;
         }
         nav ul {
             list-style: none;
@@ -82,6 +81,49 @@
             color: #ffffff;
             background: #111;
         }
+        
+        /* Slider Styles */
+        .slider-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: #000;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: #c5a059;
+            padding: 15px 20px;
+            border: 1px solid #222;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 5;
+            transition: 0.3s;
+        }
+        .arrow:hover {
+            background: rgba(197, 160, 89, 0.9);
+            color: black;
+        }
+        .prev { left: 20px; }
+        .next { right: 20px; }
     </style>
 </head>
 <body>
@@ -105,6 +147,35 @@
         <li><a href="contact.html">CONTACT</a></li>
     </ul>
 </nav>
+
+<div class="slider-container">
+    <div class="slide active" style="background-image: url('marygpainting.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting1.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting2.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting3.JPG');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting4.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting5.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting6.jpg');"></div>
+    
+    <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function changeSlide(direction) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    // چرخش خودکار دقیقاً روی ۲ ثانیه
+    setInterval(() => {
+        changeSlide(1);
+    }, 2000);
+</script>
 
 </body>
 </html>
