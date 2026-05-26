@@ -73,7 +73,7 @@
         }
         .dropdown-content li:last-child a { border-bottom: none; }
         
-        /* Slider Styles - Fixed Zoom & Black Screen */
+        /* Slider Styles */
         .slider-container {
             flex: 1;
             position: relative;
@@ -88,7 +88,6 @@
             height: 100%;
             opacity: 0;
             transition: opacity 1s ease-in-out;
-            /* تغییر به contain برای جلوگیری از زوم و تغییر شکل */
             background-size: contain; 
             background-repeat: no-repeat;
             background-position: center;
@@ -142,7 +141,7 @@
     <div class="slide" style="background-image: url('oil/marygoilpainting2.jpg');"></div>
     <div class="slide" style="background-image: url('oil/marygoilpainting3.JPG');"></div>
     <div class="slide" style="background-image: url('oil/marygoilpainting4.jpg');"></div>
-    <div class="slide" style="background-image: url('pencil/marygoilpainting6.jpg');"></div>
+    <div class="slide" style="background-image: url('oil/marygoilpainting6.jpg');"></div>
     
     <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
     <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
@@ -158,7 +157,6 @@
         slides[currentSlide].classList.add('active');
     }
 
-    // سرعت ۲ ثانیه - بدون وقفه سیاه
     setInterval(() => {
         changeSlide(1);
     }, 2000);
