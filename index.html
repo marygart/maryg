@@ -150,12 +150,12 @@
 
 <div class="slider-container">
     <div class="slide active" style="background-image: url('marygpainting.jpg');"></div>
-    <div class="slide" style="background-image: url('marygoilpainting1.jpg');"></div>
-    <div class="slide" style="background-image: url('marygoilpainting2.jpg');"></div>
-    <div class="slide" style="background-image: url('marygoilpainting3.JPG');"></div>
-    <div class="slide" style="background-image: url('marygoilpainting4.jpg');"></div>
-    <div class="slide" style="background-image: url('marygoilpainting5.jpg');"></div>
-    <div class="slide" style="background-image: url('marygoilpainting6.jpg');"></div>
+    <div class="slide" style="background-image: url('oil/marygoilpainting1.jpg');"></div>
+    <div class="slide" style="background-image: url('oil/marygoilpainting2.jpg');"></div>
+    <div class="slide" style="background-image: url('oil/marygoilpainting3.JPG');"></div>
+    <div class="slide" style="background-image: url('oil/marygoilpainting4.jpg');"></div>
+    <div class="slide" style="background-image: url('oil/marygoilpainting5.jpg');"></div>
+    <div class="slide" style="background-image: url('pencil/marygoilpainting6.jpg');"></div>
     
     <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
     <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
@@ -171,7 +171,7 @@
         slides[currentSlide].classList.add('active');
     }
 
-    // چرخش خودکار دقیقاً روی ۲ ثانیه
+    // چرخش اتوماتیک هر ۲ ثانیه
     setInterval(() => {
         changeSlide(1);
     }, 2000);
