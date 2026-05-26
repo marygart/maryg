@@ -82,6 +82,31 @@
             color: #ffffff;
             background: #111;
         }
+        /* بخش جدید مربوط به ظاهر اسلایدر و موزیک */
+        .slider-container {
+            max-width: 800px;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #c5a059;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        }
+        .slides {
+            display: none;
+            width: 100%;
+            height: auto;
+            max-height: 550px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+        .audio-container {
+            text-align: center;
+            margin: 20px auto;
+        }
+        audio {
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -105,6 +130,38 @@
         <li><a href="contact.html">CONTACT</a></li>
     </ul>
 </nav>
+
+<div class="slider-container">
+    <img class="slides" src="marygoilpainting1.jpg" alt="Mary G Art 1">
+    <img class="slides" src="marygoilpainting2.jpg" alt="Mary G Art 2">
+    <img class="slides" src="marygoilpainting3.JPG" alt="Mary G Art 3">
+    <img class="slides" src="marygoilpainting4.jpg" alt="Mary G Art 4">
+    <img class="slides" src="marygoilpainting5.jpg" alt="Mary G Art 5">
+    <img class="slides" src="marygoilpainting6.jpg" alt="Mary G Art 6">
+</div>
+
+<div class="audio-container">
+    <audio controls loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("slides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        setTimeout(showSlides, 3500); // تعویض عکس هر ۳.۵ ثانیه
+    }
+</script>
 
 </body>
 </html>
