@@ -89,7 +89,7 @@
             overflow: hidden;
             width: 100%;
             height: calc(100vh - 80px);
-            background: #151515; /* رنگ پس‌زمینه موقت در صورت لود نشدن عکس */
+            background: #000;
         }
         .slide {
             position: absolute;
@@ -149,11 +149,10 @@
 </nav>
 
 <div class="slider-container">
-    <div class="slide active" style="background-image: url('home.jpg');"></div>
+    <div class="slide active" style="background-image: url('marygpainting.jpg');"></div>
     <div class="slide" style="background-image: url('marygoilpainting1.jpg');"></div>
     <div class="slide" style="background-image: url('marygoilpainting2.jpg');"></div>
-    <div class="slide" style="background-image: url('marygoilpainting3.jpg');"></div>
-    <div class="slide" style="background-image: url('marygoilpainting4.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting3.JPG');"></div> <div class="slide" style="background-image: url('marygoilpainting4.jpg');"></div>
     <div class="slide" style="background-image: url('marygoilpainting5.jpg');"></div>
     <div class="slide" style="background-image: url('marygoilpainting6.jpg');"></div>
     
@@ -171,7 +170,7 @@
         slides[currentSlide].classList.add('active');
     }
 
-    // زمان حرکت اتوماتیک روی ۲ ثانیه تنظیم شد
+    // چرخش خودکار هر ۲ ثانیه یک‌بار
     setInterval(() => {
         changeSlide(1);
     }, 2000);
