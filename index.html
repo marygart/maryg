@@ -115,6 +115,8 @@
 </head>
 <body>
 
+<audio id="bg-music" src="music.mp3" loop></audio>
+
 <nav>
     <ul>
         <li><a href="index.html">HOME</a></li>
@@ -160,6 +162,14 @@
     setInterval(() => {
         changeSlide(1);
     }, 2000);
+
+    // پخش موزیک با اولین کلیک کاربر روی صفحه
+    document.addEventListener('click', function() {
+        const audio = document.getElementById('bg-music');
+        if (audio.paused) {
+            audio.play().catch(error => console.log("Playback blocked: ", error));
+        }
+    }, { once: true });
 </script>
 
 </body>
