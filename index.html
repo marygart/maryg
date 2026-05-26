@@ -163,13 +163,18 @@
         changeSlide(1);
     }, 2000);
 
-    // پخش موزیک با اولین کلیک کاربر روی صفحه
-    document.addEventListener('click', function() {
+    // تابع هوشمند برای پخش موزیک با هرگونه تعامل (کلیک، لمس، تکان دادن موس)
+    function playMusic() {
         const audio = document.getElementById('bg-music');
         if (audio.paused) {
             audio.play().catch(error => console.log("Playback blocked: ", error));
         }
-    }, { once: true });
+        // حذف شنودگرها بعد از اولین تعامل برای جلوگیری از اجرای تکراری
+        events.forEach(subEvent => document.removeEventListener(subEvent, playMusic));
+    }
+
+    const events = ['click', 'touchstart', 'mousemove'];
+    events.forEach(subEvent => document.addEventListener(subEvent, playMusic));
 </script>
 
 </body>
