@@ -7,20 +7,19 @@
     <title>Mary G Art</title>
     <style>
         body {
-            background-image: url('home.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             background-color: #000;
             color: white;
             margin: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
             height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         nav {
             background: rgba(5, 5, 5, 0.85);
             padding: 25px;
             border-bottom: 1px solid #111;
+            z-index: 10;
         }
         nav ul {
             list-style: none;
@@ -82,31 +81,48 @@
             color: #ffffff;
             background: #111;
         }
-        /* بخش جدید مربوط به ظاهر اسلایدر و موزیک */
+        
+        /* Slider Styles */
         .slider-container {
-            max-width: 800px;
-            margin: 40px auto;
+            flex: 1;
             position: relative;
             overflow: hidden;
-            border: 1px solid #c5a059;
-            background: rgba(0, 0, 0, 0.6);
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
-        }
-        .slides {
-            display: none;
             width: 100%;
-            height: auto;
-            max-height: 550px;
-            object-fit: contain;
-            margin: 0 auto;
+            height: calc(100vh - 80px);
         }
-        .audio-container {
-            text-align: center;
-            margin: 20px auto;
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
         }
-        audio {
-            outline: none;
+        .slide.active {
+            opacity: 1;
         }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #c5a059;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 5;
+            transition: 0.3s;
+        }
+        .arrow:hover {
+            background: rgba(197, 160, 89, 0.8);
+            color: black;
+        }
+        .prev { left: 20px; }
+        .next { right: 20px; }
     </style>
 </head>
 <body>
@@ -132,35 +148,32 @@
 </nav>
 
 <div class="slider-container">
-    <img class="slides" src="marygoilpainting1.jpg" alt="Mary G Art 1">
-    <img class="slides" src="marygoilpainting2.jpg" alt="Mary G Art 2">
-    <img class="slides" src="marygoilpainting3.JPG" alt="Mary G Art 3">
-    <img class="slides" src="marygoilpainting4.jpg" alt="Mary G Art 4">
-    <img class="slides" src="marygoilpainting5.jpg" alt="Mary G Art 5">
-    <img class="slides" src="marygoilpainting6.jpg" alt="Mary G Art 6">
-</div>
-
-<div class="audio-container">
-    <audio controls loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+    <div class="slide active" style="background-image: url('home.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting1.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting2.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting3.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting4.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting5.jpg');"></div>
+    <div class="slide" style="background-image: url('marygoilpainting6.jpg');"></div>
+    
+    <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
 </div>
 
 <script>
-    let slideIndex = 0;
-    showSlides();
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
 
-    function showSlides() {
-        let i;
-        let slides = document.getElementsByClassName("slides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
-        slides[slideIndex-1].style.display = "block";  
-        setTimeout(showSlides, 3500); // تعویض عکس هر ۳.۵ ثانیه
+    function changeSlide(direction) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
     }
+
+    // Auto play slider every 5 seconds
+    setInterval(() => {
+        changeSlide(1);
+    }, 5000);
 </script>
 
 </body>
