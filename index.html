@@ -14,9 +14,10 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
         nav {
-            background: rgba(5, 5, 5, 0.85);
+            background: rgba(5, 5, 5, 0.9);
             padding: 25px;
             border-bottom: 1px solid #111;
             z-index: 10;
@@ -59,10 +60,6 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        .dropdown-content li {
-            margin: 0;
-            padding: 0;
-        }
         .dropdown-content li a {
             font-size: 11px;
             letter-spacing: 2px;
@@ -74,21 +71,13 @@
             transition: 0.3s;
             border-bottom: 1px solid #111;
         }
-        .dropdown-content li:last-child a {
-            border-bottom: none;
-        }
-        .dropdown-content li a:hover {
-            color: #ffffff;
-            background: #111;
-        }
+        .dropdown-content li:last-child a { border-bottom: none; }
         
-        /* Slider Styles */
+        /* Slider Styles - Fixed Zoom & Black Screen */
         .slider-container {
             flex: 1;
             position: relative;
-            overflow: hidden;
             width: 100%;
-            height: calc(100vh - 80px);
             background: #000;
         }
         .slide {
@@ -98,8 +87,10 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            background-size: cover;
+            transition: opacity 1s ease-in-out;
+            /* تغییر به contain برای جلوگیری از زوم و تغییر شکل */
+            background-size: contain; 
+            background-repeat: no-repeat;
             background-position: center;
         }
         .slide.active {
@@ -109,21 +100,18 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4);
             color: #c5a059;
             padding: 15px 20px;
-            border: 1px solid #222;
+            border: none;
             cursor: pointer;
             font-size: 24px;
             z-index: 5;
             transition: 0.3s;
         }
-        .arrow:hover {
-            background: rgba(197, 160, 89, 0.9);
-            color: black;
-        }
-        .prev { left: 20px; }
-        .next { right: 20px; }
+        .arrow:hover { background: rgba(197, 160, 89, 0.8); color: #000; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
     </style>
 </head>
 <body>
@@ -154,7 +142,6 @@
     <div class="slide" style="background-image: url('oil/marygoilpainting2.jpg');"></div>
     <div class="slide" style="background-image: url('oil/marygoilpainting3.JPG');"></div>
     <div class="slide" style="background-image: url('oil/marygoilpainting4.jpg');"></div>
-    <div class="slide" style="background-image: url('oil/marygoilpainting5.jpg');"></div>
     <div class="slide" style="background-image: url('pencil/marygoilpainting6.jpg');"></div>
     
     <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
@@ -171,7 +158,7 @@
         slides[currentSlide].classList.add('active');
     }
 
-    // چرخش اتوماتیک هر ۲ ثانیه
+    // سرعت ۲ ثانیه - بدون وقفه سیاه
     setInterval(() => {
         changeSlide(1);
     }, 2000);
