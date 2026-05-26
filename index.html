@@ -163,18 +163,36 @@
         changeSlide(1);
     }, 2000);
 
-    // تابع هوشمند برای پخش موزیک با هرگونه تعامل (کلیک، لمس، تکان دادن موس)
+    const audio = document.getElementById('bg-music');
+
+    // پخش موزیک با لمس یا تکان دادن موس روی صفحه اصلی
     function playMusic() {
-        const audio = document.getElementById('bg-music');
         if (audio.paused) {
             audio.play().catch(error => console.log("Playback blocked: ", error));
         }
-        // حذف شنودگرها بعد از اولین تعامل برای جلوگیری از اجرای تکراری
-        events.forEach(subEvent => document.removeEventListener(subEvent, playMusic));
     }
+    
+    document.addEventListener('mousemove', playMusic, { once: true });
+    document.addEventListener('touchstart', playMusic, { once: true });
 
-    const events = ['click', 'touchstart', 'mousemove'];
-    events.forEach(subEvent => document.addEventListener(subEvent, playMusic));
+    // مدیریت کلیک روی منوها برای جلوگیری از پرش ناگهانی قبل از پخش صدا
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetUrl = this.getAttribute('href');
+            const targetAttr = this.getAttribute('target');
+            
+            // اگر لینک واقعی است و صرفاً هشتگ یا بازکننده دراپ‌داون نیست
+            if (targetUrl && targetUrl !== '#' && targetAttr !== '_blank') {
+                e.preventDefault(); // متوقف کردن موقت رفتن به صفحه بعد
+                playMusic(); // فعال کردن فوری موزیک
+                
+                // انتقال به صفحه بعد پس از ۳۰۰ میلی‌ثانیه تا موزیک شانس استارت خوردن داشته باشد
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 300);
+            }
+        });
+    });
 </script>
 
 </body>
