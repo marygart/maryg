@@ -123,6 +123,8 @@
 </head>
 <body>
 
+<audio id="bg-music" src="music.mp3" loop></audio>
+
 <nav>
     <ul>
         <li><a href="index.html">HOME</a></li>
@@ -152,5 +154,36 @@
     </div>
 </div>
 
+<script>
+    // اسکریپت پخش موزیک پس‌زمینه
+    const audio = document.getElementById('bg-music');
+
+    function playMusic() {
+        if (audio.paused) {
+            audio.play().catch(error => console.log("Playback blocked: ", error));
+        }
+    }
+    
+    document.addEventListener('mousemove', playMusic, { once: true });
+    document.addEventListener('touchstart', playMusic, { once: true });
+    document.addEventListener('click', playMusic, { once: true });
+
+    // مدیریت خروج از صفحه با کلیک روی منوها برای شروع موزیک پیش از تغییر صفحه
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetUrl = this.getAttribute('href');
+            const targetAttr = this.getAttribute('target');
+            
+            if (targetUrl && targetUrl !== '#' && targetAttr !== '_blank') {
+                e.preventDefault();
+                playMusic();
+                
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 300);
+            }
+        });
+    });
+</script>
 </body>
 </html>
