@@ -7,7 +7,7 @@
     <style>
         body { background-color: #050505; color: #fff; font-family: 'Inter', Arial, sans-serif; margin: 0; padding-top: 160px; }
         
-        /* هدر استاندارد یک‌ردیفه کاملاً هماهنگ با بقیه صفحات */
+        /* هدر استاندارد دوردیفه */
         nav { 
             position: fixed;
             top: 0;
@@ -29,7 +29,7 @@
             align-items: center;
         }
 
-        /* فقط لوگو در سمت چپ قرار می‌گیرد */
+        /* لوگو در سمت چپ */
         .logo-box { 
             position: absolute; 
             left: 0; 
@@ -65,11 +65,11 @@
             gap: 35px;
         }
         .nav-links a { 
-            color: #555; 
+            color: #aaa; 
             text-decoration: none; 
-            font-size: 11px; 
-            letter-spacing: 3px; 
+            font-size: 13px; 
             text-transform: uppercase; 
+            letter-spacing: 2px; 
             transition: 0.3s; 
         }
         .nav-links a:hover { 
@@ -79,16 +79,13 @@
         /* منوی کشویی بخش فروشگاه */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content { display: none; position: absolute; background-color: rgba(10, 10, 10, 0.98); min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1001; top: 100%; left: 50%; transform: translateX(-50%); border: 1px solid #111; padding: 5px 0; margin-top: 10px; list-style: none; }
-        .dropdown-content a { color: #555; padding: 10px 15px; text-decoration: none; display: block; font-size: 10px; letter-spacing: 1px; margin: 0; text-transform: uppercase; border-bottom: 1px solid #111; text-align: center; }
+        .dropdown-content a { color: #aaa; padding: 10px 15px; text-decoration: none; display: block; font-size: 11px; letter-spacing: 1px; margin: 0; text-transform: uppercase; border-bottom: 1px solid #111; text-align: center; }
         .dropdown-content a:last-child { border-bottom: none; }
         .dropdown-content a:hover { color: #fff; background-color: #111; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* استایل‌های اصلی بدنه برای نمایش درست متن و عکس */
-        .mobile-fix { display: flex; gap: 60px; align-items: flex-start; max-width: 1200px; margin: 80px auto; padding: 0 40px; }
-        .about-image { flex: 0 0 400px; min-width: 300px; }
+        /* استایل‌های بدنه کدی که فرستادید بدون تغییر */
         .about-image img { width: 100%; height: auto; border-radius: 2px; }
-        .about-content { flex: 1; }
         h2 { font-weight: 200; letter-spacing: 8px; text-transform: uppercase; font-size: 2.2em; margin-bottom: 10px; margin-top: 0; }
         .line { width: 50px; height: 1px; background: #fff; margin-bottom: 30px; }
         .quote-text { font-style: italic; color: #fff; letter-spacing: 1px; margin-bottom: 30px; font-size: 18px; font-weight: 200; border-left: 2px solid #fff; padding-left: 15px; line-height: 1.5; }
@@ -106,7 +103,7 @@
             .logo-box { position: static; margin-bottom: 10px; }
             .brand-name { margin-bottom: 15px; font-size: 20px; }
             .nav-links { flex-wrap: wrap; gap: 15px; justify-content: center; }
-            .nav-links a { font-size: 10px; }
+            .nav-links a { font-size: 11px; }
             body { padding-top: 200px; }
         }
     </style>
@@ -141,12 +138,13 @@
         </div>
     </nav>
 
-    <div class="mobile-fix">
-        <div class="about-image">
+    <div class="mobile-fix" style="max-width: 1200px; margin: 80px auto; display: flex; gap: 60px; align-items: flex-start; padding: 0 40px;">
+        
+        <div class="about-image" style="flex: 0 0 400px; min-width: 300px;">
             <img src="marygportrait.jpg" alt="Mary G.">
         </div>
 
-        <div class="about-content">
+        <div class="about-content" style="flex: 1;">
             <h2>About Mary G.</h2>
             <div class="line"></div>
             
