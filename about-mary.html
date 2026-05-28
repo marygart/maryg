@@ -5,42 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Mary G. | Fine Art</title>
     <style>
-        body { background-color: #050505; color: #fff; font-family: 'Inter', Arial, sans-serif; margin: 0; padding-top: 100px; }
-        nav { position: fixed; top: 0; width: 100%; background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(15px); border-bottom: 1px solid #1a1a1a; z-index: 1000; }
-        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; }
-        .logo-box { display: flex; align-items: center; gap: 15px; text-decoration: none; color: #fff; }
-        .logo-img { height: 50px; width: 50px; border-radius: 4px; object-fit: cover; }
+        body { 
+            background-color: #050505; 
+            color: #fff; 
+            font-family: 'Inter', Arial, sans-serif; 
+            margin: 0; 
+            padding-top: 160px; 
+            box-sizing: border-box;
+            line-height: 1.8;
+        }
         
-        /* استایل منوها کاملاً هماهنگ با قالب اصلی شما */
-        .nav-links { display: flex; align-items: center; }
-        .nav-links a { color: #aaa; text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-left: 30px; transition: 0.3s; }
-        .nav-links a:hover { color: #fff; }
+        /* هدر جدید و یکدست گالری - ساختار دو ردیفه متقارن */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(5, 5, 5, 0.98); 
+            border-bottom: 1px solid #1a1a1a; 
+            z-index: 1000; 
+            padding: 20px 0; 
+        }
+        .nav-container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            position: relative; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 0 25px; 
+            box-sizing: border-box;
+        }
         
-        /* استایل منوی کشویی برای بخش فروشگاه */
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background-color: rgba(10, 10, 10, 0.98); min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1001; top: 100%; left: 30px; border: 1px solid #1a1a1a; padding: 5px 0; margin-top: 10px; }
-        .dropdown-content a { color: #aaa; padding: 10px 15px; text-decoration: none; display: block; font-size: 11px; letter-spacing: 1px; margin-left: 0; text-transform: uppercase; border-bottom: 1px solid #111; }
-        .dropdown-content a:last-child { border-bottom: none; }
-        .dropdown-content a:hover { color: #fff; background-color: #111; }
-        .dropdown:hover .dropdown-content { display: block; }
+        /* لوگوی تکی در گوشه بالا سمت چپ */
+        .logo-box { 
+            position: absolute; 
+            left: 25px; 
+            top: 2px; 
+            display: flex; 
+            align-items: center; 
+            text-decoration: none; 
+        }
+        .logo-img { 
+            height: 42px; 
+            width: 42px; 
+            border-radius: 4px; 
+            object-fit: cover; 
+        }
+        
+        /* نام تجاری بزرگ و عریض در مرکز */
+        .brand-name { 
+            font-size: 26px; 
+            font-weight: 300; 
+            letter-spacing: 10px; 
+            text-transform: uppercase; 
+            color: #fff; 
+            margin-bottom: 18px; 
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .brand-name:hover {
+            color: #c5a059;
+        }
+        
+        /* منوهای ردیف دوم */
+        .nav-links { 
+            display: flex; 
+            align-items: center; 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            gap: 35px;
+        }
+        .nav-links li { 
+            position: relative; 
+        }
+        .nav-links a { 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            transition: 0.3s; 
+            font-weight: 400;
+        }
+        .nav-links a:hover { 
+            color: #c5a059; 
+        }
+        
+        /* منوی کشویی هماهنگ شده SHOP */
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background-color: #0a0a0a; 
+            min-width: 160px; 
+            border: 1px solid #1a1a1a; 
+            top: 100%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            padding: 10px 0; 
+            z-index: 1001; 
+        }
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+        .dropdown-content a { 
+            display: block; 
+            padding: 10px 15px; 
+            font-size: 12px; 
+            text-align: center; 
+            text-transform: none; 
+            letter-spacing: 1px;
+            border-bottom: 1px solid #111;
+        }
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
 
+        /* ساختار محتوای اصلی صفحه */
         .about-image img { width: 100%; height: auto; border-radius: 2px; }
-        h2 { font-weight: 200; letter-spacing: 8px; text-transform: uppercase; font-size: 2.2em; margin-bottom: 10px; margin-top: 0; }
+        h2 { font-weight: 200; letter-spacing: 8px; text-transform: uppercase; font-size: 2.2em; margin-bottom: 10px; margin-top: 0; color: #fff; }
         .line { width: 50px; height: 1px; background: #fff; margin-bottom: 30px; }
         .quote-text { font-style: italic; color: #fff; letter-spacing: 1px; margin-bottom: 30px; font-size: 18px; font-weight: 200; border-left: 2px solid #fff; padding-left: 15px; line-height: 1.5; }
         .about-text { color: #ccc; line-height: 2; font-size: 17px; text-align: justify; margin-bottom: 30px; }
         .signature-img { width: 250px; margin-top: 20px; display: block; filter: invert(1) brightness(2); }
-        footer { text-align: center; padding: 60px 20px; color: #444; font-size: 10px; letter-spacing: 3px; }
+        
+        footer { text-align: center; padding: 60px 20px; color: #444; font-size: 10px; letter-spacing: 3px; border-top: 1px solid #1a1a1a; margin-top: 100px; }
 
         @media (max-width: 900px) { 
-            .mobile-fix { flex-direction: column !important; align-items: center !important; } 
+            nav { padding: 15px 0; }
+            .logo-box { position: static; margin-bottom: 10px; }
+            .brand-name { margin-bottom: 12px; font-size: 22px; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { font-size: 12px; }
+            body { padding-top: 180px; }
+
+            .mobile-fix { flex-direction: column !important; align-items: center !important; margin: 40px auto !important; } 
             .about-image { width: 100% !important; max-width: 400px !important; margin-bottom: 40px !important; }
             .line { margin: 0 auto 30px auto; }
-            .quote-text { border-left: none; border-bottom: 1px solid #333; padding: 0 0 15px 0; }
+            .quote-text { border-left: none; border-bottom: 1px solid #333; padding: 0 0 15px 0; text-align: center; }
             .signature-img { margin: 20px auto; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 10px; }
-            .nav-links a { margin-left: 15px; font-size: 11px; }
-            .dropdown-content { left: 0; }
         }
     </style>
 </head>
@@ -50,31 +153,38 @@
 
     <nav>
         <div class="nav-container">
+            <!-- لوگوی تکی در سمت چپ ردیف اول -->
             <a href="index.html" class="logo-box">
                 <img src="maryglogo.jpg" alt="Logo" class="logo-img">
-                <span style="letter-spacing: 4px; font-size: 16px; font-weight: 200;">MARY G.</span>
             </a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="portfolio.html">Portfolio</a>
-                <div class="dropdown">
+            
+            <!-- نام برند بزرگ در مرکز هدر -->
+            <a href="index.html" class="brand-name">MARY G.</a>
+            
+            <!-- ردیف منوها متمرکز در وسط -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                
+                <li class="dropdown">
                     <a href="#">Shop</a>
                     <div class="dropdown-content">
                         <a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a>
                         <a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a>
                         <a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a>
                     </div>
-                </div>
-                <a href="about-mary.html" style="color: #fff;">About Mary G.</a>
-                <a href="videos.html">Videos</a>
-                <a href="press.html">Press</a>
-                <a href="commissions.html">Commissions</a>
-                <a href="contact.html">Contact</a>
-            </div>
+                </li>
+                
+                <li><a href="about-mary.html" style="color: #c5a059;">About Mary G.</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="press.html">Press</a></li>
+                <li><a href="commissions.html">Commissions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <div class="mobile-fix" style="max-width: 1200px; margin: 80px auto; display: flex; gap: 60px; align-items: flex-start; padding: 0 40px;">
+    <div class="mobile-fix" style="max-width: 1200px; margin: 60px auto; display: flex; gap: 60px; align-items: flex-start; padding: 0 40px; box-sizing: border-box;">
         
         <div class="about-image" style="flex: 0 0 400px; min-width: 300px;">
             <img src="marygportrait.jpg" alt="Mary G.">
@@ -101,32 +211,38 @@
     <footer>© 2026 MARY G. FINE ART | DUBAI, UAE</footer>
 
 <script>
-    // اسکریپت پخش موزیک پس‌زمینه
     const audio = document.getElementById('bg-music');
 
     function playMusic() {
-        if (audio.paused) {
+        if (audio && audio.paused) {
             audio.play().catch(error => console.log("Playback blocked: ", error));
         }
     }
     
-    document.addEventListener('mousemove', playMusic, { once: true });
-    document.addEventListener('touchstart', playMusic, { once: true });
-    document.addEventListener('click', playMusic, { once: true });
+    document.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('scroll', playMusic, { once: true });
+        document.addEventListener('mousemove', playMusic, { once: true });
+        document.addEventListener('touchstart', playMusic, { once: true });
+        document.addEventListener('click', playMusic, { once: true });
+    });
 
-    // مدیریت خروج از صفحه با کلیک روی لوگو یا منوها
-    document.querySelectorAll('.nav-links a, .logo-box').forEach(link => {
+    document.querySelectorAll('.nav-links a, nav a, .logo-box, .brand-name').forEach(link => {
         link.addEventListener('click', function(e) {
             const targetUrl = this.getAttribute('href');
             const targetAttr = this.getAttribute('target');
             
-            if (targetUrl && targetUrl !== '#' && targetAttr !== '_blank') {
+            if (!targetUrl || targetUrl === '#') {
+                playMusic();
+                return;
+            }
+            
+            if (targetAttr !== '_blank') {
                 e.preventDefault();
                 playMusic();
                 
                 setTimeout(() => {
                     window.location.href = targetUrl;
-                }, 300);
+                }, 250);
             }
         });
     });
