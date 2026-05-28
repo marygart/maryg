@@ -11,9 +11,10 @@
             color: #fff; 
             font-family: 'Segoe UI', sans-serif; 
             margin: 0; 
-            padding-top: 120px; 
+            padding-top: 160px; 
         }
         
+        /* هدر استاندارد */
         nav { 
             position: fixed;
             top: 0;
@@ -24,45 +25,58 @@
             z-index: 1000;
             box-sizing: border-box;
             padding: 20px 40px;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
         }
 
-        .brand-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 15px;
+        /* فقط لوگو در سمت چپ */
+        .logo-box { 
+            position: absolute; 
+            left: 0; 
+            top: 5px; 
+            display: flex; 
+            align-items: center; 
         }
         .logo-img { 
             height: 45px; 
             width: 45px; 
             object-fit: cover; 
         }
+        
+        /* نام برند در وسط و بالای منوها */
         .brand-name { 
             color: #fff; 
-            font-size: 16px; 
-            letter-spacing: 4px; 
+            font-size: 24px; 
+            letter-spacing: 10px; 
             text-transform: uppercase; 
-            font-weight: 400;
+            font-weight: 300;
+            margin-bottom: 25px;
+            margin-top: 5px;
+            text-decoration: none;
         }
         
+        /* ردیف منوها زیر اسم */
         .nav-links { 
             display: flex; 
             align-items: center; 
             list-style: none; 
             padding: 0; 
             margin: 0; 
+            gap: 35px;
         }
         .nav-links li { 
-            margin: 0; 
             position: relative; 
         }
         .nav-links a { 
             color: #555; 
             text-decoration: none; 
-            margin: 0 20px; 
             font-size: 11px; 
             letter-spacing: 3px; 
             text-transform: uppercase; 
@@ -72,7 +86,7 @@
             color: #c5a059; 
         }
         
-        .dropdown { position: relative; display: inline-block; }
+        /* منوی کشویی */
         .dropdown-content { display: none; position: absolute; background-color: rgba(10, 10, 10, 0.98); min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1001; top: 100%; left: 50%; transform: translateX(-50%); border: 1px solid #111; padding: 5px 0; margin-top: 10px; list-style: none; }
         .dropdown-content li { width: 100%; }
         .dropdown-content a { color: #555; padding: 10px 15px; text-decoration: none; display: block; font-size: 10px; letter-spacing: 1px; margin: 0; text-transform: uppercase; border-bottom: 1px solid #111; text-align: center; }
@@ -80,8 +94,8 @@
         .dropdown-content a:hover { color: #fff; background-color: #111; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        .container { max-width: 1400px; margin: 60px auto; padding: 0 40px; }
-        header h1 { text-align: center; font-weight: 100; letter-spacing: 12px; margin-bottom: 80px; text-transform: uppercase; font-size: 24px; color: #fff; }
+        /* محتوای صفحه پورتفولیو */
+        .container { max-width: 1400px; margin: 40px auto; padding: 0 40px; }
         
         #folder-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .folder-card { cursor: pointer; aspect-ratio: 1.6 / 1; background: #0a0a0a; border: 1px solid #1a1a1a; display: flex; align-items: center; justify-content: center; transition: 0.4s; }
@@ -108,10 +122,12 @@
         footer { text-align: center; padding: 80px 20px; color: #222; font-size: 9px; letter-spacing: 4px; border-top: 1px solid #111; margin-top: 50px; text-transform: uppercase; }
 
         @media (max-width: 900px) {
-            nav { padding: 20px 10px; flex-direction: column; gap: 15px; }
-            .nav-links { flex-wrap: wrap; gap: 10px; justify-content: center; }
-            .nav-links a { margin: 0 10px; font-size: 10px; }
-            body { padding-top: 160px; }
+            nav { padding: 20px 10px; }
+            .logo-box { position: static; margin-bottom: 10px; }
+            .brand-name { margin-bottom: 15px; font-size: 20px; }
+            .nav-links { flex-wrap: wrap; gap: 15px; justify-content: center; }
+            .nav-links a { font-size: 10px; }
+            body { padding-top: 200px; }
         }
     </style>
 </head>
@@ -120,31 +136,32 @@
 <audio id="bg-music" src="music.mp3" loop></audio>
 
 <nav>
-    <a href="index.html" class="brand-container">
-        <img src="maryglogo.jpg" alt="Logo" class="logo-img">
-        <span class="brand-name">MARY G.</span>
-    </a>
-    <ul class="nav-links">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="portfolio.html" style="color:#fff">PORTFOLIO</a></li>
-        <li class="dropdown">
-            <a href="#">SHOP</a>
-            <ul class="dropdown-content">
-                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a></li>
-                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a></li>
-                <li><a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a></li>
-            </ul>
-        </li>
-        <li><a href="about-mary.html">ABOUT</a></li>
-        <li><a href="videos.html">VIDEOS</a></li>
-        <li><a href="press.html">PRESS</a></li>
-        <li><a href="commissions.html">COMMISSIONS</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-    </ul>
+    <div class="nav-container">
+        <a href="index.html" class="logo-box">
+            <img src="maryglogo.jpg" alt="Logo" class="logo-img">
+        </a>
+        <a href="index.html" class="brand-name">MARY G.</a>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="portfolio.html" style="color:#fff">PORTFOLIO</a></li>
+            <li class="dropdown">
+                <a href="#">SHOP</a>
+                <ul class="dropdown-content">
+                    <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a></li>
+                    <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a></li>
+                    <li><a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a></li>
+                </ul>
+            </li>
+            <li><a href="about-mary.html">ABOUT</a></li>
+            <li><a href="videos.html">VIDEOS</a></li>
+            <li><a href="press.html">PRESS</a></li>
+            <li><a href="commissions.html">COMMISSIONS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </div>
 </nav>
 
 <div class="container">
-    <header><h1>MARY G.</h1></header>
     <div id="folder-section">
         <div class="folder-card" onclick="openGallery('Acrylic Paintings', 'acrylic', 'marygacrylic', 7)"><h3>Acrylic Paintings</h3></div>
         <div class="folder-card" onclick="openGallery('Oil Paintings', 'oil', 'marygoilpainting', 6)"><h3>Oil Paintings</h3></div>
