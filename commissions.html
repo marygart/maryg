@@ -5,23 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commissions | MARY G. FINE ART</title>
     <style>
-        body { background-color: #050505; color: #fff; font-family: 'Inter', Arial, sans-serif; margin: 0; line-height: 1.8; padding-top: 100px; }
+        body { background-color: #050505; color: #fff; font-family: 'Inter', Arial, sans-serif; margin: 0; line-height: 1.8; padding-top: 160px; }
         
-        /* منوی اصلاح شده و یکدست */
-        nav { position: fixed; top: 0; width: 100%; background: rgba(5, 5, 5, 0.98); border-bottom: 1px solid #1a1a1a; z-index: 1000; padding: 15px 0; }
-        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 25px; }
-        .logo { text-decoration: none; color: #fff; letter-spacing: 4px; font-weight: 200; font-size: 1.2em; }
-        .nav-links { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; }
-        .nav-links li { margin-left: 30px; position: relative; }
-        .nav-links a { color: #888; text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .nav-links a:hover { color: #c5a059; }
+        /* هدر جدید گالری لوکس و متقارن */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(5, 5, 5, 0.98); 
+            border-bottom: 1px solid #1a1a1a; 
+            z-index: 1000; 
+            padding: 20px 0; 
+        }
+        .nav-container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            position: relative; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 0 25px; 
+            box-sizing: border-box;
+        }
         
-        /* منوی کشویی SHOP */
-        .dropdown-content { display: none; position: absolute; background-color: #0a0a0a; min-width: 150px; border: 1px solid #1a1a1a; top: 100%; left: 0; padding: 10px 0; z-index: 1001; }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content a { display: block; padding: 8px 15px; font-size: 10px; }
+        /* لوگوی تکی در گوشه بالا سمت چپ */
+        .logo-box { 
+            position: absolute; 
+            left: 25px; 
+            top: 2px; 
+            display: flex; 
+            align-items: center; 
+            text-decoration: none; 
+        }
+        .logo-img { 
+            height: 42px; 
+            width: 42px; 
+            border-radius: 4px; 
+            object-fit: cover; 
+        }
+        
+        /* نام برند بزرگ و عریض در مرکز هدر */
+        .brand-name { 
+            font-size: 26px; 
+            font-weight: 300; 
+            letter-spacing: 10px; 
+            text-transform: uppercase; 
+            color: #fff; 
+            margin-bottom: 18px; 
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .brand-name:hover {
+            color: #c5a059;
+        }
+        
+        /* منوهای ردیف دوم در وسط هدر */
+        .nav-links { 
+            display: flex; 
+            align-items: center; 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            gap: 35px;
+        }
+        .nav-links li { 
+            position: relative; 
+        }
+        .nav-links a { 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            transition: 0.3s; 
+            font-weight: 400;
+        }
+        .nav-links a:hover { 
+            color: #c5a059; 
+        }
+        
+        /* منوی کشویی هماهنگ شده SHOP */
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background-color: #0a0a0a; 
+            min-width: 160px; 
+            border: 1px solid #1a1a1a; 
+            top: 100%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            padding: 10px 0; 
+            z-index: 1001; 
+        }
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+        .dropdown-content a { 
+            display: block; 
+            padding: 10px 15px; 
+            font-size: 12px; 
+            text-align: center; 
+            text-transform: none; 
+            letter-spacing: 1px;
+        }
 
-        .container { max-width: 1100px; margin: 80px auto; padding: 0 25px; }
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 25px; }
         .header-section { text-align: center; margin-bottom: 100px; }
         h1 { font-weight: 200; letter-spacing: 15px; text-transform: uppercase; font-size: 3em; margin-bottom: 20px; }
         .subtitle { color: #c5a059; letter-spacing: 4px; text-transform: uppercase; font-size: 12px; }
@@ -45,6 +133,16 @@
         .cta-button:hover { background: #c5a059; color: #000; }
         
         footer { text-align: center; padding: 60px; color: #222; font-size: 10px; letter-spacing: 3px; }
+
+        @media (max-width: 850px) {
+            nav { padding: 15px 0; }
+            .logo-box { position: static; margin-bottom: 10px; }
+            .brand-name { margin-bottom: 12px; font-size: 22px; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { font-size: 12px; }
+            body { padding-top: 180px; }
+            .info-section { grid-template-columns: 1fr; gap: 50px; }
+        }
     </style>
 </head>
 <body>
@@ -53,10 +151,19 @@
 
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">MARY G.</a>
+            <!-- لوگوی تکی در گوشه چپ -->
+            <a href="index.html" class="logo-box">
+                <img src="maryglogo.jpg" alt="Logo" class="logo-img">
+            </a>
+            
+            <!-- نام برند بزرگ در مرکز -->
+            <a href="index.html" class="brand-name">MARY G.</a>
+            
+            <!-- ردیف منوها در وسط -->
             <ul class="nav-links">
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="portfolio.html">PORTFOLIO</a></li>
+                
                 <li class="dropdown">
                     <a href="#">SHOP</a>
                     <div class="dropdown-content">
@@ -65,6 +172,7 @@
                         <a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a>
                     </div>
                 </li>
+                
                 <li><a href="about-mary.html">ABOUT</a></li>
                 <li><a href="videos.html">VIDEOS</a></li>
                 <li><a href="press.html">PRESS</a></li>
@@ -99,6 +207,7 @@
             <div class="sizes">
                 <h2>Available Sizes</h2>
                 <ul class="size-list">
+                    <!-- اندازه واحد به صورت متنی ساده رندر شده است -->
                     <li><strong>Standard (A3 / 30x40 cm)</strong><span>Ideal for intimate portraits and personal gifts.</span></li>
                     <li><strong>Medium (50x70 cm)</strong><span>A sophisticated statement piece for high-end interior decor.</span></li>
                     <li><strong>Collector (Custom Large)</strong><span>Bespoke dimensions for large-scale museum quality impact.</span></li>
@@ -123,32 +232,38 @@
     <footer>© 2026 MARY G. FINE ART</footer>
 
 <script>
-    // اسکریپت پخش موزیک پس‌زمینه
     const audio = document.getElementById('bg-music');
 
     function playMusic() {
-        if (audio.paused) {
+        if (audio && audio.paused) {
             audio.play().catch(error => console.log("Playback blocked: ", error));
         }
     }
     
-    document.addEventListener('mousemove', playMusic, { once: true });
-    document.addEventListener('touchstart', playMusic, { once: true });
-    document.addEventListener('click', playMusic, { once: true });
+    document.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('scroll', playMusic, { once: true });
+        document.addEventListener('mousemove', playMusic, { once: true });
+        document.addEventListener('touchstart', playMusic, { once: true });
+        document.addEventListener('click', playMusic, { once: true });
+    });
 
-    // مدیریت خروج از صفحه و انتقال صوتی ملایم با کلیک روی منوها و دکمه‌ها
-    document.querySelectorAll('.nav-links a, .logo, .cta-button').forEach(link => {
+    document.querySelectorAll('.nav-links a, nav a, .logo-box, .brand-name, .cta-button').forEach(link => {
         link.addEventListener('click', function(e) {
             const targetUrl = this.getAttribute('href');
             const targetAttr = this.getAttribute('target');
             
-            if (targetUrl && targetUrl !== '#' && targetAttr !== '_blank') {
+            if (!targetUrl || targetUrl === '#') {
+                playMusic();
+                return;
+            }
+            
+            if (targetAttr !== '_blank') {
                 e.preventDefault();
                 playMusic();
                 
                 setTimeout(() => {
                     window.location.href = targetUrl;
-                }, 300);
+                }, 250);
             }
         });
     });
