@@ -84,8 +84,11 @@
         .dropdown-content a:hover { color: #fff; background-color: #111; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* ساختار بدنه اصلی شما بدون تغییر */
+        /* استایل‌های اصلی بدنه برای نمایش درست متن و عکس */
+        .mobile-fix { display: flex; gap: 60px; align-items: flex-start; max-width: 1200px; margin: 80px auto; padding: 0 40px; }
+        .about-image { flex: 0 0 400px; min-width: 300px; }
         .about-image img { width: 100%; height: auto; border-radius: 2px; }
+        .about-content { flex: 1; }
         h2 { font-weight: 200; letter-spacing: 8px; text-transform: uppercase; font-size: 2.2em; margin-bottom: 10px; margin-top: 0; }
         .line { width: 50px; height: 1px; background: #fff; margin-bottom: 30px; }
         .quote-text { font-style: italic; color: #fff; letter-spacing: 1px; margin-bottom: 30px; font-size: 18px; font-weight: 200; border-left: 2px solid #fff; padding-left: 15px; line-height: 1.5; }
@@ -132,4 +135,49 @@
                 <a href="about-mary.html" style="color: #fff;">About Mary G.</a>
                 <a href="videos.html">Videos</a>
                 <a href="press.html">Press</a>
-                <a href="commissions.html">
+                <a href="commissions.html">Commissions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-fix">
+        <div class="about-image">
+            <img src="marygportrait.jpg" alt="Mary G.">
+        </div>
+
+        <div class="about-content">
+            <h2>About Mary G.</h2>
+            <div class="line"></div>
+            
+            <div class="quote-text">
+                "Art is my voice to tell stories that have remained hidden, to turn silence into color."
+            </div>
+
+            <div class="about-text">
+                The artistic journey of Mary G. began from Iran—a land defined by its rich culture and ancient civilization. Having lived through years of social restrictions, her art has evolved into a vital instrument for making the silent cries of Iranian women heard. For her, art is a relentless pursuit of the right to freedom, amplifying voices that have been systematically marginalized for generations.
+                <br><br>
+                Behind every one of her works lies a foundation of intense passion, hard work, and a resilient hope to be a worthy representative of her heritage. Mary G. views art not merely as an emotional expression, but as a voice for those in society who have been neither seen nor heard. Her creations—stretching from intricate, hyper-realistic portraits to fluid, evocative movements—go beyond technical skill; they unveil hidden stories and unspoken truths. She invites the audience not only to view her art but to deeply feel the profound emotions and the journey of resilience it embodies.
+            </div>
+            
+            <img src="marygsignature.png" alt="Signature" class="signature-img">
+        </div>
+    </div>
+
+    <footer>© 2026 MARY G. FINE ART | DUBAI, UAE</footer>
+
+<script>
+    const audio = document.getElementById('bg-music');
+
+    function playMusic() {
+        if (audio.paused) {
+            audio.play().catch(error => console.log("Playback blocked: ", error));
+        }
+    }
+    
+    document.addEventListener('mousemove', playMusic, { once: true });
+    document.addEventListener('touchstart', playMusic, { once: true });
+    document.addEventListener('click', playMusic, { once: true });
+</script>
+</body>
+</html>
