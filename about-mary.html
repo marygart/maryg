@@ -10,10 +10,10 @@
             color: #fff; 
             font-family: 'Segoe UI', sans-serif; 
             margin: 0; 
-            padding-top: 120px; 
+            padding-top: 160px; 
         }
         
-        /* هدر فیکس شده یک‌ردیفه */
+        /* هدر استاندارد یک‌ردیفه */
         nav { 
             position: fixed;
             top: 0;
@@ -24,45 +24,58 @@
             z-index: 1000;
             box-sizing: border-box;
             padding: 20px 40px;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
         }
 
-        .brand-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 15px;
+        /* فقط لوگو در سمت چپ */
+        .logo-box { 
+            position: absolute; 
+            left: 0; 
+            top: 5px; 
+            display: flex; 
+            align-items: center; 
         }
         .logo-img { 
             height: 45px; 
             width: 45px; 
             object-fit: cover; 
         }
+        
+        /* نام برند در وسط و بالای منوها */
         .brand-name { 
             color: #fff; 
-            font-size: 16px; 
-            letter-spacing: 4px; 
+            font-size: 24px; 
+            letter-spacing: 10px; 
             text-transform: uppercase; 
-            font-weight: 400;
+            font-weight: 300;
+            margin-bottom: 25px;
+            margin-top: 5px;
+            text-decoration: none;
         }
         
+        /* ردیف منوها زیر اسم */
         .nav-links { 
             display: flex; 
             align-items: center; 
             list-style: none; 
             padding: 0; 
             margin: 0; 
+            gap: 35px;
         }
         .nav-links li { 
-            margin: 0; 
             position: relative; 
         }
         .nav-links a { 
             color: #555; 
             text-decoration: none; 
-            margin: 0 20px; 
             font-size: 11px; 
             letter-spacing: 3px; 
             text-transform: uppercase; 
@@ -72,7 +85,7 @@
             color: #c5a059; 
         }
         
-        /* منوی کشویی SHOP */
+        /* منوی کشویی */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content { display: none; position: absolute; background-color: rgba(10, 10, 10, 0.98); min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1001; top: 100%; left: 50%; transform: translateX(-50%); border: 1px solid #111; padding: 5px 0; margin-top: 10px; list-style: none; }
         .dropdown-content li { width: 100%; }
@@ -81,27 +94,17 @@
         .dropdown-content a:hover { color: #fff; background-color: #111; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* ساختار محتوای صفحه About */
+        /* محتوای اصلی صفحه About */
         .container { 
             max-width: 1200px; 
             margin: 60px auto; 
             padding: 0 40px; 
         }
-        
-        header h1 { 
-            text-align: center; 
-            font-weight: 100; 
-            letter-spacing: 12px; 
-            margin-bottom: 80px; 
-            text-transform: uppercase; 
-            font-size: 24px; 
-            color: #fff; 
-        }
 
         .about-content {
             display: flex;
             gap: 60px;
-            align-items: flex-start;
+            align-items: center;
             line-height: 1.8;
         }
 
@@ -117,6 +120,18 @@
             margin-bottom: 25px;
         }
 
+        /* بخش امضا */
+        .signature-container {
+            margin-top: 40px;
+            text-align: left;
+        }
+        .signature-img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+        }
+
+        /* بخش تصویر ارتیست */
         .about-image-wrapper {
             flex: 0 0 400px;
             border: 1px solid #1a1a1a;
@@ -143,10 +158,12 @@
         }
 
         @media (max-width: 900px) {
-            nav { padding: 20px 10px; flex-direction: column; gap: 15px; }
-            .nav-links { flex-wrap: wrap; gap: 10px; justify-content: center; }
-            .nav-links a { margin: 0 10px; font-size: 10px; }
-            body { padding-top: 160px; }
+            nav { padding: 20px 10px; }
+            .logo-box { position: static; margin-bottom: 10px; }
+            .brand-name { margin-bottom: 15px; font-size: 20px; }
+            .nav-links { flex-wrap: wrap; gap: 15px; justify-content: center; }
+            .nav-links a { font-size: 10px; }
+            body { padding-top: 200px; }
             .about-content { flex-direction: column-reverse; gap: 40px; }
             .about-image-wrapper { flex: 0 0 auto; width: 100%; box-sizing: border-box; }
         }
@@ -154,41 +171,48 @@
 </head>
 <body>
 
+<!-- سیستم موزیک پس‌زمینه -->
 <audio id="bg-music" src="music.mp3" loop></audio>
 
 <nav>
-    <a href="index.html" class="brand-container">
-        <img src="maryglogo.jpg" alt="Logo" class="logo-img">
-        <span class="brand-name">MARY G.</span>
-    </a>
-    <ul class="nav-links">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="portfolio.html">PORTFOLIO</a></li>
-        <li class="dropdown">
-            <a href="#">SHOP</a>
-            <ul class="dropdown-content">
-                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a></li>
-                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a></li>
-                <li><a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a></li>
-            </ul>
-        </li>
-        <li><a href="about-mary.html" style="color:#fff">ABOUT MARY G.</a></li>
-        <li><a href="videos.html">VIDEOS</a></li>
-        <li><a href="press.html">PRESS</a></li>
-        <li><a href="commissions.html">COMMISSIONS</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-    </ul>
+    <div class="nav-container">
+        <a href="index.html" class="logo-box">
+            <img src="maryglogo.jpg" alt="Logo" class="logo-img">
+        </a>
+        <a href="index.html" class="brand-name">MARY G.</a>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="portfolio.html">PORTFOLIO</a></li>
+            <li class="dropdown">
+                <a href="#">SHOP</a>
+                <ul class="dropdown-content">
+                    <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a></li>
+                    <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a></li>
+                    <li><a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a></li>
+                </ul>
+            </li>
+            <li><a href="about-mary.html" style="color:#fff">ABOUT MARY G.</a></li>
+            <li><a href="videos.html">VIDEOS</a></li>
+            <li><a href="press.html">PRESS</a></li>
+            <li><a href="commissions.html">COMMISSIONS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </div>
 </nav>
 
 <div class="container">
-    <header><h1>ABOUT MARY G.</h1></header>
-    
     <div class="about-content">
         <div class="about-text">
             <p>Mary G. is a traditional artist and professional art instructor dedicated to exploring diverse artistic styles and techniques. Her work spans a wide spectrum, including hyper-realism, cubism, surrealism, and abstract art, utilizing mediums such as oil, acrylic, charcoal, and graphite.</p>
             <p>Driven by a passion for visual storytelling, her creations range from intricately detailed realism to expressive structural forms, constantly pushing the boundaries of traditional boundaries to capture the essence of her subjects.</p>
+            
+            <!-- تصویر امضا -->
+            <div class="signature-container">
+                <img src="marygsignature.png" alt="Mary G. Signature" class="signature-img">
+            </div>
         </div>
         
+        <!-- تصویر آرتیست -->
         <div class="about-image-wrapper">
             <img src="marygabout.jpg" alt="Mary G.">
         </div>
@@ -207,6 +231,7 @@
         }
     }
     
+    // پخش خودکار موزیک با اولین تعامل کاربر با صفحه
     document.addEventListener('mousemove', playMusic, { once: true });
     document.addEventListener('touchstart', playMusic, { once: true });
     document.addEventListener('click', playMusic, { once: true });
