@@ -21,7 +21,7 @@
         /* منوی کشویی SHOP */
         .dropdown-content { display: none; position: absolute; background-color: #0a0a0a; min-width: 150px; border: 1px solid #1a1a1a; top: 100%; left: 50%; transform: translateX(-50%); padding: 10px 0; z-index: 1001; }
         .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content a { display: block; padding: 8px 15px; font-size: 10px; text-align: center; }
+        .dropdown-content a { display: block; padding: 8px 15px; font-size: 10px; text-align: center; text-transform: none; }
 
         /* بخش اصلی محتوای تماس با ما */
         .contact-section { max-width: 900px; margin: 100px auto; text-align: center; padding: 0 20px; }
@@ -106,14 +106,40 @@
     const audio = document.getElementById('bg-music');
 
     function playMusic() {
-        if (audio.paused) {
-            audio.play().catch(error => console.log("Playback blocked: ", error));
+        if (audio && audio.paused) {
+            audio.play().catch(error => console.log("Playback context waiting for interaction: ", error));
         }
     }
     
-    document.addEventListener('mousemove', playMusic, { once: true });
-    document.addEventListener('touchstart', playMusic, { once: true });
-    document.addEventListener('click', playMusic, { once: true });
+    // فعال‌سازی پخش موزیک با هر نوع تعامل اولیه در صفحه
+    document.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('scroll', playMusic, { once: true });
+        document.addEventListener('mousemove', playMusic, { once: true });
+        document.addEventListener('touchstart', playMusic, { once: true });
+        document.addEventListener('click', playMusic, { once: true });
+    });
 
     // اسکریپت هوشمند منوها بدون اختلال در باز شدن کشویی SHOP
-    document.querySelectorAll('.nav-links a, nav a, .logo-box, .logo').
+    document.querySelectorAll('.nav-links a, nav a, .logo-box, .logo').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetUrl = this.getAttribute('href');
+            const targetAttr = this.getAttribute('target');
+            
+            if (!targetUrl || targetUrl === '#') {
+                playMusic();
+                return;
+            }
+            
+            if (targetAttr !== '_blank') {
+                e.preventDefault();
+                playMusic();
+                
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 250);
+            }
+        });
+    });
+</script>
+</body>
+</html>
