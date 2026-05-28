@@ -110,10 +110,8 @@
 </head>
 <body>
 
-    <!-- سیستم موزیک پس‌زمینه -->
     <audio id="bg-music" src="music.mp3" loop></audio>
 
-    <!-- هدر جدید بر اساس منوی استاندارد شما -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo-box">
@@ -134,51 +132,4 @@
                 <a href="about-mary.html" style="color: #fff;">About Mary G.</a>
                 <a href="videos.html">Videos</a>
                 <a href="press.html">Press</a>
-                <a href="commissions.html">Commissions</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- محتوای اصلی ۵ روز پیش شما با نام عکس فیکس شده -->
-    <div class="mobile-fix" style="max-width: 1200px; margin: 80px auto; display: flex; gap: 60px; align-items: flex-start; padding: 0 40px;">
-        
-        <div class="about-image" style="flex: 0 0 400px; min-width: 300px;">
-            <img src="Mary G.jpg" alt="Mary G.">
-        </div>
-
-        <div class="about-content" style="flex: 1;">
-            <h2>About Mary G.</h2>
-            <div class="line"></div>
-            
-            <div class="quote-text">
-                "Art is my voice to tell stories that have remained hidden, to turn silence into color."
-            </div>
-
-            <div class="about-text">
-                The artistic journey of Mary G. began from Iran—a land defined by its rich culture and ancient civilization. Having lived through years of social restrictions, her art has evolved into a vital instrument for making the silent cries of Iranian women heard. For her, art is a relentless pursuit of the right to freedom, amplifying voices that have been systematically marginalized for generations.
-                <br><br>
-                Behind every one of her works lies a foundation of intense passion, hard work, and a resilient hope to be a worthy representative of her heritage. Mary G. views art not merely as an emotional expression, but as a voice for those in society who have been neither seen nor heard. Her creations—stretching from intricate, hyper-realistic portraits to fluid, evocative movements—go beyond technical skill; they unveil hidden stories and unspoken truths. She invites the audience not only to view her art but to deeply feel the profound emotions and the journey of resilience it embodies.
-            </div>
-            
-            <img src="marygsignature.png" alt="Signature" class="signature-img">
-        </div>
-    </div>
-
-    <footer>© 2026 MARY G. FINE ART | DUBAI, UAE</footer>
-
-<script>
-    const audio = document.getElementById('bg-music');
-
-    function playMusic() {
-        if (audio.paused) {
-            audio.play().catch(error => console.log("Playback blocked: ", error));
-        }
-    }
-    
-    document.addEventListener('mousemove', playMusic, { once: true });
-    document.addEventListener('touchstart', playMusic, { once: true });
-    document.addEventListener('click', playMusic, { once: true });
-</script>
-</body>
-</html>
+                <a href="commissions.html">
