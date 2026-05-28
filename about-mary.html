@@ -3,147 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Mary G. | Fine Art</title>
+    <title>About | Mary G.</title>
     <style>
         body { 
-            background-color: #050505; 
+            background: #050505; 
             color: #fff; 
-            font-family: 'Inter', Arial, sans-serif; 
+            font-family: 'Segoe UI', sans-serif; 
             margin: 0; 
-            padding-top: 160px; 
-            box-sizing: border-box;
-            line-height: 1.8;
+            padding-top: 120px; 
         }
         
-        /* هدر جدید و یکدست گالری - ساختار دو ردیفه متقارن */
+        /* هدر فیکس شده یک‌ردیفه */
         nav { 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            background: rgba(5, 5, 5, 0.98); 
-            border-bottom: 1px solid #1a1a1a; 
-            z-index: 1000; 
-            padding: 20px 0; 
-        }
-        .nav-container { 
-            max-width: 1400px; 
-            margin: 0 auto; 
-            position: relative; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 0 25px; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #050505; 
+            border-bottom: 1px solid #111; 
+            z-index: 1000;
             box-sizing: border-box;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        /* لوگوی تکی در گوشه بالا سمت چپ */
-        .logo-box { 
-            position: absolute; 
-            left: 25px; 
-            top: 2px; 
-            display: flex; 
-            align-items: center; 
-            text-decoration: none; 
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
         }
         .logo-img { 
-            height: 42px; 
-            width: 42px; 
-            border-radius: 4px; 
+            height: 45px; 
+            width: 45px; 
             object-fit: cover; 
         }
-        
-        /* نام تجاری بزرگ و عریض در مرکز */
         .brand-name { 
-            font-size: 26px; 
-            font-weight: 300; 
-            letter-spacing: 10px; 
-            text-transform: uppercase; 
             color: #fff; 
-            margin-bottom: 18px; 
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .brand-name:hover {
-            color: #c5a059;
+            font-size: 16px; 
+            letter-spacing: 4px; 
+            text-transform: uppercase; 
+            font-weight: 400;
         }
         
-        /* منوهای ردیف دوم */
         .nav-links { 
             display: flex; 
             align-items: center; 
             list-style: none; 
-            margin: 0; 
             padding: 0; 
-            gap: 35px;
+            margin: 0; 
         }
         .nav-links li { 
+            margin: 0; 
             position: relative; 
         }
         .nav-links a { 
-            color: #888; 
+            color: #555; 
             text-decoration: none; 
-            font-size: 14px; 
+            margin: 0 20px; 
+            font-size: 11px; 
+            letter-spacing: 3px; 
             text-transform: uppercase; 
-            letter-spacing: 2px; 
             transition: 0.3s; 
-            font-weight: 400;
         }
         .nav-links a:hover { 
             color: #c5a059; 
         }
         
-        /* منوی کشویی هماهنگ شده SHOP */
-        .dropdown-content { 
-            display: none; 
-            position: absolute; 
-            background-color: #0a0a0a; 
-            min-width: 160px; 
-            border: 1px solid #1a1a1a; 
-            top: 100%; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            padding: 10px 0; 
-            z-index: 1001; 
-        }
-        .dropdown:hover .dropdown-content { 
-            display: block; 
-        }
-        .dropdown-content a { 
-            display: block; 
-            padding: 10px 15px; 
-            font-size: 12px; 
-            text-align: center; 
-            text-transform: none; 
-            letter-spacing: 1px;
-            border-bottom: 1px solid #111;
-        }
-        .dropdown-content a:last-child {
-            border-bottom: none;
-        }
+        /* منوی کشویی SHOP */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: rgba(10, 10, 10, 0.98); min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1001; top: 100%; left: 50%; transform: translateX(-50%); border: 1px solid #111; padding: 5px 0; margin-top: 10px; list-style: none; }
+        .dropdown-content li { width: 100%; }
+        .dropdown-content a { color: #555; padding: 10px 15px; text-decoration: none; display: block; font-size: 10px; letter-spacing: 1px; margin: 0; text-transform: uppercase; border-bottom: 1px solid #111; text-align: center; }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { color: #fff; background-color: #111; }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        /* ساختار محتوای اصلی صفحه */
-        .about-image img { width: 100%; height: auto; border-radius: 2px; }
-        h2 { font-weight: 200; letter-spacing: 8px; text-transform: uppercase; font-size: 2.2em; margin-bottom: 10px; margin-top: 0; color: #fff; }
-        .line { width: 50px; height: 1px; background: #fff; margin-bottom: 30px; }
-        .quote-text { font-style: italic; color: #fff; letter-spacing: 1px; margin-bottom: 30px; font-size: 18px; font-weight: 200; border-left: 2px solid #fff; padding-left: 15px; line-height: 1.5; }
-        .about-text { color: #ccc; line-height: 2; font-size: 17px; text-align: justify; margin-bottom: 30px; }
-        .signature-img { width: 250px; margin-top: 20px; display: block; filter: invert(1) brightness(2); }
+        /* ساختار محتوای صفحه About */
+        .container { 
+            max-width: 1200px; 
+            margin: 60px auto; 
+            padding: 0 40px; 
+        }
         
-        footer { text-align: center; padding: 60px 20px; color: #444; font-size: 10px; letter-spacing: 3px; border-top: 1px solid #1a1a1a; margin-top: 100px; }
+        header h1 { 
+            text-align: center; 
+            font-weight: 100; 
+            letter-spacing: 12px; 
+            margin-bottom: 80px; 
+            text-transform: uppercase; 
+            font-size: 24px; 
+            color: #fff; 
+        }
 
-        @media (max-width: 900px) { 
-            nav { padding: 15px 0; }
-            .logo-box { position: static; margin-bottom: 10px; }
-            .brand-name { margin-bottom: 12px; font-size: 22px; }
-            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
-            .nav-links a { font-size: 12px; }
-            body { padding-top: 180px; }
+        .about-content {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            line-height: 1.8;
+        }
 
-            .mobile-fix { flex-direction: column !important; align-items: center !important; margin: 40px auto !important; } 
-            .about-image { width: 100% !important; max-width: 400px !important; margin-bottom: 40px !important; }
-            .line { margin: 0 auto 30px auto; }
-            .quote-text { border-left: none; border-bottom: 1px solid #333; padding: 0 0 15px 0; text-align: center; }
-            .signature-img { margin: 20px auto; }
+        .about-text {
+            flex: 1;
+            font-size: 15px;
+            color: #ccc;
+            text-align: justify;
+        }
+
+        .about-text p {
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .about-image-wrapper {
+            flex: 0 0 400px;
+            border: 1px solid #1a1a1a;
+            padding: 15px;
+            background: #0a0a0a;
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 80px 20px; 
+            color: #222; 
+            font-size: 9px; 
+            letter-spacing: 4px; 
+            border-top: 1px solid #111; 
+            margin-top: 100px; 
+            text-transform: uppercase; 
+        }
+
+        @media (max-width: 900px) {
+            nav { padding: 20px 10px; flex-direction: column; gap: 15px; }
+            .nav-links { flex-wrap: wrap; gap: 10px; justify-content: center; }
+            .nav-links a { margin: 0 10px; font-size: 10px; }
+            body { padding-top: 160px; }
+            .about-content { flex-direction: column-reverse; gap: 40px; }
+            .about-image-wrapper { flex: 0 0 auto; width: 100%; box-sizing: border-box; }
         }
     </style>
 </head>
@@ -151,98 +156,73 @@
 
 <audio id="bg-music" src="music.mp3" loop></audio>
 
-    <nav>
-        <div class="nav-container">
-            <!-- لوگوی تکی در سمت چپ ردیف اول -->
-            <a href="index.html" class="logo-box">
-                <img src="maryglogo.jpg" alt="Logo" class="logo-img">
-            </a>
-            
-            <!-- نام برند بزرگ در مرکز هدر -->
-            <a href="index.html" class="brand-name">MARY G.</a>
-            
-            <!-- ردیف منوها متمرکز در وسط -->
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                
-                <li class="dropdown">
-                    <a href="#">Shop</a>
-                    <div class="dropdown-content">
-                        <a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a>
-                        <a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a>
-                        <a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a>
-                    </div>
-                </li>
-                
-                <li><a href="about-mary.html" style="color: #c5a059;">About Mary G.</a></li>
-                <li><a href="videos.html">Videos</a></li>
-                <li><a href="press.html">Press</a></li>
-                <li><a href="commissions.html">Commissions</a></li>
-                <li><a href="contact.html">Contact</a></li>
+<nav>
+    <a href="index.html" class="brand-container">
+        <img src="maryglogo.jpg" alt="Logo" class="logo-img">
+        <span class="brand-name">MARY G.</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="portfolio.html">PORTFOLIO</a></li>
+        <li class="dropdown">
+            <a href="#">SHOP</a>
+            <ul class="dropdown-content">
+                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a></li>
+                <li><a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a></li>
+                <li><a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a></li>
             </ul>
-        </div>
-    </nav>
+        </li>
+        <li><a href="about-mary.html" style="color:#fff">ABOUT MARY G.</a></li>
+        <li><a href="videos.html">VIDEOS</a></li>
+        <li><a href="press.html">PRESS</a></li>
+        <li><a href="commissions.html">COMMISSIONS</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+</nav>
 
-    <div class="mobile-fix" style="max-width: 1200px; margin: 60px auto; display: flex; gap: 60px; align-items: flex-start; padding: 0 40px; box-sizing: border-box;">
+<div class="container">
+    <header><h1>ABOUT MARY G.</h1></header>
+    
+    <div class="about-content">
+        <div class="about-text">
+            <p>Mary G. is a traditional artist and professional art instructor dedicated to exploring diverse artistic styles and techniques. Her work spans a wide spectrum, including hyper-realism, cubism, surrealism, and abstract art, utilizing mediums such as oil, acrylic, charcoal, and graphite.</p>
+            <p>Driven by a passion for visual storytelling, her creations range from intricately detailed realism to expressive structural forms, constantly pushing the boundaries of traditional boundaries to capture the essence of her subjects.</p>
+        </div>
         
-        <div class="about-image" style="flex: 0 0 400px; min-width: 300px;">
-            <img src="marygportrait.jpg" alt="Mary G.">
-        </div>
-
-        <div class="about-content" style="flex: 1;">
-            <h2>About Mary G.</h2>
-            <div class="line"></div>
-            
-            <div class="quote-text">
-                "Art is my voice to tell stories that have remained hidden, to turn silence into color."
-            </div>
-
-            <div class="about-text">
-                The artistic journey of Mary G. began from Iran—a land defined by its rich culture and ancient civilization. Having lived through years of social restrictions, her art has evolved into a vital instrument for making the silent cries of Iranian women heard. For her, art is a relentless pursuit of the right to freedom, amplifying voices that have been systematically marginalized for generations.
-                <br><br>
-                Behind every one of her works lies a foundation of intense passion, hard work, and a resilient hope to be a worthy representative of her heritage. Mary G. views art not merely as an emotional expression, but as a voice for those in society who have been neither seen nor heard. Her creations—stretching from intricate, hyper-realistic portraits to fluid, evocative movements—go beyond technical skill; they unveil hidden stories and unspoken truths. She invites the audience not only to view her art but to deeply feel the profound emotions and the journey of resilience it embodies.
-            </div>
-            
-            <img src="marygsignature.png" alt="Signature" class="signature-img">
+        <div class="about-image-wrapper">
+            <img src="marygabout.jpg" alt="Mary G.">
         </div>
     </div>
+</div>
 
-    <footer>© 2026 MARY G. FINE ART | DUBAI, UAE</footer>
+<footer>© 2026 MARY G. FINE ART</footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     const audio = document.getElementById('bg-music');
 
     function playMusic() {
-        if (audio && audio.paused) {
+        if (audio.paused) {
             audio.play().catch(error => console.log("Playback blocked: ", error));
         }
     }
     
-    document.addEventListener('DOMContentLoaded', () => {
-        window.addEventListener('scroll', playMusic, { once: true });
-        document.addEventListener('mousemove', playMusic, { once: true });
-        document.addEventListener('touchstart', playMusic, { once: true });
-        document.addEventListener('click', playMusic, { once: true });
-    });
+    document.addEventListener('mousemove', playMusic, { once: true });
+    document.addEventListener('touchstart', playMusic, { once: true });
+    document.addEventListener('click', playMusic, { once: true });
 
-    document.querySelectorAll('.nav-links a, nav a, .logo-box, .brand-name').forEach(link => {
+    document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', function(e) {
             const targetUrl = this.getAttribute('href');
             const targetAttr = this.getAttribute('target');
             
-            if (!targetUrl || targetUrl === '#') {
-                playMusic();
-                return;
-            }
-            
-            if (targetAttr !== '_blank') {
+            if (targetUrl && targetUrl !== '#' && targetAttr !== '_blank') {
                 e.preventDefault();
                 playMusic();
                 
                 setTimeout(() => {
                     window.location.href = targetUrl;
-                }, 250);
+                }, 300);
             }
         });
     });
