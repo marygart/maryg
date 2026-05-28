@@ -3,51 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Press & Publications | Mary G</title>
+    <title>Press & Publications | MARY G. FINE ART</title>
     <style>
-        body { background-color: #050505; color: #ffffff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; }
-        header { padding: 30px 20px; text-align: center; border-bottom: 1px solid #1a1a1a; }
-        .logo { font-size: 24px; letter-spacing: 4px; color: #d4af37; text-decoration: none; font-weight: bold; }
-        nav { margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; }
-        nav a { color: #aaaaaa; text-decoration: none; margin: 0 15px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
-        nav a:hover, nav a.active { color: #d4af37; }
-        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
-        .page-title { text-align: center; font-size: 28px; letter-spacing: 3px; color: #ffffff; margin-bottom: 50px; font-weight: 300; }
+        body { background-color: #050505; color: #ffffff; font-family: 'Inter', Arial, sans-serif; margin: 0; padding-top: 160px; line-height: 1.8; }
+        
+        /* هدر لوکس گالری - ساختار دو ردیفه متقارن */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(5, 5, 5, 0.98); 
+            border-bottom: 1px solid #1a1a1a; 
+            z-index: 1000; 
+            padding: 20px 0; 
+        }
+        .nav-container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            position: relative; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 0 25px; 
+            box-sizing: border-box;
+        }
+        
+        /* لوگوی تکی در گوشه بالا سمت چپ */
+        .logo-box { 
+            position: absolute; 
+            left: 25px; 
+            top: 2px; 
+            display: flex; 
+            align-items: center; 
+            text-decoration: none; 
+        }
+        .logo-img { 
+            height: 42px; 
+            width: 42px; 
+            border-radius: 4px; 
+            object-fit: cover; 
+        }
+        
+        /* نام برند عریض و بزرگ در مرکز */
+        .brand-name { 
+            font-size: 26px; 
+            font-weight: 300; 
+            letter-spacing: 10px; 
+            text-transform: uppercase; 
+            color: #fff; 
+            margin-bottom: 18px; 
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .brand-name:hover {
+            color: #c5a059;
+        }
+        
+        /* پیوندهای منو در ردیف دوم */
+        .nav-links { 
+            display: flex; 
+            align-items: center; 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            gap: 35px;
+        }
+        .nav-links li { 
+            position: relative; 
+        }
+        .nav-links a { 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            transition: 0.3s; 
+            font-weight: 400;
+        }
+        .nav-links a:hover, .nav-links a.active { 
+            color: #c5a059; 
+        }
+        
+        /* منوی کشویی هماهنگ شده SHOP */
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background-color: #0a0a0a; 
+            min-width: 160px; 
+            border: 1px solid #1a1a1a; 
+            top: 100%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            padding: 10px 0; 
+            z-index: 1001; 
+        }
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+        .dropdown-content a { 
+            display: block; 
+            padding: 10px 15px; 
+            font-size: 12px; 
+            text-align: center; 
+            text-transform: none; 
+            letter-spacing: 1px;
+        }
+
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 25px; }
+        .page-title { text-align: center; font-size: 28px; letter-spacing: 5px; color: #ffffff; margin-bottom: 60px; font-weight: 200; text-transform: uppercase; }
+        
         .press-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
-        .press-card { background-color: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 4px; overflow: hidden; transition: transform 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
-        .press-card:hover { transform: translateY(-5px); border-color: #d4af37; }
-        .card-img-container { width: 100%; height: 220px; overflow: hidden; background-color: #111111; }
-        .card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .press-card:hover .card-img-container img { transform: scale(1.05); }
-        .card-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-        .card-source { font-size: 11px; color: #d4af37; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-        .card-title { font-size: 16px; line-height: 1.4; margin: 0 0 15px 0; font-weight: 400; }
-        .card-text { font-size: 13px; color: #888888; line-height: 1.6; margin: 0 0 20px 0; flex-grow: 1; }
-        .card-link { align-self: flex-start; color: #ffffff; text-decoration: none; font-size: 12px; letter-spacing: 1px; border-bottom: 1px solid #d4af37; padding-bottom: 2px; transition: color 0.3s; }
-        .card-link:hover { color: #d4af37; }
-        footer { text-align: center; padding: 40px 20px; color: #555555; font-size: 10px; letter-spacing: 2px; border-top: 1px solid #1a1a1a; margin-top: 80px; }
+        .press-card { background-color: #080808; border: 1px solid #1a1a1a; border-radius: 0px; overflow: hidden; transition: transform 0.4s, border-color 0.4s; display: flex; flex-direction: column; }
+        .press-card:hover { transform: translateY(-8px); border-color: #c5a059; }
+        .card-img-container { width: 100%; height: 240px; overflow: hidden; background-color: #000; }
+        .card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+        .press-card:hover .card-img-container img { transform: scale(1.04); }
+        
+        .card-content { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-source { font-size: 11px; color: #c5a059; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; font-weight: 300; }
+        .card-title { font-size: 17px; line-height: 1.5; margin: 0 0 15px 0; font-weight: 300; letter-spacing: 1px; }
+        .card-text { font-size: 13px; color: #888888; line-height: 1.7; margin: 0 0 25px 0; flex-grow: 1; }
+        .card-link { align-self: flex-start; color: #ffffff; text-decoration: none; font-size: 11px; letter-spacing: 2px; border-bottom: 1px solid #c5a059; padding-bottom: 4px; text-transform: uppercase; transition: color 0.3s; }
+        .card-link:hover { color: #c5a059; }
+        
+        footer { text-align: center; padding: 60px 20px; color: #222; font-size: 10px; letter-spacing: 3px; border-top: 1px solid #1a1a1a; margin-top: 100px; }
+
+        @media (max-width: 850px) {
+            nav { padding: 15px 0; }
+            .logo-box { position: static; margin-bottom: 10px; }
+            .brand-name { margin-bottom: 12px; font-size: 22px; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { font-size: 12px; }
+            body { padding-top: 180px; }
+        }
     </style>
 </head>
 <body>
 
 <audio id="bg-music" src="music.mp3" loop></audio>
 
-    <header>
-        <a href="index.html" class="logo">MARY G</a>
-        <nav>
-            <a href="index.html">HOME</a>
-            <a href="portfolio.html">PORTFOLIO</a>
-            <a href="shop.html">SHOP</a>
-            <a href="about-mary.html">ABOUT</a>
-            <a href="videos.html">VIDEOS</a>
-            <a href="press.html" class="active">PRESS</a>
-            <a href="commissions.html">COMMISSIONS</a>
-            <a href="contact.html">CONTACT</a>
-        </nav>
-    </header>
+    <nav>
+        <div class="nav-container">
+            <!-- لوگوی تکی در سمت چپ ردیف اول -->
+            <a href="index.html" class="logo-box">
+                <img src="maryglogo.jpg" alt="Logo" class="logo-img">
+            </a>
+            
+            <!-- نام برند بزرگ در مرکز هدر -->
+            <a href="index.html" class="brand-name">MARY G.</a>
+            
+            <!-- ردیف منوها متمرکز در وسط -->
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="portfolio.html">PORTFOLIO</a></li>
+                
+                <li class="dropdown">
+                    <a href="#">SHOP</a>
+                    <div class="dropdown-content">
+                        <a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Original Arts</a>
+                        <a href="https://www.artmajeur.com/maryam-gomizi-9452417" target="_blank">Fine Art Prints</a>
+                        <a href="https://marygart.gumroad.com/" target="_blank">Digital Assets</a>
+                    </div>
+                </li>
+                
+                <li><a href="about-mary.html">ABOUT</a></li>
+                <li><a href="videos.html">VIDEOS</a></li>
+                <li><a href="press.html" class="active">PRESS</a></li>
+                <li><a href="commissions.html">COMMISSIONS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
         <h1 class="page-title">PRESS & PUBLICATIONS</h1>
+        
         <div class="press-grid">
             <div class="press-card">
                 <div class="card-img-container"><img src="Contemporary Artists of Iran-Front.jpg" alt="Book"></div>
@@ -57,6 +187,7 @@
                     <p class="card-text">Featured artist in the prestigious annual encyclopedia of contemporary Iranian art. National Bibliography of Iran: 8713142.</p>
                 </div>
             </div>
+            
             <div class="press-card">
                 <div class="card-img-container"><img src="Press Issuewire.jpg" alt="Press"></div>
                 <div class="card-content">
@@ -66,6 +197,7 @@
                     <a href="https://www.issuewire.com/professional-artist-mary-g-unveils-new-collection-of-hyper-realistic-masterpieces-1862170352636703" target="_blank" class="card-link">READ ARTICLE</a>
                 </div>
             </div>
+            
             <div class="press-card">
                 <div class="card-img-container"><img src="Press Medium.jpg" alt="Press"></div>
                 <div class="card-content">
@@ -75,6 +207,7 @@
                     <a href="https://medium.com/@marygart.github.io/a-rainy-evening-a-forgotten-dream-and-a-quiet-decision-that-turned-into-a-voice-for-thousands-of-be108013880c" target="_blank" class="card-link">READ STORY</a>
                 </div>
             </div>
+            
             <div class="press-card">
                 <div class="card-img-container"><img src="press PR.jpg" alt="Press"></div>
                 <div class="card-content">
@@ -84,6 +217,7 @@
                     <a href="https://www.pr.com/press-release/911956" target="_blank" class="card-link">READ ANNOUNCEMENT</a>
                 </div>
             </div>
+            
             <div class="press-card">
                 <div class="card-img-container"><img src="Press Serbia.jpg" alt="Interview"></div>
                 <div class="card-content">
@@ -96,35 +230,41 @@
         </div>
     </div>
 
-    <footer>&copy; 2026 MARY G. FINE ART</footer>
+    <footer>© 2026 MARY G. FINE ART</footer>
 
 <script>
-    // اسکریپت پخش موزیک پس‌زمینه
     const audio = document.getElementById('bg-music');
 
     function playMusic() {
-        if (audio.paused) {
+        if (audio && audio.paused) {
             audio.play().catch(error => console.log("Playback blocked: ", error));
         }
     }
     
-    document.addEventListener('mousemove', playMusic, { once: true });
-    document.addEventListener('touchstart', playMusic, { once: true });
-    document.addEventListener('click', playMusic, { once: true });
+    document.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('scroll', playMusic, { once: true });
+        document.addEventListener('mousemove', playMusic, { once: true });
+        document.addEventListener('touchstart', playMusic, { once: true });
+        document.addEventListener('click', playMusic, { once: true });
+    });
 
-    // مدیریت خروج از صفحه با کلیک روی هدر یا منوها
-    document.querySelectorAll('nav a, .logo').forEach(link => {
+    document.querySelectorAll('.nav-links a, nav a, .logo-box, .brand-name, .card-link').forEach(link => {
         link.addEventListener('click', function(e) {
             const targetUrl = this.getAttribute('href');
             const targetAttr = this.getAttribute('target');
             
-            if (targetUrl && targetUrl !== '#' && targetAttr !== '_blank') {
+            if (!targetUrl || targetUrl === '#') {
+                playMusic();
+                return;
+            }
+            
+            if (targetAttr !== '_blank') {
                 e.preventDefault();
                 playMusic();
                 
                 setTimeout(() => {
                     window.location.href = targetUrl;
-                }, 300);
+                }, 250);
             }
         });
     });
