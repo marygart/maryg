@@ -46,6 +46,8 @@
 </head>
 <body>
 
+<audio id="bg-music" src="music.mp3" loop></audio>
+
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo-box">
@@ -98,5 +100,36 @@
 
     <footer>© 2026 MARY G. FINE ART | DUBAI, UAE</footer>
 
+<script>
+    // اسکریپت پخش موزیک پس‌زمینه
+    const audio = document.getElementById('bg-music');
+
+    function playMusic() {
+        if (audio.paused) {
+            audio.play().catch(error => console.log("Playback blocked: ", error));
+        }
+    }
+    
+    document.addEventListener('mousemove', playMusic, { once: true });
+    document.addEventListener('touchstart', playMusic, { once: true });
+    document.addEventListener('click', playMusic, { once: true });
+
+    // مدیریت خروج از صفحه با کلیک روی لوگو یا منوها
+    document.querySelectorAll('.nav-links a, .logo-box').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetUrl = this.getAttribute('href');
+            const targetAttr = this.getAttribute('target');
+            
+            if (targetUrl && targetUrl !== '#' && targetAttr !== '_blank') {
+                e.preventDefault();
+                playMusic();
+                
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 300);
+            }
+        });
+    });
+</script>
 </body>
 </html>
